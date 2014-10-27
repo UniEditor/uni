@@ -12,8 +12,6 @@ class Uni
 	//stage object tree
 	
 	
-	
-	
 	public function new() 
 	{
 		

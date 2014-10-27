@@ -12,6 +12,16 @@ import flash.Lib;
 class Main extends Sprite 
 {
 	var inited:Bool;
+	
+	
+	public static function main() 
+	{
+		// static entry point
+		Lib.current.stage.align = flash.display.StageAlign.TOP_LEFT;
+		Lib.current.stage.scaleMode = flash.display.StageScaleMode.NO_SCALE;
+		Lib.current.addChild(new Main());
+	}
+	
 
 	/* ENTRY POINT */
 	
@@ -25,18 +35,34 @@ class Main extends Sprite
 	{
 		if (inited) return;
 		inited = true;
-
-		// (your code here)
+	
 		
-		// Stage:
-		// stage.stageWidth x stage.stageHeight @ stage.dpiScale
+		//init steps
 		
-		// Assets:
-		// nme.Assets.getBitmapData("img/assetname.jpg");
+		//load images for use in UI
+		
+		
+		//init main UI frame
+		
+		
+		//create main panels
+		
+		
+		
+		//load and init all exts
+		
+		
+		
+		//load project
+		
+		
+		
 	}
-
+	
+	
+	
 	/* SETUP */
-
+	
 	public function new() 
 	{
 		super();	
@@ -54,11 +80,5 @@ class Main extends Sprite
 		#end
 	}
 	
-	public static function main() 
-	{
-		// static entry point
-		Lib.current.stage.align = flash.display.StageAlign.TOP_LEFT;
-		Lib.current.stage.scaleMode = flash.display.StageScaleMode.NO_SCALE;
-		Lib.current.addChild(new Main());
-	}
+	
 }
