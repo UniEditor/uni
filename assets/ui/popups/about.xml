@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<vbox>
+	<style>
+		#appName {
+			fontSize: 20;
+		}
+	</style>
+	<text text="HaxePad" id="appName" />
+	<text text="Flash version" condition="Client.platform == 'flash'"/>
+	<text text="Windows version" condition="Client.platform == 'windows'"/>
+	<text text="AIR version" condition="Client.platform == 'air'"/>
+	
+	<text id="dpi"/>
+</vbox>

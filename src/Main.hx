@@ -3,6 +3,9 @@ package ;
 import flash.display.Sprite;
 import flash.events.Event;
 import flash.Lib;
+import haxe.ui.toolkit.core.Root;
+import haxe.ui.toolkit.core.Toolkit;
+import ui.EditorFrame;
 
 /**
  * ...
@@ -43,15 +46,18 @@ class Main extends Sprite
 		
 		
 		//init main UI frame
-		
+		Toolkit.init();
+		Toolkit.openFullscreen(function(root:Root) {
+			//KeyboardManager.init(root);
+			//MacroUtil.loadUserPlugins("assets/plugins/user-plugins.xml");
+			
+			root.addChild(new EditorFrame().view);
+		});
 		
 		//create main panels
 		
 		
-		
 		//load and init all exts
-		
-		
 		
 		//load project
 		

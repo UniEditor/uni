@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<grid columns="2" text="Defaults">
+	<text text="Last Directory:" />
+	<hbox width="100%" style="padding: 0">
+		<textinput text="" width="100%" id="lastDir"/>
+		<button text="Clear" />
+	</hbox>
+	
+	<text text="Theme:" />
+	<listSelector text="Theme" width="100%">
+		<array>Gradient</array>
+	</listSelector>
+</grid>

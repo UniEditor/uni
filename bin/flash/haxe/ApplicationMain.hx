@@ -27,6 +27,398 @@ class ApplicationMain {
 		var types = [];
 		
 		
+		urls.push ("styles/default/circle.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("styles/default/collapse.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("styles/default/cross.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("styles/default/expand.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("styles/default/up_down.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("styles/gradient/arrow_down.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("styles/gradient/arrow_down_dark.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("styles/gradient/arrow_down_disabled.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("styles/gradient/arrow_left.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("styles/gradient/arrow_left_disabled.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("styles/gradient/arrow_right.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("styles/gradient/arrow_right2.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("styles/gradient/arrow_right_dark.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("styles/gradient/arrow_right_disabled.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("styles/gradient/arrow_up.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("styles/gradient/arrow_up_disabled.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("styles/gradient/circle_dark.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("styles/gradient/cross_dark.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("styles/gradient/cross_dark_disabled.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("styles/gradient/gradient.css");
+		types.push (AssetType.TEXT);
+		
+		
+		urls.push ("styles/gradient/gradient.min.css");
+		types.push (AssetType.TEXT);
+		
+		
+		urls.push ("styles/gradient/gradient_mobile.css");
+		types.push (AssetType.TEXT);
+		
+		
+		urls.push ("styles/gradient/gradient_mobile.min.css");
+		types.push (AssetType.TEXT);
+		
+		
+		urls.push ("styles/gradient/gripper_horizontal.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("styles/gradient/gripper_horizontal_disabled.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("styles/gradient/gripper_vertical.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("styles/gradient/gripper_vertical_disabled.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("styles/windows/accordion.css");
+		types.push (AssetType.TEXT);
+		
+		
+		urls.push ("styles/windows/accordion.min.css");
+		types.push (AssetType.TEXT);
+		
+		
+		urls.push ("styles/windows/button.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("styles/windows/buttons.css");
+		types.push (AssetType.TEXT);
+		
+		
+		urls.push ("styles/windows/buttons.min.css");
+		types.push (AssetType.TEXT);
+		
+		
+		urls.push ("styles/windows/calendar.css");
+		types.push (AssetType.TEXT);
+		
+		
+		urls.push ("styles/windows/checkbox.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("styles/windows/container.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("styles/windows/glyphs/down_arrow.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("styles/windows/glyphs/hscroll_thumb_gripper_down.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("styles/windows/glyphs/hscroll_thumb_gripper_over.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("styles/windows/glyphs/hscroll_thumb_gripper_up.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("styles/windows/glyphs/left_arrow.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("styles/windows/glyphs/right_arrow.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("styles/windows/glyphs/up_arrow.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("styles/windows/glyphs/vscroll_thumb_gripper_down.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("styles/windows/glyphs/vscroll_thumb_gripper_over.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("styles/windows/glyphs/vscroll_thumb_gripper_up.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("styles/windows/hprogress.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("styles/windows/hscroll.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("styles/windows/listview.css");
+		types.push (AssetType.TEXT);
+		
+		
+		urls.push ("styles/windows/listview.min.css");
+		types.push (AssetType.TEXT);
+		
+		
+		urls.push ("styles/windows/listview.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("styles/windows/menus.css");
+		types.push (AssetType.TEXT);
+		
+		
+		urls.push ("styles/windows/optionbox.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("styles/windows/popup.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("styles/windows/popups.css");
+		types.push (AssetType.TEXT);
+		
+		
+		urls.push ("styles/windows/rtf.css");
+		types.push (AssetType.TEXT);
+		
+		
+		urls.push ("styles/windows/scrolls.css");
+		types.push (AssetType.TEXT);
+		
+		
+		urls.push ("styles/windows/scrolls.min.css");
+		types.push (AssetType.TEXT);
+		
+		
+		urls.push ("styles/windows/sliders.css");
+		types.push (AssetType.TEXT);
+		
+		
+		urls.push ("styles/windows/tab.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("styles/windows/tabs.css");
+		types.push (AssetType.TEXT);
+		
+		
+		urls.push ("styles/windows/textinput.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("styles/windows/vprogress.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("styles/windows/vscroll.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("styles/windows/windows.css");
+		types.push (AssetType.TEXT);
+		
+		
+		urls.push ("img/slinky.jpg");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("img/slinky_large.jpg");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("img/slinky_small.jpg");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("img/slinky_tiny.jpg");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("fonts/Oxygen-Bold.ttf");
+		types.push (AssetType.FONT);
+		
+		
+		urls.push ("fonts/Oxygen.ttf");
+		types.push (AssetType.FONT);
+		
+		
+		urls.push ("img/cross-small.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("img/exclamation.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("img/icons/binocular--pencil.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("img/icons/binocular.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("img/icons/control.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("img/icons/disk-black.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("img/icons/disks-black.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("img/icons/document-medium.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("img/icons/document.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("img/icons/folder-open-document.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("img/icons/gear.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("img/icons/wrench-screwdriver.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("ui/document.xml");
+		types.push (AssetType.TEXT);
+		
+		
+		urls.push ("ui/main.xml");
+		types.push (AssetType.TEXT);
+		
+		
+		urls.push ("ui/menus/edit.xml");
+		types.push (AssetType.TEXT);
+		
+		
+		urls.push ("ui/menus/file.xml");
+		types.push (AssetType.TEXT);
+		
+		
+		urls.push ("ui/menus/help.xml");
+		types.push (AssetType.TEXT);
+		
+		
+		urls.push ("ui/menus/program.xml");
+		types.push (AssetType.TEXT);
+		
+		
+		urls.push ("ui/menus/search.xml");
+		types.push (AssetType.TEXT);
+		
+		
+		urls.push ("ui/popups/about.xml");
+		types.push (AssetType.TEXT);
+		
+		
+		urls.push ("ui/popups/find-replace.xml");
+		types.push (AssetType.TEXT);
+		
+		
+		urls.push ("ui/popups/find.xml");
+		types.push (AssetType.TEXT);
+		
+		
+		urls.push ("ui/preferences/main.xml");
+		types.push (AssetType.TEXT);
+		
+		
+		urls.push ("ui/preferences/prefs-defaults.xml");
+		types.push (AssetType.TEXT);
+		
+		
+		urls.push ("ui/preferences/prefs-test.xml");
+		types.push (AssetType.TEXT);
+		
+		
+		urls.push ("ui/toolbar.xml");
+		types.push (AssetType.TEXT);
+		
+		
+		urls.push ("ui/warnings/flash-only.xml");
+		types.push (AssetType.TEXT);
+		
+		
+		urls.push ("ui/warnings/not-implemented.xml");
+		types.push (AssetType.TEXT);
+		
+		
 		
 		preloader.load (urls, types);
 		#end

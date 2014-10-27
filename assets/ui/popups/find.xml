@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<vbox width="100%">
+	<import resource="ui/warnings/not-implemented.xml" />
+	
+	<grid width="100%" columns="2" xmlns:ui="haxe:ui">
+		<text text="Find what:"/>
+		<textinput text="" width="100%" />
+
+		<spacer />
+		<checkbox text="Match case" />
+	</grid>
+</vbox>

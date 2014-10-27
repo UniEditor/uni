@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<plugin>
+	<id>test-ui</id>
+	<name>Test UI</name>
+	<type>ui</type>
+	<location>main</location>
+	<ui>
+		<vbox width="100%" style="padding:5;backgroundColor:0xdfdddd">
+			<textinput width="100%" height="120" />
+		</vbox>
+	</ui>
+	<event type="document.add">
+		trace("DOCUMENT ADDED!");
+	</event>
+</plugin>

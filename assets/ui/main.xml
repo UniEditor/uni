@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<vbox width="100%" height="100%" id="main">
+		<style>
+			#document-tabs #tabButton {
+				icon: "img/cross-small.png";
+				iconPosition: "farRight";
+				spacingX: 5;
+				paddingRight: 0;
+				paddingLeft: 0;
+			}
+		</style>
+		<menubar style="autoSize:true">
+			<vbox>
+				<hbox>
+					<menubutton text="File" id="menu-file">
+						<import resource="ui/menus/file.xml" />
+					</menubutton>
+					<menubutton text="Search" id="menu-search">
+						<import resource="ui/menus/search.xml" />
+					</menubutton>
+					<menubutton text="Program" id="menu-program">
+						<import resource="ui/menus/program.xml" />
+					</menubutton>
+					<menubutton text="Help" id="menu-help">
+						<import resource="ui/menus/help.xml" />
+					</menubutton>
+				</hbox>
+				
+				<import resource="ui/toolbar.xml" />
+			</vbox>
+		</menubar>
+		
+		<vbox width="100%" height="100%" id="main-vbox" style="backgroundColor: 0xdfdddd">
+			<hbox width="100%" height="100%" id="main-hbox" style="backgroundColor: 0xdfdddd">
+				<tabview width="100%" height="100%" id="document-tabs">
+				</tabview>
+			</hbox>
+		</vbox>
+</vbox>
