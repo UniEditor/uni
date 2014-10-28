@@ -11,9 +11,69 @@
 
     ]
     ,"files" : [
+         {
+             "path" : "application.xml"
+            ,"useTabs" : true
+            ,"indentSize" : 4
+            ,"foldedRegions" : [
 
+            ]
+            ,"activeLine" : 0
+        }
+        ,{
+             "path" : "src/editor/action/IAction.hx"
+            ,"foldedRegions" : [
+
+            ]
+            ,"activeLine" : 11
+        }
+        ,{
+             "path" : "src/data/lib/Asset.hx"
+            ,"useTabs" : true
+            ,"indentSize" : 4
+            ,"foldedRegions" : [
+
+            ]
+            ,"activeLine" : 0
+        }
+        ,{
+             "path" : "src/data/lib/Symbol.hx"
+            ,"useTabs" : true
+            ,"indentSize" : 4
+            ,"foldedRegions" : [
+
+            ]
+            ,"activeLine" : 0
+        }
+        ,{
+             "path" : "src/data/UserData.hx"
+            ,"useTabs" : true
+            ,"indentSize" : 4
+            ,"foldedRegions" : [
+
+            ]
+            ,"activeLine" : 0
+        }
+        ,{
+             "path" : "src/data/EditableObject.hx"
+            ,"useTabs" : true
+            ,"indentSize" : 4
+            ,"foldedRegions" : [
+
+            ]
+            ,"activeLine" : 19
+        }
+        ,{
+             "path" : "src/editor/event/event types for mvc communication.txt"
+            ,"useTabs" : true
+            ,"indentSize" : 4
+            ,"foldedRegions" : [
+
+            ]
+            ,"activeLine" : 0
+        }
     ]
-    ,"activeFile" : null
+    ,"activeFile" : "src/data/EditableObject.hx"
     ,"openFLTarget" : "flash"
     ,"openFLBuildMode" : "Debug"
     ,"runActionType" : 2
