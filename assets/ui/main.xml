@@ -15,7 +15,7 @@
 					<menubutton text="File" id="menu-file">
 						<import resource="ui/menus/file.xml" />
 					</menubutton>
-					<menubutton text="Search" id="menu-search">
+					<menubutton text="Edit" id="menu-search">
 						<import resource="ui/menus/search.xml" />
 					</menubutton>
 					<menubutton text="Program" id="menu-program">

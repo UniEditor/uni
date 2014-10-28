@@ -1,0 +1,14 @@
+File
+	New Project
+	Open Project
+	New 
+
+Edit
+	Undo
+	Redo
+	
+	Copy
+	Cut
+	Paste
+	
+	
