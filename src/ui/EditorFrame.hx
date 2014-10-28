@@ -11,5 +11,4 @@ class EditorFrame extends XMLController
 	{
 		super("ui/main.xml");
 	}
-	
 }
