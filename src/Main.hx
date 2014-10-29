@@ -8,7 +8,7 @@ import haxe.ui.toolkit.core.Toolkit;
 import ui.EditorFrame;
 
 /**
- * ...
+ * Test Edit
  * @author GDB
  */
 
