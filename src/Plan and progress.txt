@@ -1,0 +1,21 @@
+Works ahead
+
+Setup basic framework
+	Layouts:
+	Menubar
+	StageArea
+	Panels
+	
+Panel System
+	Editor Panel Class
+	Panel Manager
+	Load xml ui at runtime
+
+HScript
+	Merge Hscript
+	
+Extension System
+	Ext Manager
+	Load Ext at runtime
+	Ext and Panel
+	
