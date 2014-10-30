@@ -12,73 +12,30 @@
     ]
     ,"files" : [
          {
+             "path" : "src/editor/action/ActionStack.hx"
+            ,"useTabs" : true
+            ,"indentSize" : 4
+            ,"foldedRegions" : [
+
+            ]
+            ,"activeLine" : 10
+        }
+        ,{
              "path" : "application.xml"
             ,"useTabs" : true
             ,"indentSize" : 4
             ,"foldedRegions" : [
 
             ]
-            ,"activeLine" : 0
-        }
-        ,{
-             "path" : "src/editor/action/IAction.hx"
-            ,"foldedRegions" : [
-
-            ]
-            ,"activeLine" : 11
-        }
-        ,{
-             "path" : "src/data/lib/Asset.hx"
-            ,"useTabs" : true
-            ,"indentSize" : 4
-            ,"foldedRegions" : [
-
-            ]
-            ,"activeLine" : 0
-        }
-        ,{
-             "path" : "src/data/lib/Symbol.hx"
-            ,"useTabs" : true
-            ,"indentSize" : 4
-            ,"foldedRegions" : [
-
-            ]
-            ,"activeLine" : 0
-        }
-        ,{
-             "path" : "src/data/UserData.hx"
-            ,"useTabs" : true
-            ,"indentSize" : 4
-            ,"foldedRegions" : [
-
-            ]
-            ,"activeLine" : 0
-        }
-        ,{
-             "path" : "src/data/EditableObject.hx"
-            ,"useTabs" : true
-            ,"indentSize" : 4
-            ,"foldedRegions" : [
-
-            ]
-            ,"activeLine" : 19
-        }
-        ,{
-             "path" : "src/editor/event/event types for mvc communication.txt"
-            ,"useTabs" : true
-            ,"indentSize" : 4
-            ,"foldedRegions" : [
-
-            ]
-            ,"activeLine" : 0
+            ,"activeLine" : 15
         }
     ]
-    ,"activeFile" : "src/data/EditableObject.hx"
-    ,"openFLTarget" : "flash"
+    ,"activeFile" : "application.xml"
+    ,"openFLTarget" : "mac"
     ,"openFLBuildMode" : "Debug"
     ,"runActionType" : 2
-    ,"runActionText" : "haxelib run lime run \"%path%\" flash"
-    ,"buildActionCommand" : "haxelib run lime build \"%path%\" flash --connect 5000"
+    ,"runActionText" : "haxelib run lime run \"%path%\" mac"
+    ,"buildActionCommand" : "haxelib run lime build \"%path%\" mac -debug"
     ,"hiddenItems" : [
 
     ]
