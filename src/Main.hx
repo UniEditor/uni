@@ -6,6 +6,7 @@ import flash.Lib;
 import haxe.ui.toolkit.core.Root;
 import haxe.ui.toolkit.core.Toolkit;
 import ui.EditorFrame;
+import ui.EditorPanel;
 
 /**
  * Test Edit
@@ -51,7 +52,10 @@ class Main extends Sprite
 			//KeyboardManager.init(root);
 			//MacroUtil.loadUserPlugins("assets/plugins/user-plugins.xml");
 			
-			root.addChild(new EditorFrame().view);
+			root.addChild(EditorFrame.getIns().view);
+			
+			var panel:EditorPanel = new EditorPanel();
+			root.addChild(panel);
 		});
 		
 		//create main panels
@@ -62,6 +66,9 @@ class Main extends Sprite
 		//load project
 		
 		
+		
+		Test.main();
+		//Test.benchMark2();
 		
 	}
 	

@@ -9,31 +9,46 @@
 				paddingLeft: 0;
 			}
 		</style>
+		
 		<menubar style="autoSize:true">
 			<vbox>
 				<hbox>
 					<menubutton text="File" id="menu-file">
 						<import resource="ui/menus/file.xml" />
 					</menubutton>
-					<menubutton text="Edit" id="menu-search">
-						<import resource="ui/menus/search.xml" />
+					<menubutton text="Edit" id="menu-edit">
+						<import resource="ui/menus/edit.xml" />
 					</menubutton>
-					<menubutton text="Program" id="menu-program">
-						<import resource="ui/menus/program.xml" />
+					<menubutton text="Project" id="menu-project">
+						<import resource="ui/menus/project.xml" />
+					</menubutton>
+					<menubutton text="View" id="menu-view">
+						<import resource="ui/menus/view.xml" />
+					</menubutton>
+					<menubutton text="Extension" id="menu-ext">
+						<import resource="ui/menus/ext.xml" />
 					</menubutton>
 					<menubutton text="Help" id="menu-help">
 						<import resource="ui/menus/help.xml" />
 					</menubutton>
 				</hbox>
-				
 				<import resource="ui/toolbar.xml" />
 			</vbox>
 		</menubar>
 		
+		<!-- vbox width="100%" height="100%" id="main-vbox" style="backgroundColor: 0xdfdddd">
+			<hbox width="100%" height="100%" id="main-hbox" style="backgroundColor: 0xdfdddd">
+				<box width="200" height="100%" style="backgroundColor: 0x996699"/>
+				<tabview width="80%" height="100%" id="document-tabs">
+				</tabview>
+				<box width="200" height="100%" style="backgroundColor: 0x996699"/>
+			</hbox>
+		</vbox 
+		-->
+		
 		<vbox width="100%" height="100%" id="main-vbox" style="backgroundColor: 0xdfdddd">
 			<hbox width="100%" height="100%" id="main-hbox" style="backgroundColor: 0xdfdddd">
-				<tabview width="100%" height="100%" id="document-tabs">
-				</tabview>
 			</hbox>
 		</vbox>
+		
 </vbox>

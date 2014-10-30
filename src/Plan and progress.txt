@@ -1,4 +1,4 @@
-Works ahead
+Works ahead:
 
 Setup basic framework
 	Layouts:
@@ -13,9 +13,16 @@ Panel System
 
 HScript
 	Merge Hscript
+	Hscript Access to everything
 	
 Extension System
 	Ext Manager
 	Load Ext at runtime
 	Ext and Panel
 	
+Ext - Layer Manager
+
+Stage Rendering
+
+
+
