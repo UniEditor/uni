@@ -10,5 +10,9 @@ class EditorFrame extends XMLController
 	public function new() 
 	{
 		super("ui/main.xml");
+		
+		
+		var panel:EditorPanel = new EditorPanel();
+		
 	}
 }
