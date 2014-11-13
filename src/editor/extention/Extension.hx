@@ -10,7 +10,7 @@ class Extension  extends EventDispatcher
 	
 	public function new() 
 	{
-		
+		super();
 	}
 	
 }

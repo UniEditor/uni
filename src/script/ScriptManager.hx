@@ -1,5 +1,5 @@
 package script;
-import haxe.xml.Parser;
+import hscript.Parser;
 import hscript.Interp;
 
 /**
@@ -17,10 +17,8 @@ class ScriptManager
 		return instance;
 	}
 	
-	
-	
-	public var parser:Parser;
 	public var interp:Interp;
+	public var parser:Parser;
 	
 	public function new() 
 	{
@@ -30,6 +28,9 @@ class ScriptManager
 	
 	public function runString(script:String) {
 		var program = parser.parseString(script);
+		
+		trace("program", program);
+		
 		interp.execute(program);
 	}
 	

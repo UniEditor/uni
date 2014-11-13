@@ -1,5 +1,6 @@
 package ;
 
+import editor.extention.ExtManager;
 import flash.display.Sprite;
 import flash.events.Event;
 import flash.Lib;
@@ -62,12 +63,13 @@ class Main extends Sprite
 		
 		
 		//load and init all exts
+		ExtManager.getIns().loadExts();
 		
 		//load project
 		
 		
 		
-		Test.main();
+		//Test.main();
 		//Test.benchMark2();
 		
 	}
