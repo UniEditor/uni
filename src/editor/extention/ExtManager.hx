@@ -31,13 +31,8 @@ class ExtManager
 	
 	public function loadExts():Void {
 		//recursively find in res folder
-		
-		//yet mark those in commnads, expoerters and extensions folder and panels
-		
 		var basePath = "./res/";
-		
 		loadExtFromFolder(basePath);
-		
 	}
 	
 	public function loadExtFromFolder(fullPath:String) {
