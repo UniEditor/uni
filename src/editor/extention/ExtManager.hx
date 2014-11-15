@@ -31,6 +31,7 @@ class ExtManager
 	//
 	public var mapExt:Map<String, Extension>;
 	
+	
 	public function loadExts():Void {
 		//recursively find in res folder
 		var basePath = "./res/";
@@ -53,10 +54,7 @@ class ExtManager
 				}else {
 					if (getEndfix(s) == "hs") {
 						trace("got hs file: " + childItemPath);
-						
-						
-						
-						
+
 						var content:String = File.getContent(childItemPath);
 						//trace("content:" + content);
 						
@@ -68,6 +66,31 @@ class ExtManager
 						
 						ScriptManager.getIns().interp.variables.set("this", theExt);
 						ScriptManager.getIns().runString(content);
+						
+					}else if (getEndfix(s) == "xml") {
+						trace("got xml file: " + childItemPath);
+						
+						var content:String = File.getContent(childItemPath);
+						trace("content:" + content);
+						
+						var xml:Xml = Xml.parse(content);
+						
+						var defineXml:Xml = null;
+						var foundDefine = false;
+						for (one in xml.elementsNamed("panelDefine") ) {
+							foundDefine = true;
+							defineXml = one;
+							break;
+						}
+						
+						if (foundDefine == true) {
+							var id = defineXml.get("id");
+							var title = defineXml.get("title");
+							
+							trace("id" + id);
+							trace("title" + title);
+						}
+						
 						
 					}
 				}

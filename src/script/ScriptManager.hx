@@ -29,7 +29,7 @@ class ScriptManager
 	public function runString(script:String) {
 		var program = parser.parseString(script);
 		
-		trace("program", program);
+		//trace("program", program);
 		
 		interp.execute(program);
 	}
