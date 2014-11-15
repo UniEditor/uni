@@ -55,8 +55,6 @@ class Main extends Sprite
 			
 			root.addChild(EditorFrame.getIns().view);
 			
-			var panel:EditorPanel = new EditorPanel();
-			root.addChild(panel);
 		});
 		
 		//create main panels
@@ -64,6 +62,15 @@ class Main extends Sprite
 		
 		//load and init all exts
 		ExtManager.getIns().loadExts();
+		
+		
+		//create list under submenu: command, exporters, panels
+		EditorFrame.getIns().updateExtSubMenu();
+		
+		
+		
+		
+		
 		
 		//load project
 		

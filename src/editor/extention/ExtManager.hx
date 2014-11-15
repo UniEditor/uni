@@ -1,6 +1,7 @@
 package editor.extention ;
 import editor.event.EventManager;
 import haxe.ds.Vector;
+import haxe.ui.toolkit.core.xml.XMLProcessor;
 import openfl.events.Event;
 import openfl.net.URLRequest;
 import script.ScriptManager;
@@ -26,11 +27,21 @@ class ExtManager
 	public function new() 
 	{
 		mapExt = new Map<String, Extension>();
+		mapPanelInfo = new Map<String, PanelInfo>();
+		
+		commandList = new Array<String>();
+		panelList = new Array<String>();
+		exporterList = new Array<String>();
 	}
 	
-	//
+	//data
 	public var mapExt:Map<String, Extension>;
+	public var mapPanelInfo:Map<String, PanelInfo>;
 	
+	//for menu
+	public var commandList:Array<String>;//things to put in command folder
+	public var exporterList:Array<String>;//things to put in exportList folder
+	public var panelList:Array<String>;//things to put in panel folder
 	
 	public function loadExts():Void {
 		//recursively find in res folder
@@ -84,14 +95,30 @@ class ExtManager
 						}
 						
 						if (foundDefine == true) {
-							var id = defineXml.get("id");
-							var title = defineXml.get("title");
+							var id:String = defineXml.get("id");
+							var title:String = defineXml.get("title");
 							
 							trace("id" + id);
 							trace("title" + title);
+							
+							if (defineXml.exists("id") == false) {
+								trace("ERROR no id from " + childItemPath);
+							}
+							
+							if (defineXml.exists("title") == false) {
+								trace("ERROR no id title " + childItemPath);
+							}
+							
+							var panelInfo:PanelInfo = new PanelInfo();
+							panelInfo.id = id;
+							panelInfo.title = title;
+							//panelInfo.body = body;
+							
+							//todo check same id problem
+							
+							mapPanelInfo.set(id, panelInfo);
+							panelList.push(id);
 						}
-						
-						
 					}
 				}
 			}
@@ -113,8 +140,17 @@ class ExtManager
 			var endFix:String = path.substr(lastDot + 1);
 			return endFix;
 		}
-		
 		return "";
+	}
+}
+
+class PanelInfo {
+	
+	public var id:String;
+	public var title:String;
+	public var body:Xml;
+	
+	public function new() {
 	}
 	
 }
