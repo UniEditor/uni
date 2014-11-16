@@ -98,9 +98,6 @@ class ExtManager
 							var id:String = defineXml.get("id");
 							var title:String = defineXml.get("title");
 							
-							trace("id" + id);
-							trace("title" + title);
-							
 							if (defineXml.exists("id") == false) {
 								trace("ERROR no id from " + childItemPath);
 							}

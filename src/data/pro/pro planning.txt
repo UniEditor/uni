@@ -1,0 +1,27 @@
+
+
+
+
+
+
+Transformation:
+	
+	X,Y,WD,HT,SX,SY,ROT
+	
+SymbolData:
+	
+	//data fields defined in symbol
+
+CustomData:
+	
+	pieces of data
+	
+Tilemap:
+	
+	asset define, path, piece size
+	
+Image:
+		
+	asset id
+	
+	

@@ -1,4 +1,5 @@
 package data;
+import data.pro.ProGroup;
 
 /**
  * EditorObject might not be the tiniest object on stage or in the layer manager list
@@ -14,7 +15,20 @@ class EditableObject
 	//Complex objects like tilemap should set this true
 	//so that they wont have weird things as children
 	public var isFinalNode:Bool;
+	
+	
+	public var isLocked:Bool;
+	public var isVisible:Bool;
+	
+	public var proGroups:Array<ProGroup>;
+	
+	
+	
 
+
+	
+	
+	
 	public function new() 
 	{
 		
