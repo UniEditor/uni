@@ -1,6 +1,7 @@
 package ;
 
 import editor.extention.ExtManager;
+import editor.Uni;
 import flash.display.Sprite;
 import flash.events.Event;
 import flash.Lib;
@@ -67,7 +68,8 @@ class Main extends Sprite
 		//create list under submenu: command, exporters, panels
 		EditorFrame.getIns().updateExtSubMenu();
 		
-		
+		//init data core
+		Uni.getIns();
 		
 		
 		

@@ -1,0 +1,13 @@
+We should use a simple two-polar system : Symbol - Instance
+Addtionaly, we should use a prefab system with weak link(?)
+
+Here comes more question:
+	
+	Is there symbol always wraps in an addtional layer (like in flash), just an obj with certain value predefined?
+	
+	Will the play must create a symbol before placing anything onbmo_12
+	
+	
+	
+
+All Data, is just a collection of properties. What are editable on instance-level or not is the question.

@@ -2,6 +2,8 @@ package editor;
 import data.EditableObject;
 import editor.Uni.Nest;
 import haxe.remoting.AMFConnection;
+import modules.basic.EdObjActions.EdObjAct_Add;
+import modules.basic.EdObjActions.EdObjAct_Remove;
 
 /**
  * Manages data, not ui frames
@@ -11,10 +13,10 @@ class Uni
 {
 	
 	//singleton
-	public static var instance:ExtManager;
-	public static function getIns():ExtManager {
+	public static var instance:Uni;
+	public static function getIns():Uni {
 		if (instance == null) {
-			instance = new ExtManager();
+			instance = new Uni();
 		}
 		return instance;
 	}
@@ -36,10 +38,29 @@ class Uni
 	}
 	
 	
+	//EdObj functions
+	//these generate call actions?
 	public function createEmptyEdObj():Void {
 		
 		
+		var act:EdObjAct_Add = new EdObjAct_Add();
+		act.doAction();
 		
+		//broadcast event
+		
+		
+	}
+	
+	public function removeEdObj(edo:EditableObject):Void {
+		
+		var act:EdObjAct_Remove = new EdObjAct_Remove();
+		act.doAction();
+		
+		//broadcast event
+		
+	}
+	
+	public function editEdObjPro():Void {
 		
 	}
 	

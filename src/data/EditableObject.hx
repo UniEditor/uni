@@ -6,6 +6,7 @@ import data.pro.ProGroup;
  * Yet it defines a standard of all these objects:
 	* contains a list of user data
 	* is the instance of some symbol
+
  * @author GDB
  */
 class EditableObject
@@ -25,7 +26,7 @@ class EditableObject
 	
 	
 
-
+	
 	
 	
 	
