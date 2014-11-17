@@ -1,4 +1,5 @@
 package editor;
+import data.CustomType;
 import data.EditableObject;
 import editor.Uni.Nest;
 import haxe.remoting.AMFConnection;
@@ -30,11 +31,16 @@ class Uni
 	public var mapEdObj:Map<String, EditableObject>;
 	public var nestEdObj:Nest;
 	
+	public var mapCustomeTpye:Map<String, CustomType>;
+	
+	
 	
 	public function new() 
 	{
 		mapEdObj = new Map<String, EditableObject>();
 		nestEdObj = new Nest();
+		
+		mapCustomeTpye = new Map<String, CustomType>();
 	}
 	
 	

@@ -18,16 +18,13 @@ class EditableObject
 	public var isFinalNode:Bool;
 	
 	
+	//for editor only
 	public var isLocked:Bool;
 	public var isVisible:Bool;
 	
+	//core data
+	public var customType:String;//custome type id
 	public var proGroups:Array<ProGroup>;
-	
-	
-	
-
-	
-	
 	
 	
 	public function new() 
