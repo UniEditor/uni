@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <panelDefine id="testPanel" title="Test Panel">
+	
+	
+	
 	<frame resize="false" minWd="100" minHt="100" defaultWd="300" defaultHt="500"/>
+	
+	
 	
 	<body>
 		<text content="This is from panel define!"/>
