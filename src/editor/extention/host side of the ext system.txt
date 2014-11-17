@@ -1,8 +1,0 @@
-ext types
-
-panel
-ext is a panel, will be listed on Window subcommand
-
-command
-ext is a command, will be triggered on click
-(Export command is jsut like this)

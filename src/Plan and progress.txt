@@ -26,3 +26,22 @@ Stage Rendering
 
 
 
+Important Panels:
+	
+	LayerManager: display and manages layers, nested structures
+	
+	
+	Library: manages all types, base types, custom types, preFab
+	Assets: manages all assets
+	
+	Stage: displays and allow opation on all objects
+	Stage tools: there will be different tools panel for different data-types(tile based tools for tile object)
+	Stage it self rely on various object renders based on types
+	
+	Property: display and edit pro for edObjs as well as custom types and such
+	Property panels consist of various reusable pieces(like modules in Unity)
+	
+	
+	
+
+
