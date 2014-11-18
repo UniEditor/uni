@@ -26,12 +26,13 @@ class ScriptManager
 		interp = new Interp();
 	}
 	
-	public function runString(script:String) {
+	public function runString(script:String, ?customInterp:Interp) {
 		var program = parser.parseString(script);
-		
-		//trace("program", program);
-		
-		interp.execute(program);
+		if(customInterp != null)
+			customInterp.execute(program);
+		else {
+			interp.execute(program);
+		}
 	}
 	
 	

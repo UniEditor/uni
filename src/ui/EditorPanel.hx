@@ -24,13 +24,10 @@ class EditorPanel extends Component implements IDraggable
 		trace(frame);
 		addChild(frame);
 		
-		
-		
 		frame.width = 200;
 		frame.height = 200;
 		
 		//var main:Component = frame.findChild("main");
-		
 		var headerBar:Component = frame.findChild("headerBar", null, true);
 		trace(headerBar);
 		
@@ -43,7 +40,7 @@ class EditorPanel extends Component implements IDraggable
 		//todo
 		
 		//set body
-		trace(panelInfo.body);
+		//trace(panelInfo.body);
 		if(panelInfo.body != null){
 			var bodyUi = Toolkit.processXml(panelInfo.body);
 			

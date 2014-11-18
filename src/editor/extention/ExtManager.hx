@@ -103,8 +103,8 @@ class ExtManager
 		theExt.fullPath = childItemPath;
 		theExt.id = childItemPath;//todo replace "/" to "."
 		
-		ScriptManager.getIns().interp.variables.set("this", theExt);
-		ScriptManager.getIns().runString(content);
+		//ScriptManager.getIns().interp.variables.set("this", theExt);
+		ScriptManager.getIns().runString(content,theExt.interp);
 		
 		//id usually be set during the first run
 		mapExt[theExt.id] = theExt;

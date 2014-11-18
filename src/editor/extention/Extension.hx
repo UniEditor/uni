@@ -1,6 +1,7 @@
 package editor.extention;
 import editor.event.EventManager;
 import editor.extention.ExtManager.PanelInfo;
+import hscript.Interp;
 import openfl.events.EventDispatcher;
 import ui.EditorFrame;
 import ui.EditorPanel;
@@ -9,7 +10,7 @@ import ui.EditorPanel;
  * ...
  * @author GDB
  */
-class Extension  extends EventDispatcher
+class Extension extends EventDispatcher
 {
 	
 	public var id:String;
@@ -20,9 +21,13 @@ class Extension  extends EventDispatcher
 	//function to override in script
 	public var onInit:Void->Void;
 	
+	public var interp:Interp;
+	
 	public function new() 
 	{
 		super();
+		interp = new Interp();
+		interp.variables.set("this", this);
 	}
 	
 	public function sayHello():Void {

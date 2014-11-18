@@ -13,8 +13,6 @@ this.onInit = function(){
 
 }
 
-
-
 //on panel init (before first time open)
 
 //on panel open (reg functions)
