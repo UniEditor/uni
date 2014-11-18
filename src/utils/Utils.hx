@@ -1,4 +1,5 @@
 package utils;
+import haxe.ui.toolkit.core.Component;
 import haxe.ui.toolkit.core.DisplayObjectContainer;
 
 /**
@@ -19,9 +20,7 @@ class Utils
 		for (child in disCon.children) {
 			res += "child";
 		}
-		
-		
-		
 	}
+
 	
 }

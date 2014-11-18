@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<panelDefine id="testPanel" title="Test Panel">
+<panelDefine id="logPanel" title="Log">
 	
 	<frame resize="false" minWd="100" minHt="100" defaultWd="300" defaultHt="500"/>
 	
 	<body>
-		<text text="This is from panel define!"/>
+		<text text="This is from LOG!"/>
 	</body>
 </panelDefine>

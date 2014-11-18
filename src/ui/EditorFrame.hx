@@ -2,6 +2,7 @@ package ui;
 import editor.extention.ExtManager;
 import haxe.ui.toolkit.controls.MenuItem;
 import haxe.ui.toolkit.core.Root;
+import haxe.ui.toolkit.core.Toolkit;
 import haxe.ui.toolkit.core.XMLController;
 import haxe.ui.toolkit.events.MenuEvent;
 import haxe.ui.toolkit.events.UIEvent;
@@ -25,7 +26,36 @@ class EditorFrame extends XMLController
 	public function new() 
 	{
 		super("ui/main.xml");
+		mapOpenPanels = new Map<String, EditorPanel>();
 	}
+	
+	public var mapOpenPanels:Map<String, EditorPanel>;
+	
+	//interfaces
+	public function openPanel(panelInfo:PanelInfo):Void {
+		trace("openPanel"+panelInfo);
+		
+		if (mapOpenPanels.exists(panelInfo.id)) {
+			var thePanel:EditorPanel = mapOpenPanels[panelInfo.id];
+			root.addChild(thePanel);//readd to put at top
+		}else {
+			//creating new
+			trace("creating new");
+			var panel:EditorPanel = new EditorPanel();
+			panel.init(panelInfo);
+			root.addChild(panel);	
+			mapOpenPanels[panelInfo.id] = panel;
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	private function onMenuItemClick_Panel(e:UIEvent) {
@@ -38,11 +68,7 @@ class EditorFrame extends XMLController
 		if (panelInfo == null) { return; }
 		
 		//create panel
-		var panel:EditorPanel = new EditorPanel();
-		root.addChild(panel);
-		
-		
-		
+		openPanel(panelInfo);
 	}
 	
 	public function updateExtSubMenu() {
@@ -55,7 +81,6 @@ class EditorFrame extends XMLController
 			menuitem.text = pInfo.title;
 			menuitem.id = pInfo.id;
 			menuitem.addEventListener(UIEvent.CLICK, onMenuItemClick_Panel);
-			
 			
 			//menu-ext
 			var menu_ext = getComponent("menu-ext");

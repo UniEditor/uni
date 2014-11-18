@@ -1,43 +1,76 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<vbox width="100" height="100" id="main" style="backgroundColor: 0x999999">
+<vbox width="100" height="100">
 	<style>
-			Button {
-				fontSize: 13;
-				fontName: "_sans";
-				color: 0x000000;
-				paddingLeft: 5;
-				paddingTop: 2;
-				paddingBottom: 2;
-				paddingRight: 5;
-				backgroundImage: "styles/windows/button.png";
-				backgroundImageScale9: 5,5,15,15;
-				backgroundImageRect: 0,0,20,20;
-				iconPosition: "left";
-				labelPosition: "center";
-				spacing: 5;
-			}
+		.overall {
+				backgroundColor: 0x999999;
+				spacing: 0;
+				borderColor: 0x666666;
+				borderSize: 1;
+				paddingLeft: 1;
+				paddingTop: 0;
+				paddingBottom: 0;
+				paddingRight: 1;
+		}
+		
+		Button {
+			fontSize: 13;
+			fontName: "_sans";
+			color: 0x000000;
+			paddingLeft: 5;
+			paddingTop: 2;
+			paddingBottom: 2;
+			paddingRight: 5;
+			backgroundImage: "styles/windows/button.png";
+			backgroundImageScale9: 5,5,15,15;
+			backgroundImageRect: 0,0,20,20;
+			iconPosition: "left";
+			labelPosition: "center";
+			spacing: 5;
+		}
+		
+		Button:over {
+			backgroundImage: "styles/windows/button.png";
+			backgroundImageScale9: 5,5,15,15;
+			backgroundImageRect: 20,0,20,20;
+		}
 
-			Button:over {
-				backgroundImage: "styles/windows/button.png";
-				backgroundImageScale9: 5,5,15,15;
-				backgroundImageRect: 20,0,20,20;
-			}
-
-			Button:down {
-				backgroundImage: "styles/windows/button.png";
-				backgroundImageScale9: 5,5,15,15;
-				backgroundImageRect: 40,0,20,20;
-			}
+		Button:down {
+			backgroundImage: "styles/windows/button.png";
+			backgroundImageScale9: 5,5,15,15;
+			backgroundImageRect: 40,0,20,20;
+		}
+		
+		Text.title {
+			fontSize: 13;
+			fontName: "_sans";
+			color: 0xFFFFFF;
+		}
+		
+		.header{
+			backgroundColor: 0x666666;
+			paddingLeft: 0;
+			paddingTop: 0;
+			paddingBottom: 0;
+			paddingRight: 0;
+		}
+		
+		.bgPanel {
+			backgroundColor: 0x999999;
+		}
 	</style>
 	
-	<hbox width="100%" height="20" id="headerBar" style="backgroundColor: 0x666666">
-		<button id="header_btn" width="16" height="16" />
-	</hbox>
-	<hbox width="100%" height="100%" id="headerBar2" style="backgroundColor: 0x999999"/>
-	
-	
-	<hbox width="100%" height="20" id="bottomRow">
-		<spacer width="100%" />
-		<box width="10" height="10" id="dragger" style="backgroundColor: 0x000000"/>
-	</hbox>
+	<vbox id="main" width="100%" height="100%" styleName = "overall">
+		<hbox id="headerBar" width="100%" height="20" styleName="header">
+			<text id="header_title" styleName="title"/>
+			<spacer width="100%" />
+			<button id="header_btn" width="16" height="16" />
+		</hbox>
+		
+		<hbox id="content" width="100%" height="100%" styleName="bgPanel"/>
+		
+		<hbox id="bottomRow" width="100%" height="20" >
+			<spacer width="100%" />
+			<box id="dragger" width="10" height="10" style="backgroundColor: 0x000000"/>
+		</hbox>
+	</vbox>
 </vbox>

@@ -1,32 +1,55 @@
 package ui;
+import editor.extention.ExtManager.PanelInfo;
 import haxe.ui.toolkit.containers.VBox;
+import haxe.ui.toolkit.core.Component;
 import haxe.ui.toolkit.core.interfaces.IDraggable;
 import haxe.ui.toolkit.core.Toolkit;
+import openfl.display.Sprite;
 import openfl.events.MouseEvent;
 
 /**
  * ...
  * @author GDB
  */
-class EditorPanel extends VBox implements IDraggable
+class EditorPanel extends Component implements IDraggable
 {
 
 	public function new() 
 	{
 		super();
-		
-		var frame = Toolkit.processXmlResource("ui/panels/panel_frame.xml");
+	}
+	
+	public function init(panelInfo:PanelInfo):Void {
+		var frame:Component = Toolkit.processXmlResource("ui/panels/panel_frame.xml");
+		trace(frame);
 		addChild(frame);
 		
-		trace(frame);
+		
 		
 		frame.width = 200;
 		frame.height = 200;
 		
+		//var main:Component = frame.findChild("main");
 		
-		//graphics.beginFill(0x996699, 1);
-		//graphics.drawRoundRect(0, 0, 100, 200, 10);
-		//graphics.endFill();
+		var headerBar:Component = frame.findChild("headerBar", null, true);
+		trace(headerBar);
+		
+		//set title
+		var header_title = headerBar.findChild("header_title");
+		trace(header_title);
+		header_title.text = panelInfo.title;
+		
+		//set icon
+		//todo
+		
+		//set body
+		trace(panelInfo.body);
+		if(panelInfo.body != null){
+			var bodyUi = Toolkit.processXml(panelInfo.body);
+			
+			var content:Component = frame.findChild("content", null, true);
+			content.addChild(bodyUi);
+		}
 	}
 	
 	public function allowDrag(event:MouseEvent):Bool {

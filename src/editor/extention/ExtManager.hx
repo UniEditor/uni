@@ -87,16 +87,31 @@ class ExtManager
 						var xml:Xml = Xml.parse(content);
 						
 						var defineXml:Xml = null;
-						var foundDefine = false;
+						var frameXml:Xml = null;
+						var bodyXml:Xml = null;
+						
+						
 						for (one in xml.elementsNamed("panelDefine") ) {
-							foundDefine = true;
 							defineXml = one;
 							break;
 						}
+						if(defineXml != null){
+							for (one in defineXml.elementsNamed("frame") ) {
+								frameXml = one;
+								break;
+							}
+							for (one in defineXml.elementsNamed("body") ) {
+								bodyXml = one;
+								break;
+							}
+						}
 						
-						if (foundDefine == true) {
+						
+						
+						if (defineXml != null && frameXml != null) {
 							var id:String = defineXml.get("id");
 							var title:String = defineXml.get("title");
+							
 							
 							if (defineXml.exists("id") == false) {
 								trace("ERROR no id from " + childItemPath);
@@ -109,7 +124,7 @@ class ExtManager
 							var panelInfo:PanelInfo = new PanelInfo();
 							panelInfo.id = id;
 							panelInfo.title = title;
-							//panelInfo.body = body;
+							panelInfo.body = bodyXml;
 							
 							//todo check same id problem
 							
