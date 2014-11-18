@@ -20,24 +20,18 @@
 			paddingTop: 2;
 			paddingBottom: 2;
 			paddingRight: 5;
-			backgroundImage: "styles/windows/button.png";
-			backgroundImageScale9: 5,5,15,15;
-			backgroundImageRect: 0,0,20,20;
+			backgroundImage: "img/panel_design_btn_close1.png";
 			iconPosition: "left";
 			labelPosition: "center";
 			spacing: 5;
 		}
 		
 		Button:over {
-			backgroundImage: "styles/windows/button.png";
-			backgroundImageScale9: 5,5,15,15;
-			backgroundImageRect: 20,0,20,20;
+			backgroundImage: "img/panel_design_btn_close2.png";
 		}
 
 		Button:down {
-			backgroundImage: "styles/windows/button.png";
-			backgroundImageScale9: 5,5,15,15;
-			backgroundImageRect: 40,0,20,20;
+			backgroundImage: "img/panel_design_btn_close3.png";
 		}
 		
 		Text.title {
@@ -61,6 +55,7 @@
 	
 	<vbox id="main" width="100%" height="100%" styleName = "overall">
 		<hbox id="headerBar" width="100%" height="20" styleName="header">
+			<image id="header_icon" width="16" height="16"/>
 			<text id="header_title" styleName="title"/>
 			<spacer width="100%" />
 			<button id="header_btn" width="16" height="16" />

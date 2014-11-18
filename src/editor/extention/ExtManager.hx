@@ -44,9 +44,29 @@ class ExtManager
 	public var panelList:Array<String>;//things to put in panel folder
 	
 	public function loadExts():Void {
+		
 		//recursively find in res folder
 		var basePath = "./res/";
 		loadExtFromFolder(basePath);
+		
+		trace("listing all exts:");
+		trace("======================");
+		for (one in mapExt) {
+			trace(one.id);
+		}
+		trace("======================");
+		trace("listing all panels:");
+		trace("======================");
+		for (one in mapPanelInfo) {
+			trace(one.id + "===" + one.extId);
+		}
+		trace("======================");
+		
+		//bind ext and panel together
+		bindPanelAndExt();
+		
+		//call init on all exts
+		initExts();
 		
 		//after init
 		EventManager.getIns().dispatchEvent(new Event(EventManager.EXT_AFTER_INIT));
@@ -55,90 +75,113 @@ class ExtManager
 	public function loadExtFromFolder(fullPath:String) {
 		
 		var res:Array<String> = FileSystem.readDirectory(fullPath);
-		if (res != null) {
-			for (s in res) {
-				var childItemPath:String = fullPath + "/" + s;
-				var isFolder:Bool = FileSystem.isDirectory(childItemPath); 
-				
-				if (isFolder == true) {
-					loadExtFromFolder(childItemPath);
-				}else {
-					if (getEndfix(s) == "hs") {
-						trace("got hs file: " + childItemPath);
-
-						var content:String = File.getContent(childItemPath);
-						//trace("content:" + content);
-						
-						
-						//bind ext
-						var theExt:Extension = new Extension();
-						theExt.fullPath = childItemPath;
-						mapExt[childItemPath] = theExt;
-						
-						ScriptManager.getIns().interp.variables.set("this", theExt);
-						ScriptManager.getIns().runString(content);
-						
-					}else if (getEndfix(s) == "xml") {
-						trace("got xml file: " + childItemPath);
-						
-						var content:String = File.getContent(childItemPath);
-						trace("content:" + content);
-						
-						var xml:Xml = Xml.parse(content);
-						
-						var defineXml:Xml = null;
-						var frameXml:Xml = null;
-						var bodyXml:Xml = null;
-						
-						
-						for (one in xml.elementsNamed("panelDefine") ) {
-							defineXml = one;
-							break;
-						}
-						if(defineXml != null){
-							for (one in defineXml.elementsNamed("frame") ) {
-								frameXml = one;
-								break;
-							}
-							for (one in defineXml.elementsNamed("body") ) {
-								bodyXml = one;
-								break;
-							}
-						}
-						
-						
-						
-						if (defineXml != null && frameXml != null) {
-							var id:String = defineXml.get("id");
-							var title:String = defineXml.get("title");
-							
-							
-							if (defineXml.exists("id") == false) {
-								trace("ERROR no id from " + childItemPath);
-							}
-							
-							if (defineXml.exists("title") == false) {
-								trace("ERROR no id title " + childItemPath);
-							}
-							
-							var panelInfo:PanelInfo = new PanelInfo();
-							panelInfo.id = id;
-							panelInfo.title = title;
-							panelInfo.body = bodyXml;
-							
-							//todo check same id problem
-							
-							mapPanelInfo.set(id, panelInfo);
-							panelList.push(id);
-						}
-					}
+		if (res == null) {
+			return;	
+		}
+		for (s in res) {
+			var childItemPath:String = fullPath + "/" + s;
+			var isFolder:Bool = FileSystem.isDirectory(childItemPath); 
+			
+			if (isFolder == true) {
+				loadExtFromFolder(childItemPath);
+			}else {
+				if (getEndfix(s) == "hs") {
+					trace("got hs file: " + childItemPath);
+					parseExtFromFile(childItemPath);
+				}else if (getEndfix(s) == "xml") {
+					trace("got xml file: " + childItemPath);
+					parsePanelFromFile(childItemPath);
 				}
 			}
 		}
 	}
 	
-	public function initExts():Void {
+	public function parseExtFromFile(childItemPath:String):Void {
+		var content:String = File.getContent(childItemPath);
 		
+		var theExt:Extension = new Extension();
+		theExt.fullPath = childItemPath;
+		theExt.id = childItemPath;//todo replace "/" to "."
+		
+		ScriptManager.getIns().interp.variables.set("this", theExt);
+		ScriptManager.getIns().runString(content);
+		
+		//id usually be set during the first run
+		mapExt[theExt.id] = theExt;
+	}
+	
+	public function parsePanelFromFile(childItemPath:String):Void {
+		
+		var content:String = File.getContent(childItemPath);
+		//trace("content:" + content);
+		
+		var xml:Xml = Xml.parse(content);
+		var defineXml:Xml = null;
+		var frameXml:Xml = null;
+		var bodyXml:Xml = null;
+		
+		for (one in xml.elementsNamed("panelDefine") ) {
+			defineXml = one; break;
+		}
+		if(defineXml != null){
+			for (one in defineXml.elementsNamed("frame") ) {
+				frameXml = one; break;
+			}
+			for (one in defineXml.elementsNamed("body") ) {
+				bodyXml = one; break;
+			}
+		}
+		
+		if (defineXml != null && frameXml != null) {
+			var id:String = defineXml.get("id");
+			var title:String = defineXml.get("title");
+			
+			if (defineXml.exists("id") == false) {
+				trace("ERROR no id from " + childItemPath);
+			}
+			
+			if (defineXml.exists("title") == false) {
+				trace("ERROR no id title " + childItemPath);
+			}
+			
+			var panelInfo:PanelInfo = new PanelInfo();
+			panelInfo.id = id;
+			panelInfo.title = title;
+			panelInfo.body = bodyXml;
+			panelInfo.extId = defineXml.get("extId");
+			
+			//todo check same id problem
+			
+			mapPanelInfo.set(id, panelInfo);
+			panelList.push(id);
+		}
+	}
+	
+	public function bindPanelAndExt():Void {
+		trace("bindPanelAndExt");
+		
+		//loop panels and bind exts
+		for (one in mapPanelInfo) {
+			trace(one.id +"=="+ one.extId);
+			
+			if (one.extId != null && one.extId != "" &&
+				mapExt.exists(one.extId)) {
+				//var ext:Extension = mapExt[one.extId];
+				//ext.panelId = one.id;
+				
+				mapExt[one.extId].panelId = one.id;
+				trace(mapExt[one.extId].panelId);
+				trace("GOT IT");
+			}
+		}
+	}
+	
+	public function initExts():Void {
+		for (one in mapExt) {
+			if (one.onInit != null) {
+				one.onInit();
+			}
+		}
 	}
 	
 	public function updateExts():Void {
@@ -162,7 +205,9 @@ class PanelInfo {
 	public var title:String;
 	public var body:Xml;
 	
-	public function new() {
+	public var extId:String;
+	
+	public function new(){
 	}
 	
 }

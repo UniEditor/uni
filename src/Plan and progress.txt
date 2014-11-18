@@ -24,6 +24,16 @@ Ext - Layer Manager
 
 Stage Rendering
 
+=========================================================================
+
+
+
+
+
+
+
+
+=========================================================================
 
 
 Important Panels:
@@ -43,5 +53,16 @@ Important Panels:
 	
 	
 	
-
-
+Dev Helper Panels:
+	
+	Log/Output: output hs stuff traces/prints
+	
+	
+Questions:
+	
+	How to configuer the panels to be show as default and default layout
+	
+	
+	
+	
+	
