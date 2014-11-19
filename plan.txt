@@ -11,6 +11,7 @@ Bind Panel with Ext
 Phrase II : Simple Panel and Extensions
 
 Log Panel
+
 LayerManger Panel
 
 Phrase III : Stage Randering
@@ -27,7 +28,6 @@ Important Panels:
 	
 	LayerManager: display and manages layers, nested structures
 	
-	
 	Library: manages all types, base types, custom types, preFab
 	Assets: manages all assets
 	
@@ -37,8 +37,6 @@ Important Panels:
 	
 	Property: display and edit pro for edObjs as well as custom types and such
 	Property panels consist of various reusable pieces(like modules in Unity)
-	
-	
 	
 Dev Helper Panels:
 	

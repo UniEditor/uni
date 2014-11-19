@@ -14,7 +14,6 @@ class ScriptTest {
 		
 		var interp = new hscript.Interp();
 		
-		
 		if( vars != null ){
 			for( v in Reflect.fields(vars) ){
 				interp.variables.set(v,Reflect.field(vars,v));
