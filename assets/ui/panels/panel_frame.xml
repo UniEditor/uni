@@ -12,7 +12,7 @@
 				paddingRight: 1;
 		}
 		
-		Button {
+		Button.close {
 			fontSize: 13;
 			fontName: "_sans";
 			color: 0x000000;
@@ -26,11 +26,11 @@
 			spacing: 5;
 		}
 		
-		Button:over {
+		Button.close:over {
 			backgroundImage: "img/panel_design_btn_close2.png";
 		}
 
-		Button:down {
+		Button.close:down {
 			backgroundImage: "img/panel_design_btn_close3.png";
 		}
 		
@@ -58,7 +58,7 @@
 			<image id="header_icon" width="16" height="16"/>
 			<text id="header_title" styleName="title"/>
 			<spacer width="100%" />
-			<button id="header_btn" width="16" height="16" />
+			<button id="btn_close" width="16" height="16" styleName="close"/>
 		</hbox>
 		
 		<hbox id="content" width="100%" height="100%" styleName="bgPanel"/>

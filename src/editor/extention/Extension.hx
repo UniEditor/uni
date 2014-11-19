@@ -22,6 +22,8 @@ class Extension extends EventDispatcher
 	
 	//function to override in script
 	public var onInit:Void->Void;
+	public var onPanelOpen:Void->Void;
+	public var onPanelClose:Void->Void;
 	
 	public var interp:Interp;
 	
@@ -39,7 +41,6 @@ class Extension extends EventDispatcher
 	public function sayHello():Void {
 		trace("hello from ext:" + fullPath);
 	}
-	
 	
 	//to be deleted
 	public function regFunc_afterInit(func:Dynamic->Void):Void {

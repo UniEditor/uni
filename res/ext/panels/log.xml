@@ -4,6 +4,6 @@
 	<frame resize="false" minWd="100" minHt="100" defaultWd="300" defaultHt="500"/>
 	
 	<body>
-		<text text="This is from LOG!"/>
+		<text id="txt" width="100%" height="100%" text="This is from LOG!"/>
 	</body>
 </panelDefine>

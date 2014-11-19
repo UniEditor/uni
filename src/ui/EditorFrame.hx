@@ -1,4 +1,6 @@
 package ui;
+import editor.Debug;
+import editor.extention.Extension;
 import editor.extention.ExtManager;
 import haxe.ui.toolkit.controls.MenuItem;
 import haxe.ui.toolkit.core.Root;
@@ -29,11 +31,14 @@ class EditorFrame extends XMLController
 		mapOpenPanels = new Map<String, EditorPanel>();
 	}
 	
+	
+	
 	public var mapOpenPanels:Map<String, EditorPanel>;
 	
 	//interfaces
 	public function openPanel(panelInfo:PanelInfo):Void {
-		trace("openPanel"+panelInfo);
+		trace("openPanel "+panelInfo.id);
+		Debug.getIns().log("openPanel " + panelInfo.id);
 		
 		if (mapOpenPanels.exists(panelInfo.id)) {
 			var thePanel:EditorPanel = mapOpenPanels[panelInfo.id];
@@ -45,11 +50,42 @@ class EditorFrame extends XMLController
 			panel.init(panelInfo);
 			root.addChild(panel);	
 			mapOpenPanels[panelInfo.id] = panel;
+			
+			//call panel open
+			if (panelInfo.extId != null && panelInfo.extId != "") {
+				var ext:Extension = ExtManager.getIns().mapExt[panelInfo.extId];
+				if (ext != null && ext.onPanelOpen != null) {
+					ext.onPanelOpen();
+				}
+			}
 		}
+		
+		
 	}
 	
 	
-	
+	public function closePanel(edPanel:EditorPanel):Void {
+		trace("closePanel " + edPanel.panelid);
+		Debug.getIns().log("closePanel " + edPanel.panelid);
+		
+		if (mapOpenPanels.exists(edPanel.panelid)) {
+			mapOpenPanels.remove(edPanel.panelid);
+			root.removeChild(edPanel);
+			
+			var panelInfo:PanelInfo = ExtManager.getIns().mapPanelInfo[edPanel.panelid];
+			if(panelInfo != null){
+				//call panel open
+				if (panelInfo.extId != null && panelInfo.extId != "") {
+					var ext:Extension = ExtManager.getIns().mapExt[panelInfo.extId];
+					if (ext != null && ext.onPanelClose != null) {
+						ext.onPanelClose();
+					}
+				}
+			}
+		}
+		
+		
+	}
 	
 	
 	
