@@ -11,10 +11,14 @@ Bind Panel with Ext
 Phrase II : Simple Panel and Extensions
 
 Log Panel
-
-LayerManger Panel
+Right Click
+Lib Panel
+Layer Panel
 
 Phrase III : Stage Randering
+
+Stage Rendering
+Pro Panels System
 
 
 ...

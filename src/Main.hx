@@ -1,4 +1,4 @@
-package ;
+package  ;
 
 import editor.extention.ExtManager;
 import editor.Uni;
@@ -45,42 +45,40 @@ class Main extends Sprite
 		
 		//init steps
 		
+		
 		//load images for use in UI
+		
 		
 		
 		//init main UI frame
 		Toolkit.init();
 		Toolkit.openFullscreen(function(root:Root) {
-			//KeyboardManager.init(root);
-			//MacroUtil.loadUserPlugins("assets/plugins/user-plugins.xml");
-			
 			root.addChild(EditorFrame.getIns().view);
-			
 		});
-		
-		//create main panels
 		
 		
 		//load and init all exts
 		ExtManager.getIns().loadExts();
 		
 		
+		//create major panels
+		
+		
 		//create list under submenu: command, exporters, panels
 		EditorFrame.getIns().updateExtSubMenu();
 		
+		
 		//init data core
-		Uni.getIns();
+		Uni.getIns().uniTools.loadTypeList();
 		
 		
+		//--------------------------------------------------
+		//uni ready
+		
+		//load user project
 		
 		
-		//load project
-		
-		
-		
-		//Test.main();
-		//Test.benchMark2();
-		
+
 	}
 	
 	

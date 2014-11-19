@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <data>
-	<sprite />
+	<item name="UniSprite" reflect="modules.basic.UniSprite" icon="ico.png" />
 	
 	
 </data>

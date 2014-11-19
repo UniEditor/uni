@@ -1,5 +1,5 @@
 package editor;
-import data.CustomType;
+import data.TypeInfo;
 import data.EditableObject;
 import editor.Uni.Nest;
 import haxe.remoting.AMFConnection;
@@ -14,7 +14,7 @@ class Uni
 {
 	
 	//singleton
-	public static var instance:Uni;
+	private static var instance:Uni;
 	public static function getIns():Uni {
 		if (instance == null) {
 			instance = new Uni();
@@ -23,25 +23,42 @@ class Uni
 	}
 	
 	
+	//tools
+	public var uniTools:UniTools;
 	
-	//holds data for everything
-	//lib (symbols, assets)
-	//stage object tree
-	
+	//staqe info
 	public var mapEdObj:Map<String, EditableObject>;
 	public var nestEdObj:Nest;
 	
-	public var mapCustomeTpye:Map<String, CustomType>;
+	
+	//type info
+	public var mapType:Map<String, TypeInfo>;//uni official type and types provided by ext
+	public var mapCustomeTpye:Map<String, TypeInfo>;//created by user during a project
 	
 	
 	
 	public function new() 
 	{
+		uniTools = new UniTools();
+		
 		mapEdObj = new Map<String, EditableObject>();
 		nestEdObj = new Nest();
 		
-		mapCustomeTpye = new Map<String, CustomType>();
+		mapCustomeTpye = new Map<String, TypeInfo>();
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	//EdObj functions
@@ -53,7 +70,6 @@ class Uni
 		act.doAction();
 		
 		//broadcast event
-		
 		
 	}
 	
