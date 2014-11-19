@@ -86,10 +86,10 @@ class ExtManager
 				loadExtFromFolder(childItemPath);
 			}else {
 				if (getEndfix(s) == "hs") {
-					trace("got hs file: " + childItemPath);
+					trace("Doing HS: " + childItemPath);
 					parseExtFromFile(childItemPath);
 				}else if (getEndfix(s) == "xml") {
-					trace("got xml file: " + childItemPath);
+					trace("Doing XML: " + childItemPath);
 					parsePanelFromFile(childItemPath);
 				}
 			}
@@ -162,7 +162,7 @@ class ExtManager
 		
 		//loop panels and bind exts
 		for (one in mapPanelInfo) {
-			trace(one.id +"=="+ one.extId);
+			//trace(one.id +"=="+ one.extId);
 			
 			if (one.extId != null && one.extId != "" &&
 				mapExt.exists(one.extId)) {
@@ -170,8 +170,8 @@ class ExtManager
 				//ext.panelId = one.id;
 				
 				mapExt[one.extId].panelId = one.id;
-				trace(mapExt[one.extId].panelId);
-				trace("GOT IT");
+				//trace(mapExt[one.extId].panelId);
+				//trace("GOT IT");
 			}
 		}
 	}

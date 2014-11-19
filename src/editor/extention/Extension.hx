@@ -1,5 +1,7 @@
 package editor.extention;
+import editor.Debug;
 import editor.event.EventManager;
+import editor.event.UniEvent;
 import editor.extention.ExtManager.PanelInfo;
 import hscript.Interp;
 import openfl.events.EventDispatcher;
@@ -25,9 +27,13 @@ class Extension extends EventDispatcher
 	
 	public function new() 
 	{
+		Debug.getIns();
 		super();
 		interp = new Interp();
 		interp.variables.set("this", this);
+		interp.variables.set("Debug", Debug);
+		interp.variables.set("EventManager", EventManager);
+		interp.variables.set("UniEvent", UniEvent);
 	}
 	
 	public function sayHello():Void {

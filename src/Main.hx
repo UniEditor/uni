@@ -7,6 +7,7 @@ import flash.events.Event;
 import flash.Lib;
 import haxe.ui.toolkit.core.Root;
 import haxe.ui.toolkit.core.Toolkit;
+import sys.io.Process;
 import ui.EditorFrame;
 import ui.EditorPanel;
 
@@ -41,7 +42,6 @@ class Main extends Sprite
 	{
 		if (inited) return;
 		inited = true;
-	
 		
 		//init steps
 		

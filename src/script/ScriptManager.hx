@@ -30,8 +30,9 @@ class ScriptManager
 		var program = parser.parseString(script);
 		if(customInterp != null)
 			customInterp.execute(program);
+			
 		else {
-			interp.execute(program);
+			var res = interp.execute(program);
 		}
 	}
 	
