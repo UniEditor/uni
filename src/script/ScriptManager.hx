@@ -27,13 +27,16 @@ class ScriptManager
 	}
 	
 	public function runString(script:String, ?customInterp:Interp) {
-		var program = parser.parseString(script);
-		if(customInterp != null)
-			customInterp.execute(program);
-			
-		else {
-			var res = interp.execute(program);
-		}
+		try {
+				var program = parser.parseString(script);
+				if(customInterp != null)
+					customInterp.execute(program);
+				else {
+					interp.execute(program);
+				}
+			}catch(e:Dynamic) {
+				trace("runString error: "  +e);
+			}
 	}
 	
 	

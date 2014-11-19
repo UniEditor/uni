@@ -103,7 +103,6 @@ class ExtManager
 		theExt.fullPath = childItemPath;
 		theExt.id = childItemPath;//todo replace "/" to "."
 		
-		//ScriptManager.getIns().interp.variables.set("this", theExt);
 		ScriptManager.getIns().runString(content,theExt.interp);
 		
 		//id usually be set during the first run
@@ -162,16 +161,8 @@ class ExtManager
 		
 		//loop panels and bind exts
 		for (one in mapPanelInfo) {
-			//trace(one.id +"=="+ one.extId);
-			
-			if (one.extId != null && one.extId != "" &&
-				mapExt.exists(one.extId)) {
-				//var ext:Extension = mapExt[one.extId];
-				//ext.panelId = one.id;
-				
+			if (one.extId != null && one.extId != "" && mapExt.exists(one.extId)) {
 				mapExt[one.extId].panelId = one.id;
-				//trace(mapExt[one.extId].panelId);
-				//trace("GOT IT");
 			}
 		}
 	}
@@ -204,7 +195,6 @@ class PanelInfo {
 	public var id:String;
 	public var title:String;
 	public var body:Xml;
-	
 	public var extId:String;
 	
 	public function new(){

@@ -28,19 +28,15 @@ class EditorPanel extends Component implements IDraggable
 		panelid = panelInfo.id;
 		
 		var frame:Component = Toolkit.processXmlResource("ui/panels/panel_frame.xml");
-		//trace(frame);
 		addChild(frame);
 		
 		frame.width = 200;
 		frame.height = 200;
 		
-		//var main:Component = frame.findChild("main");
 		var headerBar:Component = frame.findChild("headerBar", null, true);
-		//trace(headerBar);
 		
 		//set title
 		var header_title = headerBar.findChild("header_title");
-		//trace(header_title);
 		header_title.text = panelInfo.title;
 		
 		//set icon
@@ -51,7 +47,6 @@ class EditorPanel extends Component implements IDraggable
 		btn_close.addEventListener(UIEvent.CLICK, onBtnClick_close);
 		
 		//set body
-		//trace(panelInfo.body);
 		if(panelInfo.body != null){
 			body = Toolkit.processXml(panelInfo.body);
 			

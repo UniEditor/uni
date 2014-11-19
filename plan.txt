@@ -1,0 +1,83 @@
+
+
+Phrase I : Basic Framework
+
+Scripting Engine Setup
+ExtensionManager Search Ext and Parse PanelDefines
+UI Frame
+Panel System
+Bind Panel with Ext
+
+Phrase II : Simple Panel and Extensions
+
+Log Panel
+LayerManger Panel
+
+Phrase III : Stage Randering
+
+
+...
+
+
+
+=========================================================================
+
+
+Important Panels:
+	
+	LayerManager: display and manages layers, nested structures
+	
+	
+	Library: manages all types, base types, custom types, preFab
+	Assets: manages all assets
+	
+	Stage: displays and allow opation on all objects
+	Stage tools: there will be different tools panel for different data-types(tile based tools for tile object)
+	Stage it self rely on various object renders based on types
+	
+	Property: display and edit pro for edObjs as well as custom types and such
+	Property panels consist of various reusable pieces(like modules in Unity)
+	
+	
+	
+Dev Helper Panels:
+	
+	Log/Output: output hs stuff traces/prints
+	
+	
+Questions:
+	
+	How to configuer the panels to be show as default and default layout
+	
+	
+=========================================================================
+
+	
+Menu Structure:
+	
+File
+	New Project
+	Open Project
+	New 
+
+Edit
+	Undo
+	Redo
+	
+	Copy
+	Cut
+	Paste
+	
+=========================================================================
+	
+We should use a simple two-polar system : Symbol - Instance
+Addtionaly, we should use a prefab system with weak link(?)
+
+Here comes more question:
+	
+	Is there symbol always wraps in an addtional layer (like in flash), just an obj with certain value predefined?
+	
+	Will the play must create a symbol before placing anything onbmo_12
+	
+All Data, is just a collection of properties. What are editable on instance-level or not is the question.
+	

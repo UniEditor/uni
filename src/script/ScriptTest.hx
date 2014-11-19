@@ -1,6 +1,6 @@
 import openfl.Lib;
 
-class Test {
+class ScriptTest {
 	
 	static function test(x, v:Dynamic, ?vars : Dynamic) {
 		

@@ -1,0 +1,1 @@
+c:\windows\system32\cmd.exe /C xcopy $(ProjectDir)\res $(ProjectDir)\bin\windows\cpp\bin\res\ /E /Q /Y
