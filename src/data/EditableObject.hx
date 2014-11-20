@@ -26,7 +26,6 @@ class EditableObject
 	public var customType:String;//custome type id
 	public var proGroups:Array<ProGroup>;
 	
-	
 	public function new() 
 	{
 		

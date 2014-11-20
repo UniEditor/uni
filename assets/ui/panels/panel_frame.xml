@@ -15,7 +15,6 @@
 		Button.close {
 			fontSize: 13;
 			fontName: "_sans";
-			color: 0x000000;
 			paddingLeft: 5;
 			paddingTop: 2;
 			paddingBottom: 2;

@@ -59,10 +59,18 @@ class Uni
 	
 	
 	
+	//=====INTERFACES=====
+ 	//these generate call actions
 	
+	//Type functions
+	
+	public function createCustomeType(name:String, baseType:TypeInfo):Void {
+		
+		
+	}
 	
 	//EdObj functions
-	//these generate call actions?
+
 	public function createEmptyEdObj():Void {
 		
 		

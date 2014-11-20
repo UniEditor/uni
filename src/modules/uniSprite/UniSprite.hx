@@ -1,4 +1,4 @@
-package modules.basic;
+package modules.uniSprite ;
 import data.EditableObject;
 import data.pro.ProGroup;
 

@@ -11,18 +11,21 @@ Bind Panel with Ext
 Phrase II : Simple Panel and Extensions
 
 Log Panel
-Right Click
 Lib Panel
 Layer Panel
 
 Phrase III : Stage Randering
 
 Stage Rendering
+Renders (Image, SpriteSheet Ani, Skeleton Ani)
 Pro Panels System
 
+Phrase IV : Application Like
 
-...
-
+Actions System (Undo/Redo)
+Panel Resizing
+Right Click Operation
+Panel Docking
 
 
 =========================================================================
@@ -83,3 +86,13 @@ Here comes more question:
 	
 All Data, is just a collection of properties. What are editable on instance-level or not is the question.
 	
+
+=========================================================================
+
+UniSprite
+UniTilemap
+UniShape
+UniMap
+UniBitmap
+UIThings
+UniParticle
