@@ -3,6 +3,8 @@ import data.TypeInfo;
 import data.EditableObject;
 import editor.Uni.Nest;
 import haxe.remoting.AMFConnection;
+import haxe.ui.toolkit.controls.Image;
+import haxe.ui.toolkit.controls.Text;
 import modules.basic.EdObjActions.EdObjAct_Add;
 import modules.basic.EdObjActions.EdObjAct_Remove;
 
@@ -47,17 +49,6 @@ class Uni
 	}
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	//=====INTERFACES=====
  	//these generate call actions
 	
@@ -91,6 +82,9 @@ class Uni
 	
 	public function editEdObjPro():Void {
 		
+		//var text:Text = new Text()
+		//text.style.borderColor = 0x996699;
+		//text.userData
 	}
 	
 	

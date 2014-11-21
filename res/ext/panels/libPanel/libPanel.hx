@@ -6,29 +6,42 @@ this.onInit = function(){
 	//this.forceOpenPanel();
 }
 
+function onItemClick(e):Void {
+	trace("onItemClick " + e.component.userData);
+}
+
 function renderData(){
 	trace("renderData");
 	
 	if(this.get_panel() == null){return;}
 	var body = this.get_panel().body;
-
+	
+	var count = 0;
 	for(one in Uni.getIns().mapType){
-		trace(one);
 		trace(one.name);
 		
-		/*var text = new Text();
-		text.text = one.name;
-		text.width = 100;
-		text.height = 100;
-		
-		body.addChild(text);*/
+		var vbox = new VBox();
 		
 		var img = new Image();
 		img.resource = one.icon;
 		img.width = 50;
 		img.height = 50;
-		body.addChild(img);
+		//img.style.paddingBottom = 50;
+		vbox.addChild(img);
 		
+		var text = new Text();
+		text.text = one.name;
+		//text.x = 50; 
+		//text.y = 50; 
+		text.style.borderColor = 0x996699;
+		vbox.addChild(text);
+		
+		body.addChild(vbox);
+		
+		count++;
+		vbox.userData = count;
+		
+		vbox.addEventListener(UIEvent.CLICK, onItemClick);
 	}
 }
 

@@ -23,7 +23,7 @@ class UniTools
 		if (FileSystem.exists(filePath)){
 			
 			var content:String = File.getContent(filePath);
-			trace("content:" + content);
+			//trace("content:" + content);
 			
 			var xml:Xml = Xml.parse(content);
 			var xmlData:Xml = null;
@@ -33,7 +33,7 @@ class UniTools
 			if (xmlData == null) return;
 			
 			for (one in xmlData.elementsNamed("item") ) {
-				trace("got item");
+				//trace("got item");
 				
 				var name:String = one.get("name");
 				var reflect:String = one.get("reflect");

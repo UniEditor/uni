@@ -4,8 +4,12 @@ import editor.Debug;
 import editor.event.EventManager;
 import editor.event.UniEvent;
 import editor.extention.ExtManager.PanelInfo;
+import haxe.ui.toolkit.containers.HBox;
+import haxe.ui.toolkit.containers.VBox;
+import haxe.ui.toolkit.controls.Button;
 import haxe.ui.toolkit.controls.Image;
 import haxe.ui.toolkit.controls.Text;
+import haxe.ui.toolkit.events.UIEvent;
 import hscript.Interp;
 import openfl.events.EventDispatcher;
 import ui.EditorFrame;
@@ -39,11 +43,15 @@ class Extension extends EventDispatcher
 		interp.variables.set("Debug", Debug);
 		interp.variables.set("EventManager", EventManager);
 		interp.variables.set("UniEvent", UniEvent);
+		interp.variables.set("UIEvent", UIEvent);
 		interp.variables.set("TypeInfo", TypeInfo);
 		interp.variables.set("Uni", Uni);
 		
 		interp.variables.set("Text", Text);
 		interp.variables.set("Image", Image);
+		interp.variables.set("Button", Button);
+		interp.variables.set("HBox", HBox);
+		interp.variables.set("VBox", VBox);
 	}
 	
 	public function sayHello():Void {

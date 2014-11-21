@@ -72,10 +72,11 @@ class ExtManager
 			if (isFolder == true) {
 				loadExtFromFolder(childItemPath);
 			}else {
-				if (getEndfix(s) == "hs") {
+				var endFix:String = getEndfix(s);
+				if (endFix == "hs" || endFix == "hx") {
 					trace("Doing HS: " + childItemPath);
 					parseExtFromFile(childItemPath);
-				}else if (getEndfix(s) == "xml") {
+				}else if (endFix == "xml") {
 					trace("Doing XML: " + childItemPath);
 					parsePanelFromFile(childItemPath);
 				}
