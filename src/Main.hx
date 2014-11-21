@@ -60,6 +60,15 @@ class Main extends Sprite
 		//load and init all exts
 		ExtManager.getIns().loadExts();
 		
+		trace("======listing all exts:======");
+		for (one in ExtManager.getIns().mapExt) {
+			trace(one.id);
+		}
+		trace("======listing all panels:======");
+		for (one in ExtManager.getIns().mapPanelInfo) {
+			trace(one.id + "===" + one.extId);
+		}
+		trace("======================");
 		
 		//create major panels
 		
@@ -70,6 +79,12 @@ class Main extends Sprite
 		
 		//init data core
 		Uni.getIns().uniTools.loadTypeList();
+		
+		trace("======listing TypeList:======");
+		for (one in Uni.getIns().mapType) {
+			trace(one.name);
+		}
+		trace("======================");
 		
 		
 		//--------------------------------------------------

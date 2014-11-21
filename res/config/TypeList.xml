@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <data>
-	<item name="UniSprite" reflect="modules.basic.UniSprite" icon="ico.png" />
+	<item name="UniSprite" reflect="modules.basic.UniSprite" icon="img/img_ico_sprite.png" />
+	<item name="UniShape" reflect="modules.basic.UniShape" icon="img/img_ico_shape.png" />
+	<item name="UniTilemap" reflect="modules.basic.UniSprite" icon="img/img_ico_tile.png" />
+	<item name="UniBitmap" reflect="modules.basic.UniShape" icon="img/img_ico_bitmap.png" />
 	
 	
 </data>

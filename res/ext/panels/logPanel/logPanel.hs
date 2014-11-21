@@ -10,7 +10,7 @@ this.onPanelOpen = function(){
 	trace("log onPanelOpen");
 	
 	if(this.get_panel() != null){
-		trace("body " +  this.get_panel().body);
+		//trace("body " +  this.get_panel().body);
 		this.get_panel().body.text = Debug.getIns().logs.join("\n");
 	}
 }
@@ -20,10 +20,10 @@ this.onPanelClose = function(){
 }
 
 var onLog = function(e){
-	trace("onLog" + e);
+	trace("onLog");
 	
 	if(this.get_panel() != null){
-		trace("body " +  this.get_panel().body);
+		//trace("body " +  this.get_panel().body);
 		this.get_panel().body.text = Debug.getIns().logs.join("\n");
 	}
 }

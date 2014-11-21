@@ -35,8 +35,6 @@ class Uni
 	public var mapType:Map<String, TypeInfo>;//uni official type and types provided by ext
 	public var mapCustomeTpye:Map<String, TypeInfo>;//created by user during a project
 	
-	
-	
 	public function new() 
 	{
 		uniTools = new UniTools();
@@ -44,6 +42,7 @@ class Uni
 		mapEdObj = new Map<String, EditableObject>();
 		nestEdObj = new Nest();
 		
+		mapType = new Map<String, TypeInfo>();
 		mapCustomeTpye = new Map<String, TypeInfo>();
 	}
 	

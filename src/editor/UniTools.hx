@@ -26,7 +26,14 @@ class UniTools
 			trace("content:" + content);
 			
 			var xml:Xml = Xml.parse(content);
-			for (one in xml.elementsNamed("item") ) {
+			var xmlData:Xml = null;
+			for (one in xml.elementsNamed("data") ) {
+				xmlData = one; break;
+			}
+			if (xmlData == null) return;
+			
+			for (one in xmlData.elementsNamed("item") ) {
+				trace("got item");
 				
 				var name:String = one.get("name");
 				var reflect:String = one.get("reflect");

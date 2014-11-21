@@ -1,8 +1,11 @@
 package editor.extention;
+import data.TypeInfo;
 import editor.Debug;
 import editor.event.EventManager;
 import editor.event.UniEvent;
 import editor.extention.ExtManager.PanelInfo;
+import haxe.ui.toolkit.controls.Image;
+import haxe.ui.toolkit.controls.Text;
 import hscript.Interp;
 import openfl.events.EventDispatcher;
 import ui.EditorFrame;
@@ -36,6 +39,11 @@ class Extension extends EventDispatcher
 		interp.variables.set("Debug", Debug);
 		interp.variables.set("EventManager", EventManager);
 		interp.variables.set("UniEvent", UniEvent);
+		interp.variables.set("TypeInfo", TypeInfo);
+		interp.variables.set("Uni", Uni);
+		
+		interp.variables.set("Text", Text);
+		interp.variables.set("Image", Image);
 	}
 	
 	public function sayHello():Void {

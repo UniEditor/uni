@@ -49,19 +49,6 @@ class ExtManager
 		var basePath = "./res/";
 		loadExtFromFolder(basePath);
 		
-		trace("listing all exts:");
-		trace("======================");
-		for (one in mapExt) {
-			trace(one.id);
-		}
-		trace("======================");
-		trace("listing all panels:");
-		trace("======================");
-		for (one in mapPanelInfo) {
-			trace(one.id + "===" + one.extId);
-		}
-		trace("======================");
-		
 		//bind ext and panel together
 		bindPanelAndExt();
 		
@@ -104,7 +91,7 @@ class ExtManager
 		theExt.id = childItemPath;//todo replace "/" to "."
 		
 		ScriptManager.getIns().runString(content,theExt.interp);
-		
+		trace("EXT.ID", theExt.id);
 		//id usually be set during the first run
 		mapExt[theExt.id] = theExt;
 	}

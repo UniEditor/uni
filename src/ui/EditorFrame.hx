@@ -52,7 +52,7 @@ class EditorFrame extends XMLController
 			mapOpenPanels[panelInfo.id] = panel;
 			
 			//call panel open
-			if (panelInfo.extId != null && panelInfo.extId != "") {
+			if (panelInfo.extId != null && panelInfo.extId != "") { 
 				var ext:Extension = ExtManager.getIns().mapExt[panelInfo.extId];
 				if (ext != null && ext.onPanelOpen != null) {
 					ext.onPanelOpen();
