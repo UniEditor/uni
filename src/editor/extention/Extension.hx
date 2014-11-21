@@ -4,6 +4,7 @@ import editor.Debug;
 import editor.event.EventManager;
 import editor.event.UniEvent;
 import editor.extention.ExtManager.PanelInfo;
+import editor.Uni;
 import haxe.ui.toolkit.containers.HBox;
 import haxe.ui.toolkit.containers.VBox;
 import haxe.ui.toolkit.controls.Button;

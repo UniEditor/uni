@@ -6,8 +6,8 @@ this.onInit = function(){
 	//this.forceOpenPanel();
 }
 
-function onItemClick(e):Void {
-	trace("onItemClick " + e.component.userData);
+function onItemClick(e) {
+	trace("onItemClick ");// + e.component.userData
 }
 
 function renderData(){
@@ -18,12 +18,12 @@ function renderData(){
 	
 	var count = 0;
 	for(one in Uni.getIns().mapType){
-		trace(one.name);
+		trace(count +" : "+ one.name);
 		
 		var vbox = new VBox();
 		
-		var img = new Image();
-		img.resource = one.icon;
+		var img = new Button();
+		img.style.backgroundImage = one.icon;
 		img.width = 50;
 		img.height = 50;
 		//img.style.paddingBottom = 50;
@@ -38,10 +38,12 @@ function renderData(){
 		
 		body.addChild(vbox);
 		
-		count++;
-		vbox.userData = count;
+		count=count+1;
+		//vbox.userData = count;
+		img.userData = count;
 		
-		vbox.addEventListener(UIEvent.CLICK, onItemClick);
+		img.addEventListener(UIEvent.CLICK, onItemClick);
+		//vbox.addEventListener(UIEvent.CLICK, onItemClick);
 	}
 }
 
