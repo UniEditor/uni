@@ -7,7 +7,8 @@ this.onInit = function(){
 }
 
 function onItemClick(e) {
-	trace("onItemClick ");// + e.component.userData
+	//trace("onItemClick " + e.component.userData);
+	Debug.getIns().log("onItemClick " + e.component.userData);
 }
 
 function renderData(){
@@ -39,11 +40,9 @@ function renderData(){
 		body.addChild(vbox);
 		
 		count=count+1;
-		//vbox.userData = count;
 		img.userData = count;
 		
-		img.addEventListener(UIEvent.CLICK, onItemClick);
-		//vbox.addEventListener(UIEvent.CLICK, onItemClick);
+		img.addEventListener("haxeui_click", onItemClick);
 	}
 }
 

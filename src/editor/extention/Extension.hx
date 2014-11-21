@@ -11,6 +11,7 @@ import haxe.ui.toolkit.controls.Button;
 import haxe.ui.toolkit.controls.Image;
 import haxe.ui.toolkit.controls.Text;
 import haxe.ui.toolkit.events.UIEvent;
+import haxe.ui.toolkit.hscript.ScriptInterp;
 import hscript.Interp;
 import openfl.events.EventDispatcher;
 import ui.EditorFrame;
@@ -33,13 +34,13 @@ class Extension extends EventDispatcher
 	public var onPanelOpen:Void->Void;
 	public var onPanelClose:Void->Void;
 	
-	public var interp:Interp;
+	public var interp:ScriptInterp;
 	
 	public function new() 
 	{
 		Debug.getIns();
 		super();
-		interp = new Interp();
+		interp = new ScriptInterp();
 		interp.variables.set("this", this);
 		interp.variables.set("Debug", Debug);
 		interp.variables.set("EventManager", EventManager);
