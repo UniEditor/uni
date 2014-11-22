@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<vbox>
+    <script>
+        button1.onClick = function(e) {
+            trace("button 1");
+        }
+
+        function foo() {
+            trace("button 2");
+        }
+    </script>
+    <button id="button1" text="Button 1" />
+    <button id="button2" text="Button 2" onclick="foo()"/>
+</vbox>

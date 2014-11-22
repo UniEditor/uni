@@ -3,10 +3,13 @@ import data.TypeInfo;
 import data.EditableObject;
 import editor.Uni.Nest;
 import haxe.remoting.AMFConnection;
+import haxe.ui.toolkit.controls.Button;
 import haxe.ui.toolkit.controls.Image;
 import haxe.ui.toolkit.controls.Text;
 import modules.basic.EdObjActions.EdObjAct_Add;
 import modules.basic.EdObjActions.EdObjAct_Remove;
+
+import modules.uniSprite.UniSprite;
 
 /**
  * Manages data, not ui frames
@@ -61,10 +64,9 @@ class Uni
 	
 	//EdObj functions
 
-	public function createEmptyEdObj():Void {
+	public function createEmptyEdObj(typeInfoId:String):Void {
 		
-		
-		var act:EdObjAct_Add = new EdObjAct_Add();
+		var act:EdObjAct_Add = new EdObjAct_Add(typeInfoId);
 		act.doAction();
 		
 		//broadcast event
@@ -82,9 +84,10 @@ class Uni
 	
 	public function editEdObjPro():Void {
 		
-		//var text:Text = new Text()
-		//text.style.borderColor = 0x996699;
-		//text.userData
+		var text:Button = new Button();
+		text.style.borderColor = 0x996699;
+		
+		
 		
 		
 	}

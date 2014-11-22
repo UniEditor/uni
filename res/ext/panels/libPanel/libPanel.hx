@@ -9,6 +9,8 @@ this.onInit = function(){
 function onItemClick(e) {
 	//trace("onItemClick " + e.component.userData);
 	Debug.getIns().log("onItemClick " + e.component.userData);
+	
+	Uni.getIns().createEmptyEdObj(e.component.userData);
 }
 
 function renderData(){
@@ -40,9 +42,11 @@ function renderData(){
 		body.addChild(vbox);
 		
 		count=count+1;
-		img.userData = count;
+		img.userData = one.name;
 		
-		img.addEventListener("haxeui_click", onItemClick);
+		//img.addEventListener("haxeui_click", onItemClick);
+		img.onClick = onItemClick;
+		//trace(img.hasEventListener("haxeui_click"));
 	}
 }
 

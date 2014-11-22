@@ -18,7 +18,7 @@ class UniSprite extends EditableObject
 	public function new() 
 	{
 		super();
-		proGroups.push(new ProGroupTransformation());
+		//proGroups.push();
 	}
 	
 	@:getter(transformation)
