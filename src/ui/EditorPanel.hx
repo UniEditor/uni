@@ -49,7 +49,6 @@ class EditorPanel extends Component implements IDraggable
 		//set body
 		if(panelInfo.body != null){
 			body = Toolkit.processXml(panelInfo.body);
-			
 			var content:Component = frame.findChild("content", null, true);
 			content.addChild(body);
 		}

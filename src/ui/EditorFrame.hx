@@ -2,6 +2,7 @@ package ui;
 import editor.Debug;
 import editor.extention.Extension;
 import editor.extention.ExtManager;
+import editor.render.StageRender;
 import haxe.ui.toolkit.controls.MenuItem;
 import haxe.ui.toolkit.core.Root;
 import haxe.ui.toolkit.core.Toolkit;
@@ -25,15 +26,16 @@ class EditorFrame extends XMLController
 		return instance;
 	}
 	
+	public var mapOpenPanels:Map<String, EditorPanel>;
+	
 	public function new() 
 	{
 		super("ui/main.xml");
 		mapOpenPanels = new Map<String, EditorPanel>();
+		
+		//create stageRender
+		addChild(StageRender.getIns());
 	}
-	
-	
-	
-	public var mapOpenPanels:Map<String, EditorPanel>;
 	
 	//interfaces
 	public function openPanel(panelInfo:PanelInfo):Void {
@@ -45,7 +47,6 @@ class EditorFrame extends XMLController
 			root.addChild(thePanel);//readd to put at top
 		}else {
 			//creating new
-			trace("creating new");
 			var panel:EditorPanel = new EditorPanel();
 			panel.init(panelInfo);
 			root.addChild(panel);	
@@ -59,10 +60,7 @@ class EditorFrame extends XMLController
 				}
 			}
 		}
-		
-		
 	}
-	
 	
 	public function closePanel(edPanel:EditorPanel):Void {
 		trace("closePanel " + edPanel.panelid);
@@ -83,16 +81,7 @@ class EditorFrame extends XMLController
 				}
 			}
 		}
-		
-		
 	}
-	
-	
-	
-	
-	
-	
-	
 	
 	private function onMenuItemClick_Panel(e:UIEvent) {
 		trace("onMenuItemClick_Panel: "+e);

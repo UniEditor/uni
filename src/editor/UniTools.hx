@@ -1,5 +1,6 @@
 package editor;
 import data.TypeInfo;
+import openfl.utils.Timer;
 import sys.FileSystem;
 import sys.io.File;
 
@@ -46,11 +47,28 @@ class UniTools
 				typeInfo.reflect = reflect;
 				typeInfo.icon = icon;
 				
-				Uni.getIns().mapType[name] = typeInfo;				
+				Uni.getIns().mapType[name] = typeInfo;
 			}
 		}else {
 			trace("ERROR: can not load TypeList.xml!");
 		}
+	}
+	
+	public function genEdObjId():String{
+		var res:String = "";
+		
+		var now:Date = Date.now();
+		var year:Int = now.getFullYear() - 2010;
+		var month:Int = now.getMonth();
+		var date:Int = now.getDate();
+		var hour:Int = now.getHours();
+		var min:Int = now.getMinutes();
+		var sec:Int = now.getSeconds();
+		
+		var bigInt1:Int = year * 500 + month * 32 + date;
+		var bigInt2:Int = hour * 3600 + min * 60 + sec;
+		res = res + StringTools.hex(bigInt1) +  StringTools.hex(bigInt2);
+		return res;
 	}
 	
 }

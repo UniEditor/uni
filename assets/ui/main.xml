@@ -48,6 +48,7 @@
 		
 		<vbox width="100%" height="100%" id="main-vbox" style="backgroundColor: 0xdfdddd">
 			<hbox width="100%" height="100%" id="main-hbox" style="backgroundColor: 0xdfdddd">
+				
 			</hbox>
 		</vbox>
 		

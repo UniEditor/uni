@@ -22,6 +22,8 @@ class EditableObject
 	public var isLocked:Bool;
 	public var isVisible:Bool;
 	
+	public var id:String;
+	
 	//core data
 	public var customType:String;//custome type id
 	public var proGroups:Array<ProGroup>;

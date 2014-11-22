@@ -30,12 +30,16 @@ class EdObjAct_Add implements IAction
 		var typeInfo:TypeInfo = Uni.getIns().mapType[typeId];
 		if(typeInfo == null) return;
 		
-		trace("creating: " + typeInfo.reflect);
-		
 		var classObj = Type.resolveClass(typeInfo.reflect);
+		var edObj:EditableObject = cast Type.createInstance(classObj, []);
+		edObj.id = Uni.getIns().uniTools.genEdObjId();
+		
+		trace("edObj.id:" + edObj.id);
+		Uni.getIns().mapEdObj[edObj.id] = edObj;
+		
+		//todo send msg to update the render's
 		
 		
-		trace(classObj);
 	}
 	
 	public function undoAction():Void 
