@@ -69,13 +69,7 @@ class StageRender extends Sprite
 	}
 	
 	private function onEdObjAdd(e:UniEvent):Void {
-		trace("stageRender got edObj add");
-		
-		trace(e.data);
-		
-		//todo parse type and create correspoding render and add to stage
-		
-		
+		trace("stageRender:edObj_add " + e.data);
 		if (e.data == null) return;
 
 		var edObj:EditableObject = Uni.getIns().mapEdObj[e.data];
@@ -93,7 +87,6 @@ class StageRender extends Sprite
 		
 		renderInstance.x = 100;
 		renderInstance.y = 100;
-		
 	}
 	
 	//all possible changes:

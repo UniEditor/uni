@@ -1,31 +1,14 @@
 
-
-Phrase I : Basic Framework
-
+Works done:
 Scripting Engine Setup
 ExtensionManager Search Ext and Parse PanelDefines
 UI Frame
 Panel System
 Bind Panel with Ext
-
-Phrase II : Simple Panel and Extensions
-
 Log Panel
 Lib Panel
-Layer Panel
-
-Phrase III : Stage Randering
-
 Stage Rendering
-Renders (Image, SpriteSheet Ani, Skeleton Ani)
-Pro Panels System
 
-Phrase IV : Application Like
-
-Actions System (Undo/Redo)
-Panel Resizing
-Right Click Operation
-Panel Docking
 
 
 =========================================================================

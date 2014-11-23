@@ -1,0 +1,66 @@
+
+=========================================================
+Uni shall use plain version number:
+	
+mainVersion.subVersion.buildNumber
+
+
+MainVersion will change only if incompatiblity in extension, project file, or changes important enough happens
+SubVersion will change if corresponding mileStone is reached
+BuildNumber will change whenever a stable version is released
+
+
+=========================================================
+I have planned serveral mileStones for Uni, each with a subversion name:
+
+<<Milestone 0.1 : Make a scene, export and play in a game engine
+
+transformation property group
+pro panel for transformation
+exporter system
+a simple export format
+loader of the format for HaxeFlixel
+
+<<Milestone 0.2 : Project by project, file by file
+
+Project save, load functionality
+
+
+<<Milestone 0.3 : A proper editor, not a haxeui demo
+
+Clean up menu bar
+Restyle the whole UI
+Undo, redo
+Panel Resizing
+
+<<Milestone 0.4 : Get nested, now!
+
+nest structure support for edobj
+LayerManager panel support manipulate nest structure
+
+<<Milestone 0.5 : Go Gadget!
+
+rendering simple tranformer gadget
+gadget should support dragging, scaling, rotation
+
+<<MIlestone 0.6 : Dock Dock Dock
+
+Docking system for panels
+
+<<Milestone 0.7 : Right, Click!
+
+Right click system:
+Panels
+Controls within some panel
+Stage
+Edobj on stage
+
+<<Milestone 0.8 : Finishing UniSprite
+
+render setting for UniSprite
+custom property for edobj
+
+<<Milestone 0.9 : Things are not different
+
+curtome type
+custom property for custome types
