@@ -1,6 +1,7 @@
 package  ;
 
 import editor.extention.ExtManager;
+import editor.render.StageRender;
 import editor.Uni;
 import flash.display.Sprite;
 import flash.events.Event;
@@ -86,6 +87,8 @@ class Main extends Sprite
 		}
 		trace("======================");
 		
+		//init stage render
+		StageRender.getIns();
 		
 		//--------------------------------------------------
 		//uni ready

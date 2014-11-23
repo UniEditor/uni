@@ -15,10 +15,14 @@ class UniSprite extends EditableObject
 	//render
 	//custome infomation
 	
+	
+	
 	public function new() 
 	{
 		super();
 		//proGroups.push();
+		
+		renderClass = UniSpriteRender;
 	}
 	
 	@:getter(transformation)

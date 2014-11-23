@@ -4,6 +4,7 @@ import editor.extention.Extension;
 import editor.extention.ExtManager;
 import editor.render.StageRender;
 import haxe.ui.toolkit.controls.MenuItem;
+import haxe.ui.toolkit.core.Component;
 import haxe.ui.toolkit.core.Root;
 import haxe.ui.toolkit.core.Toolkit;
 import haxe.ui.toolkit.core.XMLController;
@@ -26,6 +27,10 @@ class EditorFrame extends XMLController
 		return instance;
 	}
 	
+	
+	
+	public var mainBox:Component;
+	
 	public var mapOpenPanels:Map<String, EditorPanel>;
 	
 	public function new() 
@@ -33,8 +38,10 @@ class EditorFrame extends XMLController
 		super("ui/main.xml");
 		mapOpenPanels = new Map<String, EditorPanel>();
 		
+		trace("EditorFrame new");
+		
 		//create stageRender
-		addChild(StageRender.getIns());
+		mainBox = this.getComponent("mainBox");
 	}
 	
 	//interfaces
