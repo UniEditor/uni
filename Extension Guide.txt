@@ -1,0 +1,38 @@
+
+
+What an extension can do/be?
+
+1 Create Hs Extension
+
+All hs Extesion will all inited when program starts,
+and will be running at backgrounds, with access to
+all data stored in Uni
+Extension will also be fired under command menu
+
+--create an hs file and put to ext folder
+
+2 Create Panel
+
+Programe will scan xml files, if valid, will create a item in panel
+All panels are extenstions
+There could be an extension 
+
+--create an xml file and put to ext folder (need to meet format)
+--usually a hs to bind with
+
+3 Create New DataTypes
+
+--UniSprite
+--UniSpriteRender
+--Register new types in TypeList.xml (so that to display in lib panel)
+
+4 Create New ProGroups
+
+--
+
+
+
+
+
+User levels
+

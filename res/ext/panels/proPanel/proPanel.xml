@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<panelDefine id="proPanel" title="Log" extId="uni.pro" >
+	<frame resize="false" minWd="100" minHt="100" defaultWd="300" defaultHt="500"/>
+	
+	<body>
+		<vbox id="txt" width="100%" height="100%"/>
+	</body>
+</panelDefine>
