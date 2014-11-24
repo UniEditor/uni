@@ -1,6 +1,7 @@
 package modules.uniSprite ;
 import data.EditableObject;
 import data.pro.ProGroup;
+import modules.basic.ProGroupTransformation;
 
 /**
  * So this is the pure data, not render
@@ -15,19 +16,17 @@ class UniSprite extends EditableObject
 	//render
 	//custome infomation
 	
-	
+	public var transform:ProGroupTransformation;
 	
 	public function new() 
 	{
 		super();
-		//proGroups.push();
+		proGroups["transform"] = new ProGroupTransformation();
+		transform = cast proGroups["transform"];
 		
 		renderClass = UniSpriteRender;
 	}
 	
-	@:getter(transformation)
-	public function get_transformation() {
-		return null;
-	}
+	
 	
 }

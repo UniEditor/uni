@@ -65,31 +65,18 @@ class Uni
 	//EdObj functions
 
 	public function createEmptyEdObj(typeInfoId:String):Void {
-		
 		var act:EdObjAct_Add = new EdObjAct_Add(typeInfoId);
 		act.doAction();
-		
-		//broadcast event
-		
 	}
 	
 	public function removeEdObj(edo:EditableObject):Void {
-		
 		var act:EdObjAct_Remove = new EdObjAct_Remove();
 		act.doAction();
-		
-		//broadcast event
-		
 	}
 	
-	public function editEdObjPro():Void {
-		
-		var text:Button = new Button();
-		text.style.borderColor = 0x996699;
-		
-		
-		
-		
+	public function editEdObjPro(edoId:String, proGroupId:String, valueId:String, value:Dynamic):Void {
+		var act:EdObjAct_Remove = new EdObjAct_Remove();
+		act.doAction();
 	}
 	
 	

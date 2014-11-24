@@ -14,9 +14,12 @@ class ProGroupTransformation extends ProGroup
 	public var scaleX:Float;
 	public var scaleY:Float;
 	
+	public var width:Float;
+	public var height:Float;
+	
 	public function new() 
 	{
-		
+		super();
 	}
 	
 }

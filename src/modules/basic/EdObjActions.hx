@@ -38,6 +38,8 @@ class EdObjAct_Add implements IAction
 		
 		edObj.id = Uni.getIns().uniTools.genEdObjId();
 		edObj.typeInfoID = typeId;
+		edObj.initPos(500, 500);//todo replace with stage cam's center pos
+		
 		Uni.getIns().mapEdObj[edObj.id] = edObj;
 		//todo add to nest structure
 		

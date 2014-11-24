@@ -81,12 +81,10 @@ class StageRender extends Sprite
 		var renderInstance:EdObjRender = cast Type.createInstance(theClass, []);
 		if (renderInstance == null) return;
 		
-		renderInstance.edObj = edObj;
+		renderInstance.init(edObj);
+		renderInstance.render();
 		
 		contentLayer.addChild(renderInstance);
-		
-		renderInstance.x = 100;
-		renderInstance.y = 100;
 	}
 	
 	//all possible changes:
