@@ -10,6 +10,8 @@ class UniEvent extends Event
 	
 	public static var LOG_ADD:String = "LOG_ADD";
 	
+	public static var SEL_CHANGE:String = "SEL_CHANGE";
+	
 	public static var ED_OBJ_ADD:String = "EDOBJ_ADD";
 	public static var ED_OBJ_REMOVE:String = "ED_OBJ_REMOVE";
 	public static var ED_OBJ_PRO_EDIT:String = "ED_OBJ_PRO_EDIT";

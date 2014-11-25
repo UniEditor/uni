@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<vbox width="100%" height="100%">
+	<hbox width="100%" height="16" style="backgroundColor:0x996699;">
+		<text id="text_title" text="Title"/>
+	</hbox>
+	<box id="sub_content" width="100%" height="100%"/>
+</vbox>

@@ -1,6 +1,8 @@
 package editor;
 import data.TypeInfo;
 import data.EditableObject;
+import editor.event.EventManager;
+import editor.event.UniEvent;
 import editor.Uni.Nest;
 import haxe.remoting.AMFConnection;
 import haxe.ui.toolkit.controls.Button;
@@ -35,10 +37,12 @@ class Uni
 	public var mapEdObj:Map<String, EditableObject>;
 	public var nestEdObj:Nest;
 	
-	
 	//type info
 	public var mapType:Map<String, TypeInfo>;//uni official type and types provided by ext
 	public var mapCustomeTpye:Map<String, TypeInfo>;//created by user during a project
+	
+	//select
+	public var selectedId:String;
 	
 	public function new() 
 	{
@@ -49,11 +53,25 @@ class Uni
 		
 		mapType = new Map<String, TypeInfo>();
 		mapCustomeTpye = new Map<String, TypeInfo>();
+		
+		selectedId = null;
 	}
 	
 	
 	//=====INTERFACES=====
  	//these generate call actions
+	
+	
+	//Select functions
+	//TODO change to multi-select
+	
+	public function doSelect(edobjId:String):Void {
+		selectedId = edobjId;//todo check if really changed
+		EventManager.getIns().dispatchEvent(new UniEvent(UniEvent.SEL_CHANGE, null));
+		trace("mapEdObj asel: " + Uni.getIns().mapEdObj.toString());
+		
+	}
+	
 	
 	//Type functions
 	
@@ -78,7 +96,6 @@ class Uni
 		var act:EdObjAct_Remove = new EdObjAct_Remove();
 		act.doAction();
 	}
-	
 	
 	
 }

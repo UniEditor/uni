@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<panelDefine id="proPanel" title="Log" extId="uni.pro" >
+<panelDefine id="proPanel" title="Property" extId="uni.pro" >
 	<frame resize="false" minWd="100" minHt="100" defaultWd="300" defaultHt="500"/>
 	
 	<body>
-		<vbox id="txt" width="100%" height="100%"/>
+		<vbox id="groups" width="100%" height="100%">
+			<vbox id="header" width="100%" height="40">
+				<text id="txt_name" text="txt_name" />
+				<text id="txt_type" text="txt_type"/>
+			</vbox>	
+		</vbox>
 	</body>
 </panelDefine>

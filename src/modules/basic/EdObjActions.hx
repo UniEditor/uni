@@ -42,10 +42,12 @@ class EdObjAct_Add implements IAction
 		
 		Uni.getIns().mapEdObj[edObj.id] = edObj;
 		//todo add to nest structure
-		
+		trace("mapEdObj: " + Uni.getIns().mapEdObj.toString());
 		//todo send msg to update the render's
 		EventManager.getIns().dispatchEvent(new UniEvent(UniEvent.ED_OBJ_ADD, edObj.id));
 		
+		//select the newly created things
+		Uni.getIns().doSelect(edObj.id);
 	}
 	
 	public function undoAction():Void 
