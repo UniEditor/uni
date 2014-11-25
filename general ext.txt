@@ -5,4 +5,3 @@ all callbacks need to be registered
 folders: commands, exporters, extensions do not affect how exts behave, just arrangement for structured display in menu bar
 
 for panels, there must be an valid xml indicating which ext,it binds
-
