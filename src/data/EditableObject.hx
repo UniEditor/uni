@@ -28,12 +28,14 @@ class EditableObject
 	//core data
 	public var id:String;
 	public var typeInfoID:String;
-	public var proGroups:Map<String,ProGroup>;
 	
+	public var proGroupList:Array<String>;//for proPanel, for a sorted list
+	public var proGroups:Map<String,ProGroup>;
 	public var renderClass:Class<EdObjRender>;
 	
 	public function new() 
 	{
+		proGroupList = new Array<String>();
 		proGroups = new Map<String,ProGroup>();
 	}
 	

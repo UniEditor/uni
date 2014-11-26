@@ -10,9 +10,11 @@ import haxe.ui.toolkit.containers.VBox;
 import haxe.ui.toolkit.controls.Button;
 import haxe.ui.toolkit.controls.Image;
 import haxe.ui.toolkit.controls.Text;
+import haxe.ui.toolkit.core.Toolkit;
 import haxe.ui.toolkit.events.UIEvent;
 import haxe.ui.toolkit.hscript.ScriptInterp;
 import hscript.Interp;
+import sys.io.File;
 import openfl.events.EventDispatcher;
 import ui.EditorFrame;
 import ui.EditorPanel;
@@ -26,6 +28,7 @@ class Extension extends EventDispatcher
 	
 	public var id:String;
 	
+	public var folderPath:String;
 	public var fullPath:String;
 	public var panelId:String;
 	
@@ -48,6 +51,10 @@ class Extension extends EventDispatcher
 		interp.variables.set("UIEvent", UIEvent);
 		interp.variables.set("TypeInfo", TypeInfo);
 		interp.variables.set("Uni", Uni);
+		interp.variables.set("File", File);
+		interp.variables.set("Xml", Xml);
+		interp.variables.set("Toolkit", Toolkit);
+		
 		
 		interp.variables.set("Text", Text);
 		interp.variables.set("Image", Image);
@@ -85,4 +92,17 @@ class Extension extends EventDispatcher
 		EditorFrame.getIns().openPanel(panelInfo);
 	}
 	
+	public function getFileContent(path:String):String {
+		var file = File.getContent(path);
+		return file;
+	}
+	
+	public function getXmlFirstChildOfName(xml:Xml, name:String):Xml {
+		trace("getXmlFirstChildOfName: " + name);
+		for (sec in xml.elementsNamed(name) ) {
+			return sec;
+		}
+		
+		return null;
+	}
 }

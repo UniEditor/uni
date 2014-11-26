@@ -21,6 +21,9 @@ class UniSprite extends EditableObject
 	public function new() 
 	{
 		super();
+		
+		proGroupList.push("transform");
+		
 		proGroups["transform"] = new ProGroupTransformation();
 		transform = cast proGroups["transform"];
 		

@@ -75,7 +75,7 @@ class ExtManager
 				var endFix:String = getEndfix(s);
 				if (endFix == "hs" || endFix == "hx") {
 					trace("Doing HS: " + childItemPath);
-					parseExtFromFile(childItemPath);
+					parseExtFromFile(childItemPath, fullPath);
 				}else if (endFix == "xml") {
 					trace("Doing XML: " + childItemPath);
 					parsePanelFromFile(childItemPath);
@@ -84,11 +84,12 @@ class ExtManager
 		}
 	}
 	
-	public function parseExtFromFile(childItemPath:String):Void {
+	public function parseExtFromFile(childItemPath:String, folderPath:String):Void {
 		var content:String = File.getContent(childItemPath);
 		
 		var theExt:Extension = new Extension();
 		theExt.fullPath = childItemPath;
+		theExt.folderPath = folderPath;
 		theExt.id = childItemPath;//todo replace "/" to "."
 		
 		ScriptManager.getIns().runString(content,theExt.interp);

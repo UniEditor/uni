@@ -17,6 +17,35 @@ function renderEdObj(edObj) {
 	
 	var txt_type = body.findChild("txt_type", null, true);
 	txt_type.text = edObj.typeInfoID;
+	
+	var content = body.findChild("content", null, true);
+	
+	for (one in edObj.proGroupList) {
+		trace(one);
+		
+		if (one == "transform") {
+			trace(this.folderPath + "/transform/transform.xml");
+			trace(File);
+			var file =this.getFileContent(this.folderPath + "/transform/transform.xml");
+			//trace(file);
+			
+			var xml = Xml.parse(file);
+			//trace(xml);
+			
+			var bodyXml = this.getXmlFirstChildOfName(xml, "proDefine");
+			trace(bodyXml);
+			
+			var body = Toolkit.processXml(bodyXml);
+			trace("body" + body);
+			
+			var frame = Toolkit.processXmlResource("ui/panels/pro_frame.xml");
+			content.addChild(frame);
+			
+			var sub_content = frame.findChild("sub_content", null, true);
+			sub_content.addChild(body);
+		}
+	}
+	
 }
 
 function renderNull() {
