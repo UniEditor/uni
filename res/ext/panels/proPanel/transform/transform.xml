@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <proDefine>
 	<grid columns="4">
-		<text text="X"/>
-		<textInput id="input_x" text="0"/>
-		<text text="Width"/>
-		<textInput id="input_w" text="0"/>
-		<text text="Y"/>
-		<textInput id="input_Y" text="0"/>
-		<text text="Height"/>
-		<textInput id="input_h" text="0"/>
+		<text text="X" width="100%"/>
+		<textInput id="input_x" text="0" width="100%" />
+		<text text="Width" width="100%"/>
+		<textInput id="input_w" text="0" width="100%"/>
+		<text text="Y" width="100%"/>
+		<textInput id="input_Y" text="0" width="100%"/>
+		<text text="Height" width="100%"/>
+		<textInput id="input_h" text="0" width="100%"/>
 	</grid>
 </proDefine>
