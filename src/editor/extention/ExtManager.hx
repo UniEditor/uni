@@ -74,8 +74,12 @@ class ExtManager
 			}else {
 				var endFix:String = getEndfix(s);
 				if (endFix == "hs" || endFix == "hx") {
+					
 					trace("Doing HS: " + childItemPath);
-					parseExtFromFile(childItemPath, fullPath);
+					var id:String = parseExtFromFile(childItemPath, fullPath);
+					if (fullPath == "./res//ext/exporters") {
+						exporterList.push(id);
+					}
 				}else if (endFix == "xml") {
 					trace("Doing XML: " + childItemPath);
 					parsePanelFromFile(childItemPath);
@@ -84,7 +88,7 @@ class ExtManager
 		}
 	}
 	
-	public function parseExtFromFile(childItemPath:String, folderPath:String):Void {
+	public function parseExtFromFile(childItemPath:String, folderPath:String):String {
 		var content:String = File.getContent(childItemPath);
 		
 		var theExt:Extension = new Extension();
@@ -96,6 +100,8 @@ class ExtManager
 		trace("EXT.ID", theExt.id);
 		//id usually be set during the first run
 		mapExt[theExt.id] = theExt;
+		
+		return theExt.id;
 	}
 	
 	public function parsePanelFromFile(childItemPath:String):Void {

@@ -6,6 +6,6 @@ this.onInit = function(){
 
 this.onCommandCall = function() {
 	
-	
+	trace("Test Exporter Called!!!");
 	
 }

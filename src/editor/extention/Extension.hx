@@ -36,6 +36,7 @@ class Extension extends EventDispatcher
 	public var onInit:Void->Void;
 	public var onPanelOpen:Void->Void;
 	public var onPanelClose:Void->Void;
+	public var onCommandCall:Void->Void;
 	
 	public var interp:ScriptInterp;
 	

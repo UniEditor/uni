@@ -14,25 +14,47 @@
 			<vbox>
 				<hbox>
 					<menubutton text="File" id="menu-file">
-						<import resource="ui/menus/file.xml" />
+						<menu>
+							<menuitem id="menu-file-new" text="New" />
+							<menuitem id="menu-file-open" text="Open..." />
+							<menuitem id="menu-file-save" text="Save" condition="Client.target != 'flash'" />
+							<menuitem id="menu-file-save-as" text="Save As..." />
+							
+							<menu text="Recent Files" id="menu-file-recent" condition="Client.target != 'flash'">
+								<menuitem id="" text="SPARQL INSERT.txt" />
+								<menuitem id="" text="SPARQL.txt" />
+								<menuitem id="" text="test file.txt" />
+							</menu>
+							
+							<menuitem id="menu-file-exit" text="Exit" condition="Client.target != 'flash'"/>
+						</menu>
 					</menubutton>
+					
 					<menubutton text="Edit" id="menu-edit">
-						<import resource="ui/menus/edit.xml" />
+						<menu/>
 					</menubutton>
+					
 					<menubutton text="Project" id="menu-project">
-						<import resource="ui/menus/project.xml" />
+						<menu/>
 					</menubutton>
+					
 					<menubutton text="View" id="menu-view">
-						<import resource="ui/menus/view.xml" />
+						<menu/>
 					</menubutton>
+					
+					<menubutton text="Exporters" id="menu-exporter">
+						<menu/>
+					</menubutton>
+					
 					<menubutton text="Extension" id="menu-ext">
-						<import resource="ui/menus/ext.xml" />
+						<menu/>
 					</menubutton>
+					
 					<menubutton text="Help" id="menu-help">
-						<import resource="ui/menus/help.xml" />
+						<menu/>
 					</menubutton>
 				</hbox>
-				<import resource="ui/toolbar.xml" />
+				
 			</vbox>
 		</menubar>
 		

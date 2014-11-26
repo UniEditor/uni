@@ -103,6 +103,16 @@ class EditorFrame extends XMLController
 		openPanel(panelInfo);
 	}
 	
+	private function onMenuItemClick_Exporter(e:UIEvent) {
+		trace("onMenuItemClick_Exporter: "+e);
+		
+		var extID:String = e.component.id;
+		trace(extID);
+		
+		var ext:Extension = ExtManager.getIns().mapExt[extID];
+		ext.onCommandCall();
+	}
+	
 	public function updateExtSubMenu() {
 		
 		//panels
@@ -115,7 +125,20 @@ class EditorFrame extends XMLController
 			menuitem.addEventListener(UIEvent.CLICK, onMenuItemClick_Panel);
 			
 			//menu-ext
-			var menu_ext = getComponent("menu-ext");
+			var menu_ext = getComponent("menu-view");
+			menu_ext.addChild(menuitem);
+		}
+		
+		//exporters
+		for(one in ExtManager.getIns().exporterList){
+			
+			var menuitem:MenuItem = new MenuItem();
+			menuitem.text = one;
+			menuitem.id = one;
+			menuitem.addEventListener(UIEvent.CLICK, onMenuItemClick_Exporter);
+			
+			//menu-ext
+			var menu_ext = getComponent("menu-exporter");
 			menu_ext.addChild(menuitem);
 		}
 	}
