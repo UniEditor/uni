@@ -34,7 +34,7 @@
 		}
 		
 		Text.title {
-			fontSize: 13;
+			fontSize: 14;
 			fontName: "_sans";
 			color: 0xFFFFFF;
 		}

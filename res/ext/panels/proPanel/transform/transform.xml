@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <proDefine>
 	<grid columns="4">
-		<text text="X" width="100%"/>
-		<textInput id="input_x" text="0" width="100%" />
-		<text text="Width" width="100%"/>
-		<textInput id="input_w" text="0" width="100%"/>
-		<text text="Y" width="100%"/>
-		<textInput id="input_Y" text="0" width="100%"/>
-		<text text="Height" width="100%"/>
-		<textInput id="input_h" text="0" width="100%"/>
+		<style>
+			Text {
+				fontSize: 14;
+			}
+		</style>
+		
+		<text text="X" width="50"/>
+		<textInput id="input_x" text="50" width="50"/>
+		<text text="Width" width="50"/>
+		<textInput id="input_w" text="0" width="50"/>
+		
+		<text text="Y" width="50"/>
+		<textInput id="input_Y" text="0" width="50"/>
+		<text text="Height" width="50"/>
+		<textInput id="input_h" text="0" width="50"/>
 	</grid>
 </proDefine>
