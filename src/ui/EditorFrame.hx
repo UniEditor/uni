@@ -90,7 +90,6 @@ class EditorFrame extends XMLController
 	
 	public function showExporter(exporterInfo:ExporterInfo):Void {
 		
-		
 		if (mapOpenExporterPopups.exists(exporterInfo.id)) {
 			var thePopup:EditorPopup = mapOpenPanels[exporterInfo.id];
 			
@@ -158,6 +157,10 @@ class EditorFrame extends XMLController
 			var menu_ext = getComponent("menu-exporter");
 			menu_ext.addChild(menuitem);
 		}
+		
+		
+		
+		
 	}
 	
 	

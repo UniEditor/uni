@@ -2,8 +2,12 @@
 <panelDefine id="testExporter" title="Test Exporter" extId="exporter.test">
 	
 	
-	
-	
-	
+	<body>
+		<vbox>
+			<text text="path" />
+			<button text="change"/>
+			<button text="Export"/>
+		</vbox>
+	</body>
 	
 </panelDefine>

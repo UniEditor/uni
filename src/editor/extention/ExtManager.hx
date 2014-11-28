@@ -28,6 +28,7 @@ class ExtManager
 	{
 		mapExt = new Map<String, Extension>();
 		mapPanelInfo = new Map<String, PanelInfo>();
+		mapExporterInfo = new Map<String, ExporterInfo>();
 		
 		commandList = new Array<String>();
 		panelList = new Array<String>();
@@ -37,6 +38,8 @@ class ExtManager
 	//data
 	public var mapExt:Map<String, Extension>;
 	public var mapPanelInfo:Map<String, PanelInfo>;
+	public var mapExporterInfo:Map<String, ExporterInfo>;
+	
 	
 	//for menu
 	public var commandList:Array<String>;//things to put in command folder
@@ -74,12 +77,8 @@ class ExtManager
 			}else {
 				var endFix:String = getEndfix(s);
 				if (endFix == "hs" || endFix == "hx") {
-					
 					trace("Doing HS: " + childItemPath);
 					var id:String = parseExtFromFile(childItemPath, fullPath);
-					if (fullPath == "./res//ext/exporters") {
-						exporterList.push(id);
-					}
 				}else if (endFix == "xml") {
 					trace("Doing XML: " + childItemPath);
 					parseXmlFromFile(childItemPath);
@@ -120,10 +119,9 @@ class ExtManager
 		
 		defineXml = getFirstNamedElement(xml, "exporterDefine");
 		if(defineXml != null){
-			parsePanelFromXml(defineXml, childItemPath);
+			parseExporterFromXml(defineXml, childItemPath);
 			return;
 		}
-		
 	}
 	
 	public function parsePanelFromXml(panelDefine:Xml, childItemPath:String):Void {
@@ -161,15 +159,52 @@ class ExtManager
 			
 			//todo check same id problem
 			
-			var isExporter:Bool = panelDefine.get("isExporter");
-			
 			mapPanelInfo.set(id, panelInfo);
 			panelList.push(id);
 		}
 		
 	}
 	
-	
+	public function parseExporterFromXml(xmlDefine:Xml, childItemPath:String):Void {
+		
+		var frameXml:Xml = null;
+		var bodyXml:Xml = null;
+
+		if(xmlDefine != null){
+			for (one in xmlDefine.elementsNamed("frame") ) {
+				frameXml = one; break;
+			}
+			for (one in xmlDefine.elementsNamed("body") ) {
+				bodyXml = one; break;
+			}
+		}
+		
+		if (xmlDefine != null && frameXml != null) {
+			var id:String = xmlDefine.get("id");
+			var title:String = xmlDefine.get("title");
+			
+			if (xmlDefine.exists("id") == false) {
+				trace("ERROR no id from " + childItemPath);
+			}
+			
+			if (xmlDefine.exists("title") == false) {
+				trace("ERROR no id title " + childItemPath);
+			}
+			
+			var expInfo:ExporterInfo = new ExporterInfo();
+			expInfo.id = id;
+			expInfo.title = title;
+			expInfo.body = bodyXml;
+			expInfo.extId = xmlDefine.get("extId");
+			
+			
+			//todo check same id problem
+
+			mapExporterInfo.set(id, panelInfo);
+			exporterList.push(id);
+		}
+		
+	}
 	
 	public function bindPanelAndExt():Void {
 		trace("bindPanelAndExt");
@@ -193,6 +228,8 @@ class ExtManager
 	public function updateExts():Void {
 		
 	}
+	
+	//tool functions
 	
 	public function getEndfix(path:String):String {
 		//trace("getEndfix 1 " + path);
@@ -229,6 +266,9 @@ class ExporterInfo {
 	public var title:String;
 	public var body:Xml;
 	public var extId:String;
+	
+	public var width:Int;
+	public var height:Int;
 	
 	public function new(){
 	}
