@@ -36,3 +36,14 @@ There could be an extension
 
 User levels
 
+
+
+
+----
+all files .hs will be run once at program init
+all files .hs will be treated as a ext each
+all callbacks need to be registered
+
+folders: commands, exporters, extensions do not affect how exts behave, just arrangement for structured display in menu bar
+
+for panels, there must be an valid xml indicating which ext,it binds

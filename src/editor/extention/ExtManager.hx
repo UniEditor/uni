@@ -82,7 +82,7 @@ class ExtManager
 					}
 				}else if (endFix == "xml") {
 					trace("Doing XML: " + childItemPath);
-					parsePanelFromFile(childItemPath);
+					parseXmlFromFile(childItemPath);
 				}
 			}
 		}
@@ -104,37 +104,51 @@ class ExtManager
 		return theExt.id;
 	}
 	
-	public function parsePanelFromFile(childItemPath:String):Void {
+	
+	public function parseXmlFromFile(childItemPath:String):Void {
 		
 		var content:String = File.getContent(childItemPath);
 		//trace("content:" + content);
 		
 		var xml:Xml = Xml.parse(content);
-		var defineXml:Xml = null;
+		
+		var defineXml:Xml = getFirstNamedElement(xml, "panelDefine");
+		if(defineXml != null){
+			parsePanelFromXml(defineXml, childItemPath);
+			return;
+		}
+		
+		defineXml = getFirstNamedElement(xml, "exporterDefine");
+		if(defineXml != null){
+			parsePanelFromXml(defineXml, childItemPath);
+			return;
+		}
+		
+	}
+	
+	public function parsePanelFromXml(panelDefine:Xml, childItemPath:String):Void {
+
 		var frameXml:Xml = null;
 		var bodyXml:Xml = null;
-		
-		for (one in xml.elementsNamed("panelDefine") ) {
-			defineXml = one; break;
-		}
-		if(defineXml != null){
-			for (one in defineXml.elementsNamed("frame") ) {
+
+		if(panelDefine != null){
+			for (one in panelDefine.elementsNamed("frame") ) {
 				frameXml = one; break;
 			}
-			for (one in defineXml.elementsNamed("body") ) {
+			for (one in panelDefine.elementsNamed("body") ) {
 				bodyXml = one; break;
 			}
 		}
 		
-		if (defineXml != null && frameXml != null) {
-			var id:String = defineXml.get("id");
-			var title:String = defineXml.get("title");
+		if (panelDefine != null && frameXml != null) {
+			var id:String = panelDefine.get("id");
+			var title:String = panelDefine.get("title");
 			
-			if (defineXml.exists("id") == false) {
+			if (panelDefine.exists("id") == false) {
 				trace("ERROR no id from " + childItemPath);
 			}
 			
-			if (defineXml.exists("title") == false) {
+			if (panelDefine.exists("title") == false) {
 				trace("ERROR no id title " + childItemPath);
 			}
 			
@@ -142,14 +156,20 @@ class ExtManager
 			panelInfo.id = id;
 			panelInfo.title = title;
 			panelInfo.body = bodyXml;
-			panelInfo.extId = defineXml.get("extId");
+			panelInfo.extId = panelDefine.get("extId");
+			
 			
 			//todo check same id problem
+			
+			var isExporter:Bool = panelDefine.get("isExporter");
 			
 			mapPanelInfo.set(id, panelInfo);
 			panelList.push(id);
 		}
+		
 	}
+	
+	
 	
 	public function bindPanelAndExt():Void {
 		trace("bindPanelAndExt");
@@ -183,6 +203,13 @@ class ExtManager
 		}
 		return "";
 	}
+	
+	public function getFirstNamedElement(xml:Xml, name:String):Void {
+		for (one in xml.elementsNamed(name) ) {
+			return one;
+		}
+		return null;
+	}
 }
 
 class PanelInfo {
@@ -194,5 +221,15 @@ class PanelInfo {
 	
 	public function new(){
 	}
+}
+
+class ExporterInfo {
 	
+	public var id:String;
+	public var title:String;
+	public var body:Xml;
+	public var extId:String;
+	
+	public function new(){
+	}
 }

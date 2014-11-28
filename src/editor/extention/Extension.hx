@@ -31,6 +31,7 @@ class Extension extends EventDispatcher
 	public var folderPath:String;
 	public var fullPath:String;
 	public var panelId:String;
+	public var exporterId:String;
 	
 	//function to override in script
 	public var onInit:Void->Void;
@@ -103,7 +104,6 @@ class Extension extends EventDispatcher
 		for (sec in xml.elementsNamed(name) ) {
 			return sec;
 		}
-		
 		return null;
 	}
 }

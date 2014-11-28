@@ -1,4 +1,4 @@
-this.id = "Test Exporter";
+this.id = "exporter.test";
 
 this.onInit = function(){
 	//this.forceOpenPanel();

@@ -5,6 +5,7 @@ import editor.extention.ExtManager;
 import editor.render.StageRender;
 import haxe.ui.toolkit.controls.MenuItem;
 import haxe.ui.toolkit.core.Component;
+import haxe.ui.toolkit.core.PopupManager;
 import haxe.ui.toolkit.core.Root;
 import haxe.ui.toolkit.core.Toolkit;
 import haxe.ui.toolkit.core.XMLController;
@@ -89,6 +90,11 @@ class EditorFrame extends XMLController
 			}
 		}
 	}
+	
+	public function showExporter():Void {
+		PopupManager.instance.
+	}
+	
 	
 	private function onMenuItemClick_Panel(e:UIEvent) {
 		trace("onMenuItemClick_Panel: "+e);
