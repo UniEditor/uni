@@ -39,6 +39,10 @@ class EditableObject
 		proGroups = new Map<String,ProGroup>();
 	}
 	
+	public function get(proGroupName:String):ProGroup {
+		return proGroups[proGroupName];
+	}
+	
 	//call at creation
 	public function initPos(x:Float, y:Float):Void {
 		//can not gurrant all edObj has tranformation, so to be override

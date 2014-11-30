@@ -20,6 +20,7 @@
 	
 	<haxelib name="haxeui"/>
 	<haxelib name="hscript"/>
+	<haxelib name="systools"/>
 	
 	<!-- assets -->
 	<icon path="assets/openfl.svg" />

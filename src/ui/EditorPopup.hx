@@ -1,6 +1,7 @@
 package ui;
 import haxe.ui.toolkit.core.Component;
 import haxe.ui.toolkit.core.interfaces.IDraggable;
+import openfl._v2.events.MouseEvent;
 
 /**
  * It has a title, closeBtn, and then the content

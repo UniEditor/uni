@@ -13,9 +13,8 @@ class ProGroup
 	
 	public function new() 
 	{
-		
+		fields = new Array<ProField>();
 	}
-	
 }
 
 class ProField

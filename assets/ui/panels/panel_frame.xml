@@ -49,10 +49,11 @@
 		
 		.bgPanel {
 			backgroundColor: 0x999999;
+			
 		}
 	</style>
 	
-	<vbox id="main" width="100%" height="100%" styleName = "overall">
+	<vbox id="main" width="100%" height="100%" styleName = "overall" style="filter:dropShadow(2, 45, 0x000000, 1, 4, 4, 1, 3);">
 		<hbox id="headerBar" width="100%" height="20" styleName="header">
 			<image id="header_icon" width="16" height="16"/>
 			<text id="header_title" styleName="title"/>

@@ -28,7 +28,6 @@ class ExtManager
 	{
 		mapExt = new Map<String, Extension>();
 		mapPanelInfo = new Map<String, PanelInfo>();
-		mapExporterInfo = new Map<String, ExporterInfo>();
 		
 		commandList = new Array<String>();
 		panelList = new Array<String>();
@@ -38,7 +37,6 @@ class ExtManager
 	//data
 	public var mapExt:Map<String, Extension>;
 	public var mapPanelInfo:Map<String, PanelInfo>;
-	public var mapExporterInfo:Map<String, ExporterInfo>;
 	
 	
 	//for menu
@@ -105,7 +103,6 @@ class ExtManager
 	
 	
 	public function parseXmlFromFile(childItemPath:String):Void {
-		
 		var content:String = File.getContent(childItemPath);
 		//trace("content:" + content);
 		
@@ -113,18 +110,18 @@ class ExtManager
 		
 		var defineXml:Xml = getFirstNamedElement(xml, "panelDefine");
 		if(defineXml != null){
-			parsePanelFromXml(defineXml, childItemPath);
+			parsePanelFromXml(defineXml, childItemPath, false); trace("=========================GOT panel!");
 			return;
 		}
 		
 		defineXml = getFirstNamedElement(xml, "exporterDefine");
 		if(defineXml != null){
-			parseExporterFromXml(defineXml, childItemPath);
+			parsePanelFromXml(defineXml, childItemPath, true);trace("============================GOT exp!");
 			return;
 		}
 	}
 	
-	public function parsePanelFromXml(panelDefine:Xml, childItemPath:String):Void {
+	public function parsePanelFromXml(panelDefine:Xml, childItemPath:String, isExporter:Bool ):Void {
 
 		var frameXml:Xml = null;
 		var bodyXml:Xml = null;
@@ -144,10 +141,17 @@ class ExtManager
 			
 			if (panelDefine.exists("id") == false) {
 				trace("ERROR no id from " + childItemPath);
+				return;
 			}
 			
 			if (panelDefine.exists("title") == false) {
 				trace("ERROR no id title " + childItemPath);
+				return;
+			}
+			
+			if(mapPanelInfo.exists(id)){
+				trace("ERROR panel id already exist " + id);
+				return;
 			}
 			
 			var panelInfo:PanelInfo = new PanelInfo();
@@ -155,53 +159,19 @@ class ExtManager
 			panelInfo.title = title;
 			panelInfo.body = bodyXml;
 			panelInfo.extId = panelDefine.get("extId");
+			panelInfo.resizable = frameXml.get("resize") == "true";
+			panelInfo.defaultWd = Std.parseInt(frameXml.get("defaultWd"));
+			panelInfo.defaultHt = Std.parseInt(frameXml.get("defaultHt"));
+			
+			panelInfo.isExporter = isExporter;
 			
 			
-			//todo check same id problem
-			
+			if(isExporter == false){
+				panelList.push(id);
+			}else {
+				exporterList.push(id);
+			}
 			mapPanelInfo.set(id, panelInfo);
-			panelList.push(id);
-		}
-		
-	}
-	
-	public function parseExporterFromXml(xmlDefine:Xml, childItemPath:String):Void {
-		
-		var frameXml:Xml = null;
-		var bodyXml:Xml = null;
-
-		if(xmlDefine != null){
-			for (one in xmlDefine.elementsNamed("frame") ) {
-				frameXml = one; break;
-			}
-			for (one in xmlDefine.elementsNamed("body") ) {
-				bodyXml = one; break;
-			}
-		}
-		
-		if (xmlDefine != null && frameXml != null) {
-			var id:String = xmlDefine.get("id");
-			var title:String = xmlDefine.get("title");
-			
-			if (xmlDefine.exists("id") == false) {
-				trace("ERROR no id from " + childItemPath);
-			}
-			
-			if (xmlDefine.exists("title") == false) {
-				trace("ERROR no id title " + childItemPath);
-			}
-			
-			var expInfo:ExporterInfo = new ExporterInfo();
-			expInfo.id = id;
-			expInfo.title = title;
-			expInfo.body = bodyXml;
-			expInfo.extId = xmlDefine.get("extId");
-			
-			
-			//todo check same id problem
-
-			mapExporterInfo.set(id, panelInfo);
-			exporterList.push(id);
 		}
 		
 	}
@@ -241,7 +211,7 @@ class ExtManager
 		return "";
 	}
 	
-	public function getFirstNamedElement(xml:Xml, name:String):Void {
+	public function getFirstNamedElement(xml:Xml, name:String):Xml {
 		for (one in xml.elementsNamed(name) ) {
 			return one;
 		}
@@ -256,19 +226,13 @@ class PanelInfo {
 	public var body:Xml;
 	public var extId:String;
 	
-	public function new(){
-	}
-}
-
-class ExporterInfo {
+	public var resizable:Bool;
+	public var minWd:Int;
+	public var minHt:Int;
+	public var defaultWd:Int;
+	public var defaultHt:Int;
 	
-	public var id:String;
-	public var title:String;
-	public var body:Xml;
-	public var extId:String;
-	
-	public var width:Int;
-	public var height:Int;
+	public var isExporter:Bool;
 	
 	public function new(){
 	}

@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<panelDefine id="testExporter" title="Test Exporter" extId="exporter.test">
+<exporterDefine id="testExporter" title="Test Exporter" extId="exporter.test">
 	
+	<frame resize="false" minWd="100" minHt="100" defaultWd="300" defaultHt="500"/>
 	
 	<body>
 		<vbox>
-			<text text="path" />
-			<button text="change"/>
-			<button text="Export"/>
+			<text id="txt_path" text="path" />
+			<button id="btn_changePath" text="change"/>
+			<button id="btn_export" text="Export"/>
 		</vbox>
 	</body>
 	
-</panelDefine>
+</exporterDefine>

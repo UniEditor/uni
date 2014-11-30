@@ -30,14 +30,12 @@ class EditorFrame extends XMLController
 	
 	public var mainBox:Component;
 	public var mapOpenPanels:Map<String, EditorPanel>;
-	public var mapOpenExporterPopups:Map<String, EditorPopup>;
-	
+
 	public function new() 
 	{
 		super("ui/main.xml");
 		mapOpenPanels = new Map<String, EditorPanel>();
-		mapOpenExporterPopups = new Map<String, EditorPopup>();
-		
+
 		//create stageRender
 		mainBox = this.getComponent("mainBox");
 	}
@@ -88,23 +86,7 @@ class EditorFrame extends XMLController
 		}
 	}
 	
-	public function showExporter(exporterInfo:ExporterInfo):Void {
-		
-		if (mapOpenExporterPopups.exists(exporterInfo.id)) {
-			var thePopup:EditorPopup = mapOpenPanels[exporterInfo.id];
-			
-			//todo put to top
-		}else {
-			//creating new
-			var popup:EditorPopup = new EditorPopup();
-			popup.init(exporterInfo);
-			
-			PopupManager.instance.showCustom(popup, "Title");
-			mapOpenPanels[panelInfo.id] = panel;
-			
-		}
-	}
-	
+	//UI Event Handles
 	
 	private function onMenuItemClick_Panel(e:UIEvent) {
 		trace("onMenuItemClick_Panel: "+e);
@@ -122,12 +104,18 @@ class EditorFrame extends XMLController
 	private function onMenuItemClick_Exporter(e:UIEvent) {
 		trace("onMenuItemClick_Exporter: "+e);
 		
-		var extID:String = e.component.id;
-		trace(extID);
+		var panelID:String = e.component.id;
+		if (panelID == null) { return; }
 		
-		var ext:Extension = ExtManager.getIns().mapExt[extID];
-		ext.onCommandCall();
+		var panelInfo:PanelInfo = ExtManager.getIns().mapPanelInfo[panelID];
+		if (panelInfo == null) { return; }
+		
+		//create panel
+		openPanel(panelInfo);
 	}
+	
+	
+	
 	
 	public function updateExtSubMenu() {
 		

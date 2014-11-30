@@ -110,7 +110,7 @@ class StageRender extends Sprite
 	
 	public function render():Void {
 		graphics.clear();
-		graphics.beginFill(0x996699);
+		graphics.beginFill(0x4F4F4F);
 		graphics.drawRoundRect(0, 0, stage_sizeX, stage_sizeY, 16);
 		graphics.endFill();
 	}
