@@ -42,7 +42,6 @@ function doExport() {
 	this.saveStringToPath(selectedPath, res);
 	
 	Debug.getIns().log("Export success to: " + selectedPath);
-	
 }
 
 function renderData() {

@@ -3,6 +3,7 @@ package modules.uniSprite;
 import data.EditableObject;
 import editor.render.EdObjRender;
 import haxe.ui.toolkit.core.interfaces.IDraggable;
+import haxe.ui.toolkit.events.UIEvent;
 import modules.basic.ProGroupTransformation;
 import openfl.events.MouseEvent;
 import openfl.text.TextField;
@@ -12,7 +13,7 @@ import openfl.display.Sprite;
  * ...
  * @author 
  */
-class UniSpriteRender extends EdObjRender implements IDraggable
+class UniSpriteRender extends EdObjRender
 {
 	
 	public var unisprite:UniSprite;
@@ -30,6 +31,8 @@ class UniSpriteRender extends EdObjRender implements IDraggable
 	{
 		super.init(edObj_);
 		unisprite = cast this.edObj;
+		
+		this.addEventListener(MouseEvent.CLICK, onClick);
 	}
 	
 	override public function render():Void 
@@ -42,7 +45,11 @@ class UniSpriteRender extends EdObjRender implements IDraggable
 		this.y = unisprite.transform.y;
 	}
 	
-	public function allowDrag(event:MouseEvent):Bool {
-		return true;
+	
+	//temp funcs
+	private function onClick(e:MouseEvent):Void {
+		trace("onClick" + e.currentTarget);
+		var us:UniSprite = cast e.currentTarget;
 	}
+	
 }
