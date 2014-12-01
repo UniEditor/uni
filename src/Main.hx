@@ -6,9 +6,11 @@ import editor.Uni;
 import flash.display.Sprite;
 import flash.events.Event;
 import flash.Lib;
+import haxe.ui.toolkit.core.ClassManager;
 import haxe.ui.toolkit.core.Root;
 import haxe.ui.toolkit.core.Toolkit;
 import sys.io.Process;
+import ui.controls.ProField;
 import ui.EditorFrame;
 import ui.EditorPanel;
 
@@ -50,8 +52,8 @@ class Main extends Sprite
 		//load images for use in UI
 		
 		
-		
 		//init main UI frame
+		ClassManager.instance.registerComponentClass(ProField, "profield");
 		Toolkit.init();
 		Toolkit.openFullscreen(function(root:Root) {
 			root.addChild(EditorFrame.getIns().view);

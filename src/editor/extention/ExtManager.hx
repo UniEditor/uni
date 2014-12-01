@@ -61,11 +61,9 @@ class ExtManager
 	}
 	
 	public function loadExtFromFolder(fullPath:String) {
-		
 		var res:Array<String> = FileSystem.readDirectory(fullPath);
-		if (res == null) {
-			return;	
-		}
+		if (res == null) { return;	}
+		
 		for (s in res) {
 			var childItemPath:String = fullPath + "/" + s;
 			var isFolder:Bool = FileSystem.isDirectory(childItemPath); 
@@ -94,13 +92,10 @@ class ExtManager
 		theExt.id = childItemPath;//todo replace "/" to "."
 		
 		ScriptManager.getIns().runString(content,theExt.interp);
-		trace("EXT.ID", theExt.id);
-		//id usually be set during the first run
 		mapExt[theExt.id] = theExt;
 		
 		return theExt.id;
 	}
-	
 	
 	public function parseXmlFromFile(childItemPath:String):Void {
 		var content:String = File.getContent(childItemPath);

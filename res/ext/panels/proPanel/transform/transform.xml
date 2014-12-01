@@ -7,6 +7,8 @@
 			}
 		</style>
 		
+		
+		<proField id="proF" bind_proName="ss" />
 		<text text="X" width="50"/>
 		<textInput id="input_x" text="50" width="50"/>
 		<text text="Width" width="50"/>
