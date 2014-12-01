@@ -1,6 +1,11 @@
 package ui.controls;
 
 
+import data.EditableObject;
+import data.pro.ProGroup;
+import editor.event.EventManager;
+import editor.event.UniEvent;
+import editor.Uni;
 import haxe.ui.toolkit.containers.HBox;
 import haxe.ui.toolkit.controls.Text;
 import haxe.ui.toolkit.controls.TextInput;
@@ -13,19 +18,26 @@ class ProField extends HBox
 {
 	
 	
-	public var bind_proName(get, set):String;
-	
-	private var _bind_proName:String;
-	private function set_bind_proName(value:String):String {
-		_bind_proName = value; trace("GOT set" + value);
+	public var proName(default, set):String;
+	private function set_proName(value:String):String {
+		proName = value;
+		render();
 		return value;
 	}
-	private function get_bind_proName():String {
-		return _bind_proName; trace("GOT get");
+	
+	public var fieldName(default, set):String;
+	private function set_fieldName(value:String):String {
+		fieldName = value;
+		render();
+		return value;
 	}
 	
-	public var bind_fieldName:String;
-	
+	public var label_text(default, set):String;
+	private function set_label_text(value:String):String {
+		label_text = value;
+		label.text = label_text;
+		return value;
+	}
 	
 	
 	public var label:Text;
@@ -37,14 +49,44 @@ class ProField extends HBox
 		
 		label = new Text();
 		label.text = "Label";
+		label.width = 50;
+		label.height = 20;
 		addChild(label);
 		
 		input = new TextInput();
-		input.text = "Label";
+		input.text = "Label";		
+		input.width = 50;
+		input.height = 24;
 		addChild(input);
+		
+		input.text = "0";
+		input.onChange = input_onChange;
+		
+		EventManager.getIns().addEventListener(UniEvent.SEL_EB_OBJ_PRO_EDIT, render);
 	}
 	
+	public function render(?e):Void {
+		
+		var edObj:EditableObject = Uni.getIns().mapEdObj[Uni.getIns().selectedId];
+		if (edObj == null) return;
+		
+		var pro:ProGroup = edObj.get(proName);
+		if (pro == null) return;
+		
+		input.text = Reflect.field(pro, fieldName);
+	}
 	
+	private function input_onChange(e):Void {
+		trace("input change");
+		
+		//trigger value change event on current selected
+		
+		//todo handle multi select
+		var value = Std.parseFloat(input.text);
+		trace("value:" + value);
+		
+		Uni.getIns().editEdObjPro(Uni.getIns().selectedId, proName, fieldName, value);
+	}
 	
 	
 }

@@ -157,6 +157,9 @@ class ExtManager
 			panelInfo.resizable = frameXml.get("resize") == "true";
 			panelInfo.defaultWd = Std.parseInt(frameXml.get("defaultWd"));
 			panelInfo.defaultHt = Std.parseInt(frameXml.get("defaultHt"));
+			panelInfo.defaultX = Std.parseInt(frameXml.get("defaultX"));
+			panelInfo.defaultY = Std.parseInt(frameXml.get("defaultY"));
+			
 			
 			panelInfo.isExporter = isExporter;
 			
@@ -226,6 +229,10 @@ class PanelInfo {
 	public var minHt:Int;
 	public var defaultWd:Int;
 	public var defaultHt:Int;
+	
+	//todo have a better way to deal with default pos of panels
+	public var defaultX:Int;
+	public var defaultY:Int;
 	
 	public var isExporter:Bool;
 	

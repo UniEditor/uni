@@ -2,6 +2,7 @@ package modules.uniSprite;
 
 import data.EditableObject;
 import editor.render.EdObjRender;
+import editor.Uni;
 import haxe.ui.toolkit.core.interfaces.IDraggable;
 import haxe.ui.toolkit.events.UIEvent;
 import modules.basic.ProGroupTransformation;
@@ -37,6 +38,7 @@ class UniSpriteRender extends EdObjRender
 	
 	override public function render():Void 
 	{
+		graphics.clear();
 		graphics.beginFill(0x000011, 0.3);
 		graphics.drawRect(0, 0, 100,100);
 		graphics.endFill();
@@ -50,6 +52,8 @@ class UniSpriteRender extends EdObjRender
 	private function onClick(e:MouseEvent):Void {
 		trace("onClick" + e.currentTarget);
 		var us:UniSprite = cast e.currentTarget;
+		
+		Uni.getIns().doSelect(edObj.id);
 	}
 	
 }

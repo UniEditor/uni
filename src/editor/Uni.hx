@@ -9,6 +9,7 @@ import haxe.ui.toolkit.controls.Button;
 import haxe.ui.toolkit.controls.Image;
 import haxe.ui.toolkit.controls.Text;
 import modules.basic.EdObjActions.EdObjAct_Add;
+import modules.basic.EdObjActions.EdObjAct_Edit;
 import modules.basic.EdObjActions.EdObjAct_Remove;
 
 import modules.uniSprite.UniSprite;
@@ -93,7 +94,7 @@ class Uni
 	}
 	
 	public function editEdObjPro(edoId:String, proGroupId:String, valueId:String, value:Dynamic):Void {
-		var act:EdObjAct_Remove = new EdObjAct_Remove();
+		var act:EdObjAct_Edit = new EdObjAct_Edit(edoId, proGroupId, valueId, value);
 		act.doAction();
 	}
 	

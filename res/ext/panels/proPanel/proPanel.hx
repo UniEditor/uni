@@ -5,12 +5,15 @@ this.onInit = function(){
 	
 }
 
+var groupList = [];
 
 function renderEdObj(edObj) {
 	trace("start renderEdObj");
 	
 	var body = this.get_panel().body;
 	trace("body" + body);
+	
+	var header = body.findChild("header", null, true);
 	
 	var txt_name = body.findChild("txt_name", null, true);
 	txt_name.text = edObj.id;
@@ -19,6 +22,16 @@ function renderEdObj(edObj) {
 	txt_type.text = edObj.typeInfoID;
 	
 	var content = body.findChild("content", null, true);
+	
+	var totalHt = 20;//panel header
+	var headerHt = header.height;
+	trace("headerHt" + headerHt);
+	totalHt += headerHt;
+	
+	for (one in groupList) {
+		trace("remove one");
+		content.removeChild(one);
+	}
 	
 	for (one in edObj.proGroupList) {
 		trace(one);
@@ -33,18 +46,30 @@ function renderEdObj(edObj) {
 			//trace(xml);
 			
 			var bodyXml = this.getXmlFirstChildOfName(xml, "proDefine");
-			trace(bodyXml);
+			//trace(bodyXml);
+			
+			var minHtStr = bodyXml.get("minHt");
+			trace("minHtStr" +  minHtStr);
+			
+			totalHt += Std.parseInt(minHtStr);
+			totalHt += 20;//group header
 			
 			var body = Toolkit.processXml(bodyXml);
 			trace("body" + body);
 			
-			var frame = Toolkit.processXmlResource("ui/panels/pro_frame.xml");
-			content.addChild(frame);
 			
-			var sub_content = frame.findChild("sub_content", null, true);
+			
+			var group_frame = Toolkit.processXmlResource("ui/panels/pro_frame.xml");
+			content.addChild(group_frame);
+			var sub_content = group_frame.findChild("sub_content", null, true);
 			sub_content.addChild(body);
+			
+			groupList.push(group_frame);
 		}
 	}
+	
+	trace(totalHt);
+	this.get_panel().height = totalHt;
 	
 }
 

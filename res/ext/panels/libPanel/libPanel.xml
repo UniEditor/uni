@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <panelDefine id="libPanel" title="Library" extId="uni.lib" >
-	<frame resize="false" minWd="100" minHt="100" defaultWd="300" defaultHt="500"/>
+	<frame resize="false" minWd="100" minHt="100" defaultWd="250" defaultHt="400" defaultX="20" defaultY="50" />
 	
 	<body>
 		<continuousHBox id="cbox" width="100%" height="100%" style="backgroundColor:0xAABBAA; padding:2;" >

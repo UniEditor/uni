@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<proDefine>
-	<grid columns="4">
+<proDefine minHt="130">
+	<vbox width="100%">
 		<style>
 			Text {
 				fontSize: 14;
@@ -8,15 +8,9 @@
 		</style>
 		
 		
-		<proField id="proF" bind_proName="ss" />
-		<text text="X" width="50"/>
-		<textInput id="input_x" text="50" width="50"/>
-		<text text="Width" width="50"/>
-		<textInput id="input_w" text="0" width="50"/>
-		
-		<text text="Y" width="50"/>
-		<textInput id="input_Y" text="0" width="50"/>
-		<text text="Height" width="50"/>
-		<textInput id="input_h" text="0" width="50"/>
-	</grid>
+		<proField id="pf_x" proName="transform" fieldName="x" label_text="X" width="100%" />
+		<proField id="pf_y" proName="transform" fieldName="y" label_text="Y" width="100%"/>
+		<proField id="pf_wd" proName="transform" fieldName="width" label_text="Width" width="100%"/>
+		<proField id="pf_ht" proName="transform" fieldName="height" label_text="Height" width="100%"/>
+	</vbox>
 </proDefine>

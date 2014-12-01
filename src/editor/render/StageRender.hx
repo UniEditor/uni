@@ -35,9 +35,14 @@ class StageRender extends Sprite
 	public var gadgetLayer:Sprite;
 	public var contentLayer:EdObjRender;//the nested structure, dispos and scale
 	
+	public var mapInstance:Map<String, EdObjRender>;
+	
 	public function new() 
 	{
 		super();
+		
+		mapInstance = new Map<String, EdObjRender>();
+		
 		init();
 	}
 	
@@ -57,6 +62,8 @@ class StageRender extends Sprite
 		
 		EditorFrame.getIns().mainBox.addEventListener(UIEvent.RESIZE, onResize);
 		EventManager.getIns().addEventListener(UniEvent.ED_OBJ_ADD, onEdObjAdd);
+		EventManager.getIns().addEventListener(UniEvent.ED_OBJ_PRO_EDIT, onEdObjChange);
+		
 	}
 	
 	
@@ -70,8 +77,9 @@ class StageRender extends Sprite
 	
 	private function onEdObjAdd(e:UniEvent):Void {
 		trace("stageRender:edObj_add " + e.data);
+		
 		if (e.data == null) return;
-
+		
 		var edObj:EditableObject = Uni.getIns().mapEdObj[e.data];
 		if (edObj == null) return;
 		
@@ -82,6 +90,22 @@ class StageRender extends Sprite
 		if (renderInstance == null) return;
 		
 		renderInstance.init(edObj);
+		renderInstance.render();
+		
+		mapInstance[edObj.id] = renderInstance;
+		contentLayer.addChild(renderInstance);
+	}
+	
+	private function onEdObjChange(e:UniEvent):Void {
+		trace("stageRender:edObj_change " + e.data);
+		if (e.data == null) return;
+		
+		var edObj:EditableObject = Uni.getIns().mapEdObj[e.data];
+		if (edObj == null) return;
+		
+		var renderInstance = mapInstance[edObj.id];
+		if (renderInstance == null) return;
+		
 		renderInstance.render();
 		
 		contentLayer.addChild(renderInstance);

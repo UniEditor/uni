@@ -61,7 +61,7 @@ class Extension extends EventDispatcher
 		interp.variables.set("Xml", Xml);
 		interp.variables.set("Toolkit", Toolkit);
 		interp.variables.set("Dialogs", Dialogs);
-		
+		interp.variables.set("Std", Std);
 		
 		interp.variables.set("Text", Text);
 		interp.variables.set("Image", Image);
@@ -141,5 +141,9 @@ class Extension extends EventDispatcher
 		var f:FileOutput = File.write(path);
 		f.writeString(content);
 		f.close();
+	}
+	
+	public function strToInt(str:String):Int {
+		return Std.parseInt(str);
 	}
 }

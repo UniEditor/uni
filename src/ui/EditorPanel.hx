@@ -5,6 +5,7 @@ import haxe.ui.toolkit.core.Component;
 import haxe.ui.toolkit.core.interfaces.IDraggable;
 import haxe.ui.toolkit.core.Toolkit;
 import haxe.ui.toolkit.events.UIEvent;
+import openfl.text.TextField;
 import openfl.display.Sprite;
 import openfl.events.MouseEvent;
 
@@ -15,8 +16,10 @@ import openfl.events.MouseEvent;
 class EditorPanel extends Component implements IDraggable
 {
 	
+	public var frame:Component;
 	public var body:Component;
 	public var panelid:String;
+	
 	
 	public function new() 
 	{
@@ -27,11 +30,13 @@ class EditorPanel extends Component implements IDraggable
 		trace("panel init " + panelInfo.id);
 		panelid = panelInfo.id;
 		
-		var frame:Component = Toolkit.processXmlResource("ui/panels/panel_frame.xml");
+		frame = Toolkit.processXmlResource("ui/panels/panel_frame.xml");
 		addChild(frame);
 		
-		frame.width = 200;
-		frame.height = 200;
+		width = panelInfo.defaultWd;
+		height = panelInfo.defaultHt;
+		x = panelInfo.defaultX;
+		y = panelInfo.defaultY;
 		
 		var headerBar:Component = frame.findChild("headerBar", null, true);
 		
@@ -53,6 +58,7 @@ class EditorPanel extends Component implements IDraggable
 			content.addChild(body);
 		}
 	}
+
 	
 	public function onBtnClick_close(e) {
 		trace("onBtnClick_close: " + this);
@@ -60,6 +66,11 @@ class EditorPanel extends Component implements IDraggable
 	}
 	
 	public function allowDrag(event:MouseEvent):Bool {
+		//trace("allowDrag?" + event.currentTarget);
+		//trace("allowDrag?" + event.target);
+		if (Std.is( event.target,TextField)) {
+			return false;
+		}
 		return true;
 	}
 }

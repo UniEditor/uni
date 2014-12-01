@@ -1,6 +1,7 @@
 package modules.basic;
 
 import data.EditableObject;
+import data.pro.ProGroup;
 import data.TypeInfo;
 import editor.action.IAction;
 import editor.event.EventManager;
@@ -72,6 +73,50 @@ class EdObjAct_Remove implements IAction
 	public function doAction():Void 
 	{
 		
+	}
+	
+	public function undoAction():Void 
+	{
+		
+	}
+	
+}
+
+class EdObjAct_Edit implements IAction
+{
+	
+	
+	public var edObjID:String;
+	public var proName:String;
+	public var fieldName:String;
+	public var value:Dynamic;
+	
+	public function new(edObjID_:String, proName_:String, fieldName_:String, value_:Dynamic) 
+	{
+		edObjID = edObjID_;
+		proName = proName_;
+		fieldName = fieldName_;
+		value = value_;
+	}
+	
+	/* INTERFACE editor.action.IAction */
+	
+	public function doAction():Void 
+	{
+		trace("action edObj edit start");
+		var edObj:EditableObject = Uni.getIns().mapEdObj[edObjID];
+		var proGroup:ProGroup = edObj.get(proName);
+		
+		Reflect.setField(proGroup, fieldName, value);
+		
+		//trigger value change event
+		EventManager.getIns().dispatchEvent(new UniEvent(UniEvent.ED_OBJ_PRO_EDIT, edObjID));
+		
+		if(Uni.getIns().selectedId == edObjID){
+			EventManager.getIns().dispatchEvent(new UniEvent(UniEvent.SEL_EB_OBJ_PRO_EDIT, null));
+		}
+		
+		trace("action edObj edit end");
 	}
 	
 	public function undoAction():Void 
