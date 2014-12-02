@@ -11,7 +11,7 @@ import haxe.ui.toolkit.controls.Text;
 import haxe.ui.toolkit.controls.TextInput;
 
 /**
- * Has a label and input, has data: proGroupName, proFieldName, will auto set value when change event happens
+ * Has a label and input, binds data: proGroupName, proFieldName, will auto set value when change event happens
  * @author GDB
  */
 class ProField extends HBox
