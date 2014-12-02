@@ -49,3 +49,22 @@ custom property for edobj
 curtome type
 custom property for custome types
 
+
+
+
+=========================================================
+Sample Games:
+	
+A top down shooter - Object, tilemap, shape(as region) --HaxeFlixel
+
+Nodebased Strategy Game - map ----Flambe or just openfl
+
+Digger - bitmap --Flambe or just openfl
+
+Spaceship scroll shooter - super large map as timeline --HaxeFlixel
+
+Blueberry  remake --vecter as environment
+
+Question and answer game - map as answer tree --Some Genre-Specific Tool
+
+Some logic 2D game rendered in 3D - 2D content edit for Unity --Unity

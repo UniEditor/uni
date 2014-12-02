@@ -81,17 +81,3 @@ UniBitmap
 UIThings
 UniParticle
 
-=========================================================================
-Sample Games:
-	
-A top down shooter - Object, tilemap, shape(as region)
-
-Nodebased Strategy Game - map
-
-Digger - bitmap
-
-Spaceship scroll shooter - super large map as timeline
-
-Question and answer game - map as answer tree
-
-Some logic 2D game rendered in 3D - 2D content edit for Unity

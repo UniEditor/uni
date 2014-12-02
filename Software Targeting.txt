@@ -1,0 +1,13 @@
+Comparation with fellow software:
+	
+	Unity 3D
+	Stencyl
+	
+	Game Maker
+	
+	Tiled
+	Dame
+	Construct2
+	Mappy Editor
+	
+	https://github.com/sulewicz/universal-map-editor
