@@ -8,7 +8,8 @@ import openfl.display.Sprite;
  */
 class EdGadget extends Sprite
 {
-
+	
+	
 	public function new() 
 	{
 		super();

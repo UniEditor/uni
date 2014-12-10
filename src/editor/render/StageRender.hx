@@ -6,6 +6,7 @@ import editor.event.UniEvent;
 import haxe.ui.toolkit.core.Component;
 import haxe.ui.toolkit.core.interfaces.IDraggable;
 import haxe.ui.toolkit.events.UIEvent;
+import openfl._v2.events.MouseEvent;
 import openfl.display.DisplayObject;
 import openfl.display.Sprite;
 import ui.EditorFrame;
@@ -64,6 +65,8 @@ class StageRender extends Sprite
 		EventManager.getIns().addEventListener(UniEvent.ED_OBJ_ADD, onEdObjAdd);
 		EventManager.getIns().addEventListener(UniEvent.ED_OBJ_PRO_EDIT, onEdObjChange);
 		
+		
+		addEventListener(MouseEvent.MOUSE_DOWN, onStageMouseDown);
 	}
 	
 	
@@ -139,5 +142,11 @@ class StageRender extends Sprite
 		graphics.endFill();
 	}
 	
-	
+	public function onStageMouseDown(e:MouseEvent):Void {
+		trace("localX " + e.localX);
+		trace("localY " + e.localY);
+		
+		//todo run alg and get which item is selected
+		
+	}
 }
