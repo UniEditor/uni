@@ -173,14 +173,18 @@ class StageRender extends Sprite
 			var theRender:EdObjRender = mapInstance[Uni.getIns().selectedId];
 			selGadgetList[0].linkedRender = theRender;
 			selGadgetList[0].render();
+			selGadgetList[0].visible  = true;
+		}else {
+			selGadgetList[0].visible  = false;
 		}
 	}
 	
 	public function onStageMouseDown(e:MouseEvent):Void {
-		trace("localX " + e.localX);
-		trace("localY " + e.localY);
-		trace("e.target" + e.target);
-		trace("e.currentTarget" + e.currentTarget);
+		
+		//trace("localX " + e.localX);
+		//trace("localY " + e.localY);
+		//trace("e.target" + e.target);
+		//trace("e.currentTarget" + e.currentTarget);
 		//todo run alg and get which item is selected
 		//todo must select the one on top
 		
@@ -188,20 +192,27 @@ class StageRender extends Sprite
 			return;
 		}
 		
+		trace("STAGE REDNER MD");
+		
 		var hitAnyOne:Bool = false;
 		
 		for (one in mapInstance) {
-			trace("one:" + one.x + "=" + one.y + "==" + (one.x+one.width) + "=" + (one.y+one.height));
+			//trace("one:" + one.x + "=" + one.y + "==" + (one.x+one.width) + "=" + (one.y+one.height));
 			if (e.localX > one.x && e.localX < one.x+one.width && e.localY > one.y && e.localY < one.y+one.height) {
 				Uni.getIns().doSelect(one.edObj.id);
-				hitAnyOne = false;
+				hitAnyOne = true;
+				selGadgetList[0].onBoxMouseDown(e);
 				break;
 			}
 		}
 		
-		dragging = true;
-		stageDragPx = e.localX;
-		stageDragPy = e.localY;
+		if (hitAnyOne == false) {
+			Uni.getIns().clearSelect();
+		}
+		
+		//dragging = true;
+		//stageDragPx = e.localX;
+		//stageDragPy = e.localY;
 	}
 	
 	

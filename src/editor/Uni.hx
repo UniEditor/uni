@@ -67,10 +67,19 @@ class Uni
 	//TODO change to multi-select
 	
 	public function doSelect(edobjId:String):Void {
-		selectedId = edobjId;//todo check if really changed
-		EventManager.getIns().dispatchEvent(new UniEvent(UniEvent.SEL_CHANGE, null));
-		trace("mapEdObj asel: " + Uni.getIns().mapEdObj.toString());
-		
+		if (selectedId != edobjId) {
+			trace("UNI SEL CHANGE: " + edobjId);
+			selectedId = edobjId;//todo check if really changed
+			EventManager.getIns().dispatchEvent(new UniEvent(UniEvent.SEL_CHANGE, null));
+		}
+	}
+	
+	public function clearSelect():Void {
+		if (selectedId != null) {
+			trace("UNI CLEAR SEL!");
+			selectedId = null;//todo check if really changed
+			EventManager.getIns().dispatchEvent(new UniEvent(UniEvent.SEL_CHANGE, null));
+		}
 	}
 	
 	

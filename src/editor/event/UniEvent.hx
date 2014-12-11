@@ -18,7 +18,6 @@ class UniEvent extends Event
 	public static var ED_OBJ_NEST_CHANGE:String = "ED_OBJ_NEST_CHANGE";
 	public static var SEL_EB_OBJ_PRO_EDIT:String = "SEL_EB_OBJ_PRO_EDIT";
 	
-	
 	public var data:Dynamic;
 	
 	public function new(type:String, data_:Dynamic) 

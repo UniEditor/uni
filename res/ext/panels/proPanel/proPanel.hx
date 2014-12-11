@@ -8,37 +8,35 @@ this.onInit = function(){
 var groupList = [];
 
 function renderEdObj(edObj) {
-	trace("start renderEdObj");
+	trace("PRO_PANEL: renderEdObj("+edObj.id+")");
 	
 	var body = this.get_panel().body;
-	trace("body" + body);
-	
 	var header = body.findChild("header", null, true);
-	
 	var txt_name = body.findChild("txt_name", null, true);
-	txt_name.text = edObj.id;
-	
 	var txt_type = body.findChild("txt_type", null, true);
-	txt_type.text = edObj.typeInfoID;
-	
 	var content = body.findChild("content", null, true);
+	
+	txt_name.text = edObj.id;
+	txt_type.text = edObj.typeInfoID;
 	
 	var totalHt = 20;//panel header
 	var headerHt = header.height;
-	trace("headerHt" + headerHt);
+	//trace("headerHt" + headerHt);
 	totalHt += headerHt;
 	
 	for (one in groupList) {
-		trace("remove one");
+		//trace("remove one");
 		content.removeChild(one);
 	}
 	
+	groupList = [];
+	
 	for (one in edObj.proGroupList) {
-		trace(one);
+		//trace(one);
 		
 		if (one == "transform") {
-			trace(this.folderPath + "/transform/transform.xml");
-			trace(File);
+			//trace(this.folderPath + "/transform/transform.xml");
+			//trace(File);
 			var file =this.getFileContent(this.folderPath + "/transform/transform.xml");
 			//trace(file);
 			
@@ -49,15 +47,13 @@ function renderEdObj(edObj) {
 			//trace(bodyXml);
 			
 			var minHtStr = bodyXml.get("minHt");
-			trace("minHtStr" +  minHtStr);
+			//trace("minHtStr" +  minHtStr);
 			
 			totalHt += Std.parseInt(minHtStr);
 			totalHt += 20;//group header
 			
 			var body = Toolkit.processXml(bodyXml);
-			trace("body" + body);
-			
-			
+			//trace("body" + body);
 			
 			var group_frame = Toolkit.processXmlResource("ui/panels/pro_frame.xml");
 			content.addChild(group_frame);
@@ -68,9 +64,10 @@ function renderEdObj(edObj) {
 		}
 	}
 	
-	trace(totalHt);
+	//trace(totalHt);
 	this.get_panel().height = totalHt;
 	
+	trace("PRO_PANEL: renderEdObj DONE");
 }
 
 function renderNull() {
