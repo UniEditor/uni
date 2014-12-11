@@ -26,6 +26,9 @@ class UniSpriteRender extends EdObjRender
 		var text:TextField = new TextField();
 		text.text = "UniSpriteRender";
 		addChild(text);
+		
+		mouseEnabled = false;
+		mouseChildren = false;
 	}
 	
 	override public function init(edObj_:EditableObject):Void 
@@ -33,7 +36,7 @@ class UniSpriteRender extends EdObjRender
 		super.init(edObj_);
 		unisprite = cast this.edObj;
 		
-		this.addEventListener(MouseEvent.CLICK, onClick);
+		//this.addEventListener(MouseEvent.CLICK, onClick);
 	}
 	
 	override public function render():Void 

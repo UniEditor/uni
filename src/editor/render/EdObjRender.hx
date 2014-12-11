@@ -11,7 +11,7 @@ import openfl.display.Sprite;
 class EdObjRender extends Sprite
 {
 	
-	private var edObj:EditableObject; //link back to the data
+	public var edObj:EditableObject; //link back to the data
 	
 	public function new() 
 	{
