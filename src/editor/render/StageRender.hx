@@ -8,6 +8,7 @@ import haxe.ds.Vector;
 import haxe.ui.toolkit.core.Component;
 import haxe.ui.toolkit.core.interfaces.IDraggable;
 import haxe.ui.toolkit.events.UIEvent;
+import modules.basic.GdgBox;
 import modules.basic.GdgSelectBox;
 import openfl._v2.events.MouseEvent;
 import openfl.display.DisplayObject;
@@ -45,18 +46,18 @@ class StageRender extends Sprite
 	public var gadgetLayer:Sprite;
 	public var contentLayer:EdObjRender;//the nested structure, dispos and scale
 	public var selectBox:GdgSelectBox;
-	public var selGadgetList:Array<EdGadget>;
+	public var selGadgetList:Array<GdgBox>;
 	
 	public var mapInstance:Map<String, EdObjRender>;
 	public var preselectList:Array<EdObjRender>;//things selected before mouse up
 	
-	public function new() 
+	public function new()
 	{
 		super();
 		
 		mapInstance = new Map<String, EdObjRender>();
 		preselectList = new Array<EdObjRender>();
-		selGadgetList = new Array<EdGadget>();
+		selGadgetList = new Array<GdgBox>();
 		dragging = false;
 		
 		init();
@@ -84,8 +85,8 @@ class StageRender extends Sprite
 		EventManager.getIns().addEventListener(UniEvent.SEL_CHANGE, updateSelGadget);
 		
 		addEventListener(MouseEvent.MOUSE_DOWN, onStageMouseDown);
-		addEventListener(MouseEvent.MOUSE_MOVE, onStageMouseMove);
-		addEventListener(MouseEvent.MOUSE_UP, onStageMouseUp);
+		//addEventListener(MouseEvent.MOUSE_MOVE, onStageMouseMove);
+		//addEventListener(MouseEvent.MOUSE_UP, onStageMouseUp);
 	}
 	
 	
@@ -161,26 +162,39 @@ class StageRender extends Sprite
 		graphics.endFill();
 	}
 	
-	public function updateSelGadget():Void {
+	public function updateSelGadget(e:Dynamic):Void {
+		if (selGadgetList.length == 0) {
+			var selG:GdgBox = new GdgBox();
+			gadgetLayer.addChild(selG);
+			selGadgetList.push(selG);
+		}
 		
+		if (Uni.getIns().selectedId != null) {
+			var theRender:EdObjRender = mapInstance[Uni.getIns().selectedId];
+			selGadgetList[0].linkedRender = theRender;
+			selGadgetList[0].render();
+		}
 	}
 	
 	public function onStageMouseDown(e:MouseEvent):Void {
 		trace("localX " + e.localX);
 		trace("localY " + e.localY);
-		
+		trace("e.target" + e.target);
+		trace("e.currentTarget" + e.currentTarget);
 		//todo run alg and get which item is selected
 		//todo must select the one on top
+		
+		if (e.target != this) {
+			return;
+		}
 		
 		var hitAnyOne:Bool = false;
 		
 		for (one in mapInstance) {
 			trace("one:" + one.x + "=" + one.y + "==" + (one.x+one.width) + "=" + (one.y+one.height));
 			if (e.localX > one.x && e.localX < one.x+one.width && e.localY > one.y && e.localY < one.y+one.height) {
-				
 				Uni.getIns().doSelect(one.edObj.id);
 				hitAnyOne = false;
-				//trace("stage got:" + one.edObj.id);
 				break;
 			}
 		}
@@ -188,8 +202,6 @@ class StageRender extends Sprite
 		dragging = true;
 		stageDragPx = e.localX;
 		stageDragPy = e.localY;
-		
-		//if(hitAnyOne)
 	}
 	
 	
