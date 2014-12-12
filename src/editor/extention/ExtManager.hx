@@ -2,11 +2,13 @@ package editor.extention ;
 import editor.event.EventManager;
 import haxe.ds.Vector;
 import haxe.ui.toolkit.core.xml.XMLProcessor;
+import hscript.Expr;
 import openfl.events.Event;
 import openfl.net.URLRequest;
 import script.ScriptManager;
 import sys.FileSystem;
 import sys.io.File;
+import utils.Utils;
 
 /**
  * ...
@@ -71,7 +73,7 @@ class ExtManager
 			if (isFolder == true) {
 				loadExtFromFolder(childItemPath);
 			}else {
-				var endFix:String = getEndfix(s);
+				var endFix:String = Utils.getEndfix(s);
 				if (endFix == "hs" || endFix == "hx") {
 					trace("Doing HS: " + childItemPath);
 					var id:String = parseExtFromFile(childItemPath, fullPath);
@@ -186,10 +188,14 @@ class ExtManager
 	}
 	
 	public function initExts():Void {
-		for (one in mapExt) {
-			if (one.onInit != null) {
-				one.onInit();
+		try{
+			for (one in mapExt) {
+				if (one.onInit != null) {
+					one.onInit();
+				}
 			}
+		}catch (e:Error) {
+			trace("SCRIPT ERROR: " + e.e);
 		}
 	}
 	
@@ -199,15 +205,7 @@ class ExtManager
 	
 	//tool functions
 	
-	public function getEndfix(path:String):String {
-		//trace("getEndfix 1 " + path);
-		var lastDot:Int = path.lastIndexOf(".");
-		if(lastDot >= 0){
-			var endFix:String = path.substr(lastDot + 1);
-			return endFix;
-		}
-		return "";
-	}
+	
 	
 	public function getFirstNamedElement(xml:Xml, name:String):Xml {
 		for (one in xml.elementsNamed(name) ) {

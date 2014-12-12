@@ -96,6 +96,10 @@ class Uni
 		
 	}
 	
+	public function loadAsset():Void {
+		uniTools.scanFolderForAssetRawFiles("./res/testProjectAsset/", mapAsset);
+	}
+	
 	//EdObj functions
 
 	public function createEmptyEdObj(typeInfoId:String):Void {

@@ -2,6 +2,7 @@
 this.id = "uni.asset";
 
 this.onInit = function(){
+	trace(a / 0);
 	
 }
 

@@ -92,12 +92,17 @@ class Main extends Sprite
 		//init stage render
 		StageRender.getIns();
 		
+		
+		
 		//--------------------------------------------------
 		//uni ready
 		
 		//load user project
 		
+		//load assets
+		Uni.getIns().loadAsset();
 		
+		trace("asset" + Uni.getIns().mapAsset.toString());
 
 	}
 	

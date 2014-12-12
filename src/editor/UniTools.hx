@@ -4,6 +4,7 @@ import data.TypeInfo;
 import openfl.utils.Timer;
 import sys.FileSystem;
 import sys.io.File;
+import utils.Utils;
 
 /**
  * Doing dirty works for uni
@@ -55,7 +56,7 @@ class UniTools
 		}
 	}
 	
-	public function scanFolderForAssetRawFiles(fullPath:String, finalRes:Array<Asset>):Void {
+	public function scanFolderForAssetRawFiles(fullPath:String, finalRes:Map<String, Asset>):Void {
 		
 		var res:Array<String> = FileSystem.readDirectory(fullPath);
 		if (res == null) { return;	}
@@ -65,11 +66,15 @@ class UniTools
 			var isFolder:Bool = FileSystem.isDirectory(childItemPath); 
 			
 			if (isFolder == true) {
-				loadExtFromFolder(childItemPath);
+				scanFolderForAssetRawFiles(childItemPath,finalRes);
 			}else {
-				//var endFix:String = getEndfix(s);
-				//if (endFix == "png" || endFix == "bmp") 
-				
+				var endFix:String = Utils.getEndfix(s);
+				if (endFix == "png" || endFix == "bmp" || endFix == "jpg") {
+					var ass:Asset = new Asset();
+					ass.assType = "image";
+					ass.path = childItemPath;
+					finalRes[childItemPath] = ass;
+				}
 			}
 		}
 	}

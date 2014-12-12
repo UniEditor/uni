@@ -1,4 +1,5 @@
 package script;
+import hscript.Expr;
 import hscript.Parser;
 import hscript.Interp;
 
@@ -28,15 +29,15 @@ class ScriptManager
 	
 	public function runString(script:String, ?customInterp:Interp) {
 		try {
-				var program = parser.parseString(script);
-				if(customInterp != null)
-					customInterp.execute(program);
-				else {
-					interp.execute(program);
-				}
-			}catch(e:Dynamic) {
-				trace("runString error: "  +e);
+			var program = parser.parseString(script);
+			if(customInterp != null)
+				customInterp.execute(program);
+			else {
+				interp.execute(program);
 			}
+		}catch(e:Error) {
+			trace("SCRIPT ERROR: " + e.e + " " + e.pmin );
+		}
 	}
 	
 	
