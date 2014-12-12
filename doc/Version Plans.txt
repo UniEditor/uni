@@ -10,28 +10,35 @@ BuildNumber will change whenever a stable version is released
 =========================================================
 I have planned serveral mileStones for Uni, each with a subversion name:
 
-<<Milestone 0.1 : Make a scene, export and play in a game engine
+<<Milestone 0.1 : Object pos editor [OK]
 
-transformation property group
-pro panel for transformation
-exporter system
-a simple export format
-loader of the format for HaxeFlixel
+transformation property group [OK]
+pro panel for transformation [OK]
+exporter system [OK]
+a simple export format [OK]
+single selection [OK]
+gadget should support dragging [OK]
 
 <<Milestone 0.2 : A proper editor, not a haxeui demo
 
-Project save, load functionality
+Asset Panel (image, spriteSheet)
+UniSprite support render setting (image, shape) {pro group, pro group panel}
 Clean up menu bar
 Restyle the whole UI
 Undo, redo
 Panel Resizing
 
-<<Milestone 0.3 : Pro Stage
+<<Milestone 0.3 : Make a scene, export and play in a game engine
 
+rendering simple tranformer gadget
+gadget should support scaling, rotation
+Algs for fast single selection, multi selection
+Project save, load functionality
+loader of the format for HaxeFlixel
+
+<<MIlestone 0.31 : Nested Things
 nest structure support for edobj
 LayerManager panel support manipulate nest structure
-rendering simple tranformer gadget
-gadget should support dragging, scaling, rotation
 
 <<MIlestone 0.4 : Modern UI stuff
 
@@ -39,18 +46,14 @@ Docking system for panels
 Right click system:
 Panels
 Controls within some panel
-Stage
-Edobj on stage
+Stage System (drag stage, origin point, stage with size)
 
 <<Milestone 0.5 : Finishing UniSprite
 
-render setting for UniSprite
+
 custom property for edobj
-curtome type
+Curtome type
 custom property for custome types
-
-
-
 
 =========================================================
 Sample Games:
