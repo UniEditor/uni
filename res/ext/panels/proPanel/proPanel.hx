@@ -78,6 +78,13 @@ function renderNull() {
 	
 	var txt_type = body.findChild("txt_type", null, true);
 	txt_type.text = "Null";
+	
+	var content = body.findChild("content", null, true);
+	
+	for (one in groupList) {
+		//trace("remove one");
+		content.removeChild(one);
+	}
 }
 
 //main devider functions
