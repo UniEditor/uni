@@ -1,4 +1,5 @@
 package editor;
+import data.lib.Asset;
 import data.TypeInfo;
 import openfl.utils.Timer;
 import sys.FileSystem;
@@ -51,6 +52,25 @@ class UniTools
 			}
 		}else {
 			trace("ERROR: can not load TypeList.xml!");
+		}
+	}
+	
+	public function scanFolderForAssetRawFiles(fullPath:String, finalRes:Array<Asset>):Void {
+		
+		var res:Array<String> = FileSystem.readDirectory(fullPath);
+		if (res == null) { return;	}
+		
+		for (s in res) {
+			var childItemPath:String = fullPath + "/" + s;
+			var isFolder:Bool = FileSystem.isDirectory(childItemPath); 
+			
+			if (isFolder == true) {
+				loadExtFromFolder(childItemPath);
+			}else {
+				//var endFix:String = getEndfix(s);
+				//if (endFix == "png" || endFix == "bmp") 
+				
+			}
 		}
 	}
 	

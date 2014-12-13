@@ -6,14 +6,12 @@ package data.lib ;
  * @author GDB
  */
 
-enum AsssetType {
-	
-}
- 
 class Asset
 {
 	
-	public var assType:AsssetType;
+	public var assType:String;
+	public var path:String;
+	public var iconPath:String;
 	
 	public function new() 
 	{

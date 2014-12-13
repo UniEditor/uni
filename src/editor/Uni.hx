@@ -1,4 +1,5 @@
 package editor;
+import data.lib.Asset;
 import data.TypeInfo;
 import data.EditableObject;
 import editor.event.EventManager;
@@ -42,6 +43,9 @@ class Uni
 	public var mapType:Map<String, TypeInfo>;//uni official type and types provided by ext
 	public var mapCustomeTpye:Map<String, TypeInfo>;//created by user during a project
 	
+	//assets
+	public var mapAsset:Map<String, Asset>;
+	
 	//select
 	public var selectedId:String;
 	
@@ -51,6 +55,8 @@ class Uni
 		
 		mapEdObj = new Map<String, EditableObject>();
 		nestEdObj = new Nest();
+		
+		mapAsset = new Map<String, Asset>();
 		
 		mapType = new Map<String, TypeInfo>();
 		mapCustomeTpye = new Map<String, TypeInfo>();
