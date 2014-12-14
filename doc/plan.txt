@@ -74,10 +74,27 @@ All Data, is just a collection of properties. What are editable on instance-leve
 Official Data Types:
 
 UniSprite
+	Is the general object, it will be a univerisal sprite of your game, main character, enemies and such.
+	It may have different render types.
+	
 UniTilemap
+	Tilemap came in different styles(2D square, 2.5D with walls, Iso, Sixsided and such)
+	Each tile should have its own costome data
+	
 UniShape
-UniMap
-UniBitmap
-UIThings
-UniParticle
+	Vector data are important in may games
+	Single Points, Lines, Enclosed Lines, Circles, [Curcled Object]
+	Each Point should have its own costome data
 
+UniMap
+	Diff from shape is that, any two point can be linked and each link should have its own data
+	
+UniBitmap
+	Games like Worms series, Where is My Water have been using bitmap to create freeformed ground.
+	Bitmap should have multiple layers
+
+UIThings
+	Image(scale9) Button(multi-states) ScaleContent BitmapText(Numbers)
+
+[UniParticle]
+	

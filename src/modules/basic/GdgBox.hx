@@ -59,7 +59,7 @@ class GdgBox extends EdGadget
 		dragging = false;
 		
 		//set pos
-		var trans:ProGroupTransformation = cast linkedRender.edObj.get("transform");
+		var trans:ProTransform = cast linkedRender.edObj.get("transform");
 		if (trans != null) {
 			trans.x = linkedRender.x;
 			trans.y = linkedRender.y;

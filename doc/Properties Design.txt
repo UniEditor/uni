@@ -1,0 +1,31 @@
+
+--Document--
+
+--Asset--
+
+--Type--
+
+CutomeType
+
+--Instances--
+
+UniSprite:
+	Transform
+		x,y,width(scaled),height(scaled),scalex,scaley
+		
+	Render(Image,SpriteSheet,Rect,Circle,[SpineAni])
+		renderType(Default[ifCustom],Image,Rect,Circle,[SpriteSheet],[SpineAni])
+		
+		Image
+			Src
+			SizeX, SizeY
+			
+		Rect
+			Width, Height
+			Color
+			Tranparency
+			
+		Circle
+			Rad
+			Color
+			Tranparency

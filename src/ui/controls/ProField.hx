@@ -51,6 +51,7 @@ class ProField extends HBox
 		label.text = "Label";
 		label.width = 50;
 		label.height = 20;
+		label.autoSize = false;
 		addChild(label);
 		
 		input = new TextInput();

@@ -16,6 +16,8 @@ class TypeInfo
 	//soft data: to be edited by user
 	public var customPro:ProGroup;
 	
+	public var final:Bool;//non-final types are extensible
+	
 	public function new() 
 	{
 		

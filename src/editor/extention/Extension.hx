@@ -15,7 +15,7 @@ import haxe.ui.toolkit.core.XMLController;
 import haxe.ui.toolkit.events.UIEvent;
 import haxe.ui.toolkit.hscript.ScriptInterp;
 import hscript.Interp;
-import modules.basic.ProGroupTransformation;
+import modules.basic.ProTransform;
 import sys.io.File;
 import openfl.events.EventDispatcher;
 import sys.io.FileOutput;
@@ -128,7 +128,7 @@ class Extension extends EventDispatcher
 			oneXml.set("type", one.typeInfoID);
 			oneXml.set("id", one.id);
 			
-			var transform:ProGroupTransformation = cast one.get("transform");
+			var transform:ProTransform = cast one.get("transform");
 			oneXml.set("x", ""+transform.x);
 			oneXml.set("y", ""+transform.y);			
 			xmlStageData.addChild(oneXml);

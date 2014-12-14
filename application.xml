@@ -9,16 +9,17 @@
 	<app main="Main" file="UNI" path="bin" />
 	
 	<window background="#FFFFFF" fps="60" />
-	<window width="1024" height="640" unless="mobile" />
+	<window width="1024" height="640" unless="mobile"/>
 	<window orientation="landscape" vsync="false" antialiasing="0" if="cpp" />
 	
 	<!-- classpath, haxe libs -->
 	<source path="src" />
 	<source path="res" />
-	<haxelib name="openfl" />
-	<haxelib name="actuate" />
 	
+	<haxelib name="actuate" />
+	<haxelib name="openfl" />
 	<haxelib name="haxeui"/>
+	
 	<haxelib name="hscript"/>
 	<haxelib name="systools"/>
 	

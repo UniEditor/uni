@@ -1,82 +1,104 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<vbox width="100%" height="100%" id="main">
-		<style>
-			MenuButton {
-				fontSize: 14;
-				color: 0x000000;
-				paddingLeft: 5;
-				paddingTop: 2;
-				paddingBottom: 2;
-				paddingRight: 5;
-				iconPosition: "left";
-				labelPosition: "center";
-				spacing: 4;
-			}
+<vbox width="100%" height="100%" id="main" style="spacing:0;">
+	<style>
+		MenuButton {
+			fontSize: 14;
+			color: 0xDBDBDB;
+			paddingLeft: 5;
+			paddingTop: 2;
+			paddingBottom: 2;
+			paddingRight: 5;
+			iconPosition: "left";
+			verticalAlignment: "center";
+			backgroundAlpha:0;
+			filter:null;
+		}
 		
-			Button {
-				fontSize: 14;
-				color: 0x000000;
-				paddingLeft: 5;
-				paddingTop: 2;
-				paddingBottom: 2;
-				paddingRight: 5;
-				iconPosition: "left";
-				labelPosition: "center";
-				spacing: 4;
-			}
-		</style>
+		MenuButton:over {
+			fontSize: 14;
+			color: 0xDBDBDB;
+			paddingLeft: 5;
+			paddingTop: 2;
+			paddingBottom: 2;
+			paddingRight: 5;
+			iconPosition: "left";
+			verticalAlignment: "center";
+			
+			backgroundColor:0x3F3F3F;
+			backgroundAlpha:1;
+			filter:null;
+		}
 		
-		<menubar style="autoSize:true">
-			<vbox>
-				<hbox>
-					<menubutton text="File" id="menu-file">
-						<menu>
-							<menuitem id="menu-file-new" text="New" />
-							<menuitem id="menu-file-open" text="Open..." />
-							<menuitem id="menu-file-save" text="Save" condition="Client.target != 'flash'" />
-							<menuitem id="menu-file-save-as" text="Save As..." />
-							
-							<menu text="Recent Files" id="menu-file-recent" condition="Client.target != 'flash'">
-								<menuitem id="" text="SPARQL INSERT.txt" />
-								<menuitem id="" text="SPARQL.txt" />
-								<menuitem id="" text="test file.txt" />
-							</menu>
-							
-							<menuitem id="menu-file-exit" text="Exit" condition="Client.target != 'flash'"/>
-						</menu>
-					</menubutton>
-					
-					<menubutton text="Edit" id="menu-edit">
-						<menu/>
-					</menubutton>
-					
-					<menubutton text="Project" id="menu-project">
-						<menu/>
-					</menubutton>
-					
-					<menubutton text="View" id="menu-view">
-						<menu/>
-					</menubutton>
-					
-					<menubutton text="Exporters" id="menu-exporter">
-						<menu/>
-					</menubutton>
-					
-					<menubutton text="Extension" id="menu-ext">
-						<menu/>
-					</menubutton>
-					
-					<menubutton text="Help" id="menu-help">
-						<menu/>
-					</menubutton>
-				</hbox>
-			</vbox>
-		</menubar>
+		MenuButton:down {
+			fontSize: 14;
+			color: 0xDBDBDB;
+			paddingLeft: 5;
+			paddingTop: 2;
+			paddingBottom: 2;
+			paddingRight: 5;
+			iconPosition: "left";
+			verticalAlignment: "center";
+			
+			backgroundColor:0F0F0F;
+			borderColor: 0x7F7F7F;
+			backgroundAlpha:1;
+			filter:null;
+		}
 		
 		
+		.deepBox{
+			backgroundColor:0x232323;
+		}
+	</style>
+	
+
+	<hbox id="menubar" styleName="deepBox" width="100%" height="32" autoSize="false">
 		
+		<image resource="img/img_ico_uni.png" width="28" height="28" stretch="true" verticalAlign="center"/>
 		
-		<box width="100%" height="100%" id="mainBox" style="backgroundColor: 0xdfdddd">
-		</box>
+		<menubutton text="File" id="menu-file">
+			<menu>
+				<menuitem id="menu-file-new" text="New" />
+				<menuitem id="menu-file-open" text="Open..." />
+				<menuitem id="menu-file-save" text="Save" condition="Client.target != 'flash'" />
+				<menuitem id="menu-file-save-as" text="Save As..." />
+				
+				<menu text="Recent Files" id="menu-file-recent" condition="Client.target != 'flash'">
+					<menuitem id="" text="SPARQL INSERT.txt" />
+					<menuitem id="" text="SPARQL.txt" />
+					<menuitem id="" text="test file.txt" />
+				</menu>
+				
+				<menuitem id="menu-file-exit" text="Exit" condition="Client.target != 'flash'"/>
+			</menu>
+		</menubutton>
 		
+		<menubutton text="Edit" id="menu-edit">
+			<menu/>
+		</menubutton>
+		
+		<menubutton text="Project" id="menu-project">
+			<menu/>
+		</menubutton>
+		
+		<menubutton text="View" id="menu-view">
+			<menu/>
+		</menubutton>
+		
+		<menubutton text="Exporters" id="menu-exporter">
+			<menu/>
+		</menubutton>
+		
+		<menubutton text="Extension" id="menu-ext">
+			<menu/>
+		</menubutton>
+		
+		<menubutton text="Help" id="menu-help">
+			<menu/>
+		</menubutton>
+	</hbox>
+	
+	<box width="100%" height="100%" id="mainBox" style="backgroundColor: 0x5D5D5D">
+	</box>
+
 </vbox>

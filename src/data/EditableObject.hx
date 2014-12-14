@@ -1,7 +1,7 @@
 package data;
 import data.pro.ProGroup;
 import editor.render.EdObjRender;
-import modules.basic.ProGroupTransformation;
+import modules.basic.ProTransform;
 
 /**
  * EditorObject might not be the tiniest object on stage or in the layer manager list
@@ -47,7 +47,7 @@ class EditableObject
 	public function initPos(x:Float, y:Float):Void {
 		//can not gurrant all edObj has tranformation, so to be override
 		if (proGroups["transform"] != null) {
-			var trans:ProGroupTransformation = cast proGroups["transform"];//TODO make enum for "transform" stuff?
+			var trans:ProTransform = cast proGroups["transform"];//TODO make enum for "transform" stuff?
 			trans.x = x;
 			trans.y = y;
 		}

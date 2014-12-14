@@ -5,7 +5,7 @@ import data.pro.ProGroup;
  * ...
  * @author 
  */
-class ProGroupTransformation extends ProGroup
+class ProTransform extends ProGroup
 {
 	
 	//to do make following as setter getter to the array or map
@@ -13,9 +13,8 @@ class ProGroupTransformation extends ProGroup
 	public var y:Float;
 	public var scaleX:Float;
 	public var scaleY:Float;
-	
-	public var width:Float;
-	public var height:Float;
+	public var width:Float;//scaled
+	public var height:Float;//scaled
 	
 	public function new() 
 	{

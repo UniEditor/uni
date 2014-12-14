@@ -1,0 +1,2 @@
+
+<vbox width="100%" height="100%" id="main" style="spacing:0;"/> spacing is defaulty 4

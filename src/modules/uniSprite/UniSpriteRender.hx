@@ -5,7 +5,7 @@ import editor.render.EdObjRender;
 import editor.Uni;
 import haxe.ui.toolkit.core.interfaces.IDraggable;
 import haxe.ui.toolkit.events.UIEvent;
-import modules.basic.ProGroupTransformation;
+import modules.basic.ProTransform;
 import openfl.events.MouseEvent;
 import openfl.text.TextField;
 import openfl.display.Sprite;
@@ -19,7 +19,7 @@ class UniSpriteRender extends EdObjRender
 	
 	public var unisprite:UniSprite;
 
-	public function new() 
+	public function new()
 	{
 		super();
 		
@@ -46,10 +46,11 @@ class UniSpriteRender extends EdObjRender
 		graphics.drawRect(0, 0, 100,100);
 		graphics.endFill();
 		
+		//graphics.cubicCurveTo();
+		
 		this.x = unisprite.transform.x;
 		this.y = unisprite.transform.y;
 	}
-	
 	
 	//temp funcs
 	private function onClick(e:MouseEvent):Void {
