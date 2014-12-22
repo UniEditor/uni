@@ -20,9 +20,15 @@ class ProSpRender extends ProGroup
 	public var imgSizeX:Int;//read only for pro
 	public var imgSizeY:Int;//read only for pro
 	
+	public var rect_wd:Float;
+	public var rect_ht:Float;
+	
+	
 	public function new() 
 	{
 		super();
+		
+		displayName = "Render Setting";
 		
 		renderType = "rect";
 	}

@@ -21,8 +21,11 @@ class ProFrame extends VBox
 	{
 		super();
 		
+		this.percentWidth = 100;
+		
 		bar = new HBox();
 		bar.height = 40;
+		bar.percentWidth = 100;
 		bar.style.backgroundColor = 0x3A3A3A;
 		addChild(bar);
 		
@@ -38,7 +41,7 @@ class ProFrame extends VBox
 		barTitle.text = str;
 	}
 	public function addContent(obj:Component):Void {
-		subContainer:addChild(obj)
+		subContainer.addChild(obj);
 	}
 	
 }

@@ -19,6 +19,7 @@ class ProTransform extends ProGroup
 	public function new() 
 	{
 		super();
+		displayName = "Transformation";
 	}
 	
 }

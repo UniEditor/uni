@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<proDefine minHt="130">
-	<vbox  height="130">
-		<listSelector text="Select Item 1">
+<proDefine minHt="130" width="100%">
+	<vbox  height="130" width="100%">
+		<hbox height="20" width="100%">
+			<text text="Render Type"/>
+			<listSelector selectedIndex="1" style="selectionMethod:dropDown" width="90%">
 					<array>Item 1, Item 2, Item 3, Item 4, Item 5</array>
-		</listSelector>
+			</listSelector>
+		</hbox>
+		
 		<seperator/>
+		
 		<box>
+			<vbox >
+				<proField id="spr_rect_wd" proName="spRender" fieldName="rect_wd" label_text="width" width="110"/>
+				<proField id="spr_rect_ht" proName="spRender" fieldName="rect_ht" label_text="height" width="110"/>
+			</vbox>
 			
-			<box width="100" height="200" style="backgroundColor:0x99000" />
-			<box width="100" height="100" style="backgroundColor:0x996699" />
 		</box>
 	</vbox>
 </proDefine>

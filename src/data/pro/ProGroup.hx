@@ -9,6 +9,7 @@ package data.pro;
 class ProGroup
 {
 	
+	public var displayName:String;
 	public var fields:Array<ProField>;
 	
 	public function new() 
