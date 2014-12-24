@@ -32,8 +32,6 @@ function renderEdObj(edObj) {
 	for (one in edObj.proGroupList) {
 		trace(one);
 		
-		
-		
 		var xmlPath = this.folderPath + "/" + one+"/" + one+".xml";
 		if (this.isFileExist(xmlPath)) {
 			
@@ -56,6 +54,14 @@ function renderEdObj(edObj) {
 			//var sub_content = group_frame.findChild("sub_content", null, true);
 			//sub_content.addChild(body);
 			groupList.push(group_frame);
+			
+			var hxPath = this.folderPath + "/" + one +"/" + one+".hx";
+			if (this.isFileExist(hxPath)) {
+				var file2 = this.getFileContent(hxPath);
+				trace(file2);
+				ScriptManager.getIns().runString(file2, this.interp);
+				
+			}
 		}
 	}
 	

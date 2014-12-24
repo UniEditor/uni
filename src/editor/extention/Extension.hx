@@ -14,6 +14,7 @@ import haxe.ui.toolkit.core.Toolkit;
 import haxe.ui.toolkit.core.XMLController;
 import haxe.ui.toolkit.events.UIEvent;
 import haxe.ui.toolkit.hscript.ScriptInterp;
+import haxe.ui.toolkit.hscript.ScriptManager;
 import hscript.Interp;
 import modules.basic.ProTransform;
 import sys.FileSystem;
@@ -55,6 +56,7 @@ class Extension extends EventDispatcher
 		interp.variables.set("this", this);
 		interp.variables.set("Debug", Debug);
 		interp.variables.set("EventManager", EventManager);
+		interp.variables.set("ScriptManager", ScriptManager);
 		interp.variables.set("UniEvent", UniEvent);
 		interp.variables.set("UIEvent", UIEvent);
 		interp.variables.set("TypeInfo", TypeInfo);
