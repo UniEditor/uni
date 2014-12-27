@@ -16,10 +16,12 @@ import haxe.ui.toolkit.events.UIEvent;
 import haxe.ui.toolkit.hscript.ScriptInterp;
 import hscript.Interp;
 import modules.basic.ProTransform;
+import sys.FileSystem;
 import sys.io.File;
 import openfl.events.EventDispatcher;
 import sys.io.FileOutput;
 import systools.Dialogs;
+import ui.controls.ProFrame;
 import ui.EditorFrame;
 import ui.EditorPanel;
 
@@ -68,6 +70,8 @@ class Extension extends EventDispatcher
 		interp.variables.set("Button", Button);
 		interp.variables.set("HBox", HBox);
 		interp.variables.set("VBox", VBox);
+		
+		interp.variables.set("ProFrame", ProFrame);
 	}
 	
 	public function sayHello():Void {
@@ -93,7 +97,9 @@ class Extension extends EventDispatcher
 		return EditorFrame.getIns().mapOpenPanels[panelInfo.id];
 	}
 	
+	//in use
 	public function forceOpenPanel() {
+		trace("try forceOpenPanel: " + panelId);
 		var panelInfo = ExtManager.getIns().mapPanelInfo[panelId];
 		if (panelInfo == null) return;
 		EditorFrame.getIns().openPanel(panelInfo);
@@ -145,5 +151,10 @@ class Extension extends EventDispatcher
 	
 	public function strToInt(str:String):Int {
 		return Std.parseInt(str);
+	}
+	
+	//in use
+	public function isFileExist(str:String):Bool {
+		return FileSystem.exists(str);
 	}
 }

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<proDefine minHt="130">
+	<vbox>
+		<listSelector text="Select Item 1" height="130">
+					<array>Item 1, Item 2, Item 3, Item 4, Item 5</array>
+		</listSelector>
+	</vbox>
+</proDefine>

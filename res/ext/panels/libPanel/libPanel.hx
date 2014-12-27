@@ -3,7 +3,7 @@
 this.id = "uni.lib";
 
 this.onInit = function(){
-	//this.forceOpenPanel();
+	this.forceOpenPanel();
 }
 
 function onItemClick(e) {

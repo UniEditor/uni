@@ -17,7 +17,6 @@ import haxe.ui.toolkit.controls.TextInput;
 class ProField extends HBox
 {
 	
-	
 	public var proName(default, set):String;
 	private function set_proName(value:String):String {
 		proName = value;
@@ -38,7 +37,6 @@ class ProField extends HBox
 		label.text = label_text;
 		return value;
 	}
-	
 	
 	public var label:Text;
 	public var input:TextInput;

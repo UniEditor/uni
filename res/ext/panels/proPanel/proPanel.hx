@@ -2,7 +2,7 @@
 this.id = "uni.pro";
 
 this.onInit = function(){
-	
+	this.forceOpenPanel();
 }
 
 var groupList = [];
@@ -21,7 +21,6 @@ function renderEdObj(edObj) {
 	
 	var totalHt = 20;//panel header
 	var headerHt = header.height;
-	//trace("headerHt" + headerHt);
 	totalHt += headerHt;
 	
 	for (one in groupList) {
@@ -32,33 +31,28 @@ function renderEdObj(edObj) {
 	groupList = [];
 	
 	for (one in edObj.proGroupList) {
-		//trace(one);
+		trace(one);
 		
-		if (one == "transform") {
-			//trace(this.folderPath + "/transform/transform.xml");
-			//trace(File);
-			var file =this.getFileContent(this.folderPath + "/transform/transform.xml");
-			//trace(file);
+		var xmlPath = this.folderPath + "/" + one+"/" + one+".xml";
+		if (this.isFileExist(xmlPath)) {
 			
+			var file =this.getFileContent(xmlPath);
 			var xml = Xml.parse(file);
-			//trace(xml);
-			
 			var bodyXml = this.getXmlFirstChildOfName(xml, "proDefine");
-			//trace(bodyXml);
-			
 			var minHtStr = bodyXml.get("minHt");
-			//trace("minHtStr" +  minHtStr);
-			
 			totalHt += Std.parseInt(minHtStr);
 			totalHt += 20;//group header
 			
 			var body = Toolkit.processXml(bodyXml);
-			//trace("body" + body);
-			
 			var group_frame = Toolkit.processXmlResource("ui/panels/pro_frame.xml");
 			content.addChild(group_frame);
+			
 			var sub_content = group_frame.findChild("sub_content", null, true);
 			sub_content.addChild(body);
+			
+			trace("group_frame.height" + group_frame.height);
+			group_frame.height = Std.parseInt(minHtStr) + 40;
+			trace("group_frame.height" + group_frame.height);
 			
 			groupList.push(group_frame);
 		}

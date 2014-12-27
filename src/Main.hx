@@ -11,6 +11,7 @@ import haxe.ui.toolkit.core.Root;
 import haxe.ui.toolkit.core.Toolkit;
 import sys.io.Process;
 import ui.controls.ProField;
+import ui.controls.ProFrame;
 import ui.EditorFrame;
 import ui.EditorPanel;
 
@@ -46,6 +47,8 @@ class Main extends Sprite
 		if (inited) return;
 		inited = true;
 		
+		trace("======Main Init:======");
+		
 		//init steps
 		
 		
@@ -53,7 +56,9 @@ class Main extends Sprite
 		
 		
 		//init main UI frame
+		trace("======UI Frame======");
 		ClassManager.instance.registerComponentClass(ProField, "profield");
+		ClassManager.instance.registerComponentClass(ProFrame, "proframe");
 		Toolkit.init();
 		Toolkit.openFullscreen(function(root:Root) {
 			root.addChild(EditorFrame.getIns().view);
@@ -61,38 +66,37 @@ class Main extends Sprite
 		
 		
 		//load and init all exts
+		trace("======Load All Exts======");
 		ExtManager.getIns().loadExts();
-		
-		trace("======listing all exts:======");
+		trace("---list of ext---");
 		for (one in ExtManager.getIns().mapExt) {
 			trace(one.id);
 		}
-		trace("======listing all panels:======");
+		trace("---list of panel---");
 		for (one in ExtManager.getIns().mapPanelInfo) {
 			trace(one.id + "===" + one.extId);
 		}
-		trace("======================");
+		
 		
 		//create major panels
 		
 		
 		//create list under submenu: command, exporters, panels
+		trace("======Update Ext Sub Menu======");
 		EditorFrame.getIns().updateExtSubMenu();
 		
 		
 		//init data core
+		trace("======Load Type List======");
 		Uni.getIns().uniTools.loadTypeList();
-		
-		trace("======listing TypeList:======");
+		trace("---listing TypeList:---");
 		for (one in Uni.getIns().mapType) {
 			trace(one.name);
 		}
-		trace("======================");
 		
 		//init stage render
+		trace("======Stage Render Init======");
 		StageRender.getIns();
-		
-		
 		
 		//--------------------------------------------------
 		//uni ready
@@ -100,10 +104,10 @@ class Main extends Sprite
 		//load user project
 		
 		//load assets
+		trace("======Load Assets======");
 		Uni.getIns().loadAsset();
-		
 		trace("asset" + Uni.getIns().mapAsset.toString());
-
+		
 	}
 	
 	

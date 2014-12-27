@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <proDefine minHt="130">
-	<grid columns="2" style="spacing:5;">
+	<grid columns="2" style="spacing:5;" height="130">
 		<style>
 			Text {
 				fontSize: 14;

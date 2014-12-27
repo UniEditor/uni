@@ -50,12 +50,15 @@ class ExtManager
 		
 		//recursively find in res folder
 		var basePath = "./res/";
+		trace("---load ext and xml---");
 		loadExtFromFolder(basePath);
 		
 		//bind ext and panel together
+		trace("---bind---");
 		bindPanelAndExt();
 		
 		//call init on all exts
+		trace("---init---");
 		initExts();
 		
 		//after init

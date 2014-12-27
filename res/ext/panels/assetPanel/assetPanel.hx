@@ -2,8 +2,7 @@
 this.id = "uni.asset";
 
 this.onInit = function(){
-	trace(a / 0);
-	
+
 }
 
 this.onPanelOpen = function(){
