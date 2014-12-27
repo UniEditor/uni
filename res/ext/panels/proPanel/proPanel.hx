@@ -25,7 +25,6 @@ function renderEdObj(edObj) {
 	
 	var totalHt = 20;//panel header
 	var headerHt = header.height;
-	trace("headerHt " + headerHt);
 	totalHt += headerHt;
 	
 	for (one in groupList) {
@@ -41,7 +40,7 @@ function renderEdObj(edObj) {
 		if (this.isFileExist(xmlPath)) {
 			
 			var proGroupData = edObj.proGroups.get(one);
-			var file =this.getFileContent(xmlPath);
+			var file = this.getFileContent(xmlPath);
 			var xml = Xml.parse(file);
 			var bodyXml = this.getXmlFirstChildOfName(xml, "proDefine");
 			var minHtStr = bodyXml.get("minHt");
@@ -55,6 +54,7 @@ function renderEdObj(edObj) {
 			group_frame.setTitle(proGroupData.displayName);
 			group_frame.addContent(body);
 			content.addChild(group_frame);
+			
 			group_frame.height = Std.parseInt(minHtStr) + 40;
 			
 			//var sub_content = group_frame.findChild("sub_content", null, true);
@@ -68,8 +68,7 @@ function renderEdObj(edObj) {
 				
 				var theRenderFunc = renderFuncMap.get(one);
 				if (theRenderFunc != null ) {
-					
-					theRenderFunc("12", "34");
+					theRenderFunc(body, proGroupData);
 				}
 				
 			}

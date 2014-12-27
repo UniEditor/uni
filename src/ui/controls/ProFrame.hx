@@ -34,6 +34,7 @@ class ProFrame extends VBox
 		bar.addChild(barTitle);
 		
 		subContainer = new VBox();
+		subContainer.percentWidth = 100;
 		addChild(subContainer);
 	}
 	

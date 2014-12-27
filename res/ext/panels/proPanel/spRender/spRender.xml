@@ -3,7 +3,7 @@
 	<vbox  height="130" width="100%">
 		<hbox height="20" width="100%">
 			<text text="Render Type"/>
-			<listSelector selectedIndex="1" style="selectionMethod:dropDown" width="90%">
+			<listSelector id="listSel" text="Select Render" selectedIndex="1" style="selectionMethod:dropDown" width="90%">
 					<array>Item 1, Item 2, Item 3, Item 4, Item 5</array>
 			</listSelector>
 		</hbox>

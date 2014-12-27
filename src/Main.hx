@@ -49,8 +49,13 @@ class Main extends Sprite
 		
 		trace("======Main Init:======");
 		
-		//init steps
-		
+		//init data core
+		trace("======Load Type List======");
+		Uni.getIns().uniTools.loadTypeList();
+		trace("---listing TypeList:---");
+		for (one in Uni.getIns().mapType) {
+			trace(one.name);
+		}
 		
 		
 		//load images for use in UI
@@ -86,13 +91,7 @@ class Main extends Sprite
 		EditorFrame.getIns().updateExtSubMenu();
 		
 		
-		//init data core
-		trace("======Load Type List======");
-		Uni.getIns().uniTools.loadTypeList();
-		trace("---listing TypeList:---");
-		for (one in Uni.getIns().mapType) {
-			trace(one.name);
-		}
+		
 		
 		//init stage render
 		trace("======Stage Render Init======");
