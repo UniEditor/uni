@@ -1,10 +1,16 @@
 package editor;
 import data.lib.Asset;
 import data.TypeInfo;
+import haxe.io.Bytes;
+import haxe.Resource;
+import haxe.ui.toolkit.util.ByteConverter;
+import openfl.display.Bitmap;
+import openfl.display.Loader;
 import openfl.utils.Timer;
 import sys.FileSystem;
 import sys.io.File;
 import utils.Utils;
+import openfl.utils.ByteArray;
 
 /**
  * Doing dirty works for uni
@@ -73,6 +79,25 @@ class UniTools
 					var ass:Asset = new Asset();
 					ass.assType = "image";
 					ass.path = childItemPath;
+					ass.fileName = s;
+					
+					//trace("ASSET LOAD0 : " + childItemPath);
+					var bytes:Bytes = File.getBytes(childItemPath);
+					//trace("ASSET LOAD1 : " + bytes);
+					if (bytes != null) {
+						
+						var ba:ByteArray = ByteConverter.fromHaxeBytes(bytes);
+						//trace("ASSET LOAD2 : " + ba);
+						
+						var loader:Loader = new Loader();
+						loader.loadBytes(ba);
+						//trace("ASSET LOAD3 : " + loader.content);
+						if (loader.content != null) {
+							ass.bitmapData = cast(loader.content, Bitmap).bitmapData;
+						}
+					} 
+					
+					
 					finalRes[childItemPath] = ass;
 				}
 			}

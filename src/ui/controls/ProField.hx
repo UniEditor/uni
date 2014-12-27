@@ -38,6 +38,9 @@ class ProField extends HBox
 		return value;
 	}
 	
+	public var is_string(default, default):Bool;
+
+	
 	public var label:Text;
 	public var input:TextInput;
 	
@@ -47,14 +50,15 @@ class ProField extends HBox
 		
 		label = new Text();
 		label.text = "Label";
-		label.width = 50;
+		//label.width = 50;
+		label.percentWidth = 50;
 		label.height = 20;
 		label.autoSize = false;
 		addChild(label);
 		
 		input = new TextInput();
 		input.text = "Label";		
-		input.width = 50;
+		input.percentWidth = 50;
 		input.height = 24;
 		addChild(input);
 		
@@ -81,9 +85,13 @@ class ProField extends HBox
 		//trigger value change event on current selected
 		
 		//todo handle multi select
-		var value = Std.parseFloat(input.text);
-		trace("value:" + value);
+		var value:Dynamic = input.text;
+		if (is_string == false) {
+			value = Std.parseFloat(input.text);
+		}
 		
+		trace("value:" + value);
+		//./res/testProjectAsset//Chrysanthemum.jpg => 
 		Uni.getIns().editEdObjPro(Uni.getIns().selectedId, proName, fieldName, value);
 	}
 	

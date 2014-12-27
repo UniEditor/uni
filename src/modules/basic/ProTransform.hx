@@ -20,6 +20,13 @@ class ProTransform extends ProGroup
 	{
 		super();
 		displayName = "Transformation";
+		
+		x = 500;
+		y = 500;
+		scaleX = 1;
+		scaleY = 1;
+		width = 100;
+		height = 100;
 	}
 	
 }

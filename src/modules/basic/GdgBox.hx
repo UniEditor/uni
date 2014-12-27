@@ -31,7 +31,7 @@ class GdgBox extends EdGadget
 		y = linkedRender.y;
 		
 		graphics.clear();
-		graphics.beginFill(0x996699, 0);
+		graphics.beginFill(0x996699, 0.1);
 		graphics.lineStyle(2,0x0011FF,0.7);
 		graphics.drawRect(0,0,linkedRender.width,linkedRender.height);
 	}

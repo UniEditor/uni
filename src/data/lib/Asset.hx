@@ -1,4 +1,5 @@
 package data.lib ;
+import openfl.display.BitmapData;
 
 /**
  * Asset might just be the raw file data
@@ -13,6 +14,9 @@ class Asset
 	public var path:String;
 	public var iconPath:String;
 	
+	public var fileName:String;
+	public var bitmapData:BitmapData;
+
 	public function new() 
 	{
 		

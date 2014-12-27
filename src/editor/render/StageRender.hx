@@ -10,6 +10,7 @@ import haxe.ui.toolkit.core.interfaces.IDraggable;
 import haxe.ui.toolkit.events.UIEvent;
 import modules.basic.GdgBox;
 import modules.basic.GdgSelectBox;
+import modules.basic.ProTransform;
 import openfl.events.MouseEvent;
 import openfl.display.DisplayObject;
 import openfl.display.Sprite;
@@ -86,7 +87,7 @@ class StageRender extends Sprite
 		
 		addEventListener(MouseEvent.MOUSE_DOWN, onStageMouseDown);
 		//addEventListener(MouseEvent.MOUSE_MOVE, onStageMouseMove);
-		//addEventListener(MouseEvent.MOUSE_UP, onStageMouseUp);
+		addEventListener(MouseEvent.MOUSE_UP, onStageMouseUp);
 	}
 	
 	
@@ -198,7 +199,14 @@ class StageRender extends Sprite
 		
 		for (one in mapInstance) {
 			//trace("one:" + one.x + "=" + one.y + "==" + (one.x+one.width) + "=" + (one.y+one.height));
-			if (e.localX > one.x && e.localX < one.x+one.width && e.localY > one.y && e.localY < one.y+one.height) {
+			
+			var wd = cast(one.edObj.get("transform"), ProTransform).width;
+			var ht = cast(one.edObj.get("transform"), ProTransform).height;
+			
+			trace("wd" + wd);
+			trace("ht" + ht);
+			
+			if (e.localX > one.x && e.localX < one.x+ wd && e.localY > one.y && e.localY < one.y + ht) {
 				Uni.getIns().doSelect(one.edObj.id);
 				hitAnyOne = true;
 				selGadgetList[0].onBoxMouseDown(e);
@@ -226,6 +234,7 @@ class StageRender extends Sprite
 	}
 	
 	public function onStageMouseUp(e:MouseEvent):Void {
+		trace("onStageMouseUp");
 		selectBox.visible = false;
 		dragging = false;
 	}

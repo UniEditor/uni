@@ -4,18 +4,23 @@
 		<hbox height="20" width="100%">
 			<text text="Render Type"/>
 			<listSelector id="listSel" text="Select Render" selectedIndex="1" style="selectionMethod:dropDown" width="90%">
-					<array>Item 1, Item 2, Item 3, Item 4, Item 5</array>
+					<array>rect, image</array>
 			</listSelector>
 		</hbox>
 		
 		<seperator/>
 		
 		<box>
-			<vbox >
-				<proField id="spr_rect_wd" proName="spRender" fieldName="rect_wd" label_text="width" width="110"/>
-				<proField id="spr_rect_ht" proName="spRender" fieldName="rect_ht" label_text="height" width="110"/>
+			<vbox id="page_rect">
+				<proField id="page_rect_wd" proName="spRender" fieldName="rect_wd" label_text="Width" width="110"/>
+				<proField id="page_rect_ht" proName="spRender" fieldName="rect_ht" label_text="Height" width="110"/>
+				<proField id="page_rect_color" proName="spRender" fieldName="rect_color" label_text="Color" width="110"/>
 			</vbox>
-			
+			<vbox id="page_image">
+				<proField id="page_image_path" proName="spRender" fieldName="img_path" label_text="Path" width="210" is_string="true" />
+				<proField id="page_image_wd" proName="spRender" fieldName="img_wd" label_text="Widtht" width="110"/>
+				<proField id="page_image_ht" proName="spRender" fieldName="img_ht" label_text="Height" width="110"/>
+			</vbox>
 		</box>
 	</vbox>
 </proDefine>

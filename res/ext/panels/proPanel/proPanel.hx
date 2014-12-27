@@ -125,6 +125,8 @@ function render() {
 	}
 	
 	renderEdObj(edObj);
+	
+
 }
 
 function onSelectChange(e) {
