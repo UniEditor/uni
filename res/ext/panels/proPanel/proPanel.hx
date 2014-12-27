@@ -1,4 +1,3 @@
-
 this.id = "uni.pro";
 
 this.onInit = function(){
@@ -44,14 +43,18 @@ function renderEdObj(edObj) {
 			totalHt += 20;//group header
 			
 			var body = Toolkit.processXml(bodyXml);
-			var group_frame = Toolkit.processXmlResource("ui/panels/pro_frame.xml");
+			//var group_frame = Toolkit.processXmlResource("ui/panels/pro_frame.xml");
+			var group_frame = new ProFrame();
+			group_frame.setTitle(one);
+			group_frame.addContent(body);
 			content.addChild(group_frame);
+			group_frame.height = Std.parseInt(minHtStr) + 40;
 			
-			var sub_content = group_frame.findChild("sub_content", null, true);
-			sub_content.addChild(body);
+			//var sub_content = group_frame.findChild("sub_content", null, true);
+			//sub_content.addChild(body);
 			
 			trace("group_frame.height" + group_frame.height);
-			group_frame.height = Std.parseInt(minHtStr) + 40;
+			
 			trace("group_frame.height" + group_frame.height);
 			
 			groupList.push(group_frame);

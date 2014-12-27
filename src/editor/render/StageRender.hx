@@ -10,7 +10,7 @@ import haxe.ui.toolkit.core.interfaces.IDraggable;
 import haxe.ui.toolkit.events.UIEvent;
 import modules.basic.GdgBox;
 import modules.basic.GdgSelectBox;
-import openfl._v2.events.MouseEvent;
+import openfl.events.MouseEvent;
 import openfl.display.DisplayObject;
 import openfl.display.Sprite;
 import ui.EditorFrame;
