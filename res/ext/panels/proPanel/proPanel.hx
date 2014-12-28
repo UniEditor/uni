@@ -4,7 +4,23 @@ this.onInit = function(){
 	this.forceOpenPanel();
 }
 
+
+
 var groupList = [];
+
+trace("ABC");
+var testMap = { };
+trace("ABC2 " + testMap);
+testMap.abc = 1;
+trace("ABC3 " + testMap.abc);
+
+function fc(){
+	trace("from fc");
+}
+
+testMap.abc2 = fc;
+testMap.abc2();
+trace("ABC4");
 
 function renderEdObj(edObj) {
 	trace("PRO_PANEL: renderEdObj("+edObj.id+")");

@@ -52,6 +52,7 @@ class Main extends Sprite
 		//init steps
 		
 		
+		
 		//load images for use in UI
 		
 		
@@ -77,7 +78,7 @@ class Main extends Sprite
 			trace(one.id + "===" + one.extId);
 		}
 		
-		
+		return;
 		//create major panels
 		
 		
