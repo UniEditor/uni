@@ -7,14 +7,9 @@ this.onInit = function(){
 var groupList = [];
 var renderFuncMap = new Table();
 
+//this.interp.variables.set("renderFuncMap", renderFuncMap);
 
 
-renderFuncMap.set("abc", 123);
-
-trace("ABC: "+ renderFuncMap.get("abc"));
-trace("ABC2: "+ renderFuncMap.size());
-
-this.interp.variables.set("renderFuncMap", renderFuncMap);
 
 function renderEdObj(edObj) {
 	trace("PRO_PANEL: renderEdObj("+edObj.id+")");
@@ -30,10 +25,10 @@ function renderEdObj(edObj) {
 	
 	var totalHt = 20;//panel header
 	var headerHt = header.height;
+	trace("headerHt " + headerHt);
 	totalHt += headerHt;
 	
 	for (one in groupList) {
-		//trace("remove one");
 		content.removeChild(one);
 	}
 	
@@ -50,11 +45,12 @@ function renderEdObj(edObj) {
 			var xml = Xml.parse(file);
 			var bodyXml = this.getXmlFirstChildOfName(xml, "proDefine");
 			var minHtStr = bodyXml.get("minHt");
+			
 			totalHt += Std.parseInt(minHtStr);
 			totalHt += 20;//group header
 			
+			
 			var body = Toolkit.processXml(bodyXml);
-			//var group_frame = Toolkit.processXmlResource("ui/panels/pro_frame.xml");
 			var group_frame = new ProFrame();
 			group_frame.setTitle(proGroupData.displayName);
 			group_frame.addContent(body);
@@ -68,16 +64,19 @@ function renderEdObj(edObj) {
 			var hxPath = this.folderPath + "/" + one +"/" + one+".hx";
 			if (this.isFileExist(hxPath)) {
 				var file2 = this.getFileContent(hxPath);
-				trace(file2);
-				trace(this.interp);
-				
 				ScriptManager.getIns().runString(file2, this.interp);
-				trace("END OF RUN STRING");
-			}trace("END A");
-		}trace("END B");
-	}trace("END C");
+				
+				var theRenderFunc = renderFuncMap.get(one);
+				if (theRenderFunc != null ) {
+					
+					theRenderFunc("12", "34");
+				}
+				
+			}
+		}
+	}
 	
-	//trace(totalHt);
+	trace(totalHt);
 	//this.get_panel().height = totalHt;
 	
 	trace("PRO_PANEL: renderEdObj DONE");

@@ -28,7 +28,7 @@ class ScriptManager
 	}
 	
 	public function runString(script:String, ?customInterp:Interp) {
-		trace("runString: " + script+" interp:" + customInterp);
+		trace("runString ");
 		try {
 			var program = parser.parseString(script);
 			if(customInterp != null)

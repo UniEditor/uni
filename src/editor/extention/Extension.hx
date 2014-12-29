@@ -18,6 +18,7 @@ import script.ScriptManager;
 import hscript.Interp;
 import modules.basic.ProTransform;
 import script.Table;
+import script.UniInterp;
 import sys.FileSystem;
 import sys.io.File;
 import openfl.events.EventDispatcher;
@@ -47,13 +48,14 @@ class Extension extends EventDispatcher
 	public var onPanelClose:Void->Void;
 	public var onCommandCall:Void->Void;
 	
-	public var interp:ScriptInterp;
+	public var interp:UniInterp;
 	
 	public function new() 
 	{
 		Debug.getIns();
 		super();
-		interp = new ScriptInterp();
+		
+		interp = new UniInterp();
 		interp.variables.set("this", this);
 		interp.variables.set("Debug", Debug);
 		interp.variables.set("EventManager", EventManager);
