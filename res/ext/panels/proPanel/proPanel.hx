@@ -4,23 +4,17 @@ this.onInit = function(){
 	this.forceOpenPanel();
 }
 
-
-
 var groupList = [];
+var renderFuncMap = new Table();
 
-trace("ABC");
-var testMap = { };
-trace("ABC2 " + testMap);
-testMap.abc = 1;
-trace("ABC3 " + testMap.abc);
 
-function fc(){
-	trace("from fc");
-}
 
-testMap.abc2 = fc;
-testMap.abc2();
-trace("ABC4");
+renderFuncMap.set("abc", 123);
+
+trace("ABC: "+ renderFuncMap.get("abc"));
+trace("ABC2: "+ renderFuncMap.size());
+
+this.interp.variables.set("renderFuncMap", renderFuncMap);
 
 function renderEdObj(edObj) {
 	trace("PRO_PANEL: renderEdObj("+edObj.id+")");
@@ -75,14 +69,16 @@ function renderEdObj(edObj) {
 			if (this.isFileExist(hxPath)) {
 				var file2 = this.getFileContent(hxPath);
 				trace(file2);
-				ScriptManager.getIns().runString(file2, this.interp);
+				trace(this.interp);
 				
-			}
-		}
-	}
+				ScriptManager.getIns().runString(file2, this.interp);
+				trace("END OF RUN STRING");
+			}trace("END A");
+		}trace("END B");
+	}trace("END C");
 	
 	//trace(totalHt);
-	this.get_panel().height = totalHt;
+	//this.get_panel().height = totalHt;
 	
 	trace("PRO_PANEL: renderEdObj DONE");
 }

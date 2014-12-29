@@ -78,7 +78,6 @@ class Main extends Sprite
 			trace(one.id + "===" + one.extId);
 		}
 		
-		return;
 		//create major panels
 		
 		

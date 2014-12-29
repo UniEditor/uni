@@ -40,6 +40,7 @@ class ProFrame extends VBox
 	public function setTitle(str:String):Void {
 		barTitle.text = str;
 	}
+	
 	public function addContent(obj:Component):Void {
 		subContainer.addChild(obj);
 	}

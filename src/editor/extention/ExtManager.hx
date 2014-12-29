@@ -110,13 +110,13 @@ class ExtManager
 		
 		var defineXml:Xml = getFirstNamedElement(xml, "panelDefine");
 		if(defineXml != null){
-			parsePanelFromXml(defineXml, childItemPath, false); trace("=========================GOT panel!");
+			parsePanelFromXml(defineXml, childItemPath, false); 
 			return;
 		}
 		
 		defineXml = getFirstNamedElement(xml, "exporterDefine");
 		if(defineXml != null){
-			parsePanelFromXml(defineXml, childItemPath, true);trace("============================GOT exp!");
+			parsePanelFromXml(defineXml, childItemPath, true);
 			return;
 		}
 	}

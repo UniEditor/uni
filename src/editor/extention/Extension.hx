@@ -14,9 +14,10 @@ import haxe.ui.toolkit.core.Toolkit;
 import haxe.ui.toolkit.core.XMLController;
 import haxe.ui.toolkit.events.UIEvent;
 import haxe.ui.toolkit.hscript.ScriptInterp;
-import haxe.ui.toolkit.hscript.ScriptManager;
+import script.ScriptManager;
 import hscript.Interp;
 import modules.basic.ProTransform;
+import script.Table;
 import sys.FileSystem;
 import sys.io.File;
 import openfl.events.EventDispatcher;
@@ -72,6 +73,7 @@ class Extension extends EventDispatcher
 		interp.variables.set("Button", Button);
 		interp.variables.set("HBox", HBox);
 		interp.variables.set("VBox", VBox);
+		interp.variables.set("Table", Table);
 		
 		interp.variables.set("ProFrame", ProFrame);
 	}
@@ -138,7 +140,7 @@ class Extension extends EventDispatcher
 			
 			var transform:ProTransform = cast one.get("transform");
 			oneXml.set("x", ""+transform.x);
-			oneXml.set("y", ""+transform.y);			
+			oneXml.set("y", ""+transform.y);
 			xmlStageData.addChild(oneXml);
 		}
 		

@@ -19,11 +19,9 @@ class EditableObject
 	//so that they wont have weird things as children
 	public var isFinalNode:Bool;
 	
-	
 	//for editor only
 	public var isLocked:Bool;
 	public var isVisible:Bool;
-	
 	
 	//core data
 	public var id:String;
