@@ -1,4 +1,5 @@
 package editor;
+
 import data.lib.Asset;
 import data.TypeInfo;
 import haxe.io.Bytes;
@@ -6,7 +7,7 @@ import haxe.Resource;
 import haxe.ui.toolkit.util.ByteConverter;
 import openfl.display.Bitmap;
 import openfl.display.Loader;
-import openfl.utils.Timer;
+import openfl.Lib;
 import sys.FileSystem;
 import sys.io.File;
 import utils.Utils;
@@ -114,10 +115,11 @@ class UniTools
 		var hour:Int = now.getHours();
 		var min:Int = now.getMinutes();
 		var sec:Int = now.getSeconds();
+		var msec:Int = Lib.getTimer() % 1000;
 		
 		var bigInt1:Int = year * 500 + month * 32 + date;
 		var bigInt2:Int = hour * 3600 + min * 60 + sec;
-		res = res + StringTools.hex(bigInt1) +  StringTools.hex(bigInt2);
+		res = res + StringTools.hex(bigInt1) +  StringTools.hex(bigInt2) + StringTools.hex(msec);
 		return res;
 	}
 	

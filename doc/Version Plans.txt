@@ -21,8 +21,8 @@ gadget should support dragging [OK]
 
 <<Milestone 0.2 : A proper editor, not a haxeui demo
 
+UniSprite support render setting (image, shape) {pro group, pro group panel} [OK]
 Asset Panel (image, spriteSheet)
-UniSprite support render setting (image, shape) {pro group, pro group panel}
 Clean up menu bar
 Restyle the whole UI
 Undo, redo
