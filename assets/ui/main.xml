@@ -46,7 +46,7 @@
 		}
 		
 		
-		.deepBox{
+		.darkBox{
 			backgroundColor:0x232323;
 		}
 	</style>
@@ -74,21 +74,23 @@
 	
 	-->
 	
-	<hbox id="menubar" styleName="deepBox" width="100%" height="32" autoSize="false">
+	<hbox id="menubar" styleName="darkBox" width="100%" height="32" autoSize="false">
 		
 		<image resource="img/img_ico_uni.png" width="28" height="28" stretch="true" verticalAlign="center"/>
 		
 		<menubutton text="File" id="menu-file">
-			
+			<menu/>
 		</menubutton>
 		
 		<menubutton text="Edit" id="menu-edit">
-			<menuitem text="Undo" id="menu-edit-undo" />
-			<menuitem text="Redo" id="menu-edit-redo"/ >
-			<menuitem text="-----"/ >
-			<menuitem text="Copy" id="menu-edit-copy"/ >
-			<menuitem text="Cut" id="menu-edit-cut"/ >
-			<menuitem text="Paste" id="menu-edit-paste"/ >
+			<menu>
+				<menuitem text="Undo" id="menu-edit-undo" />
+				<menuitem text="Redo" id="menu-edit-redo"/>
+				<menuitem text="-----" height="10" autoSize="false" disabled="true" />
+				<menuitem text="Copy" id="menu-edit-copy"/>
+				<menuitem text="Cut" id="menu-edit-cut"/>
+				<menuitem text="Paste" id="menu-edit-paste"/>
+			</menu>
 		</menubutton>
 		
 		<menubutton text="Project" id="menu-project">
@@ -108,7 +110,9 @@
 		</menubutton>
 		
 		<menubutton text="Help" id="menu-help">
-			<menu/>
+			<menu>
+				<menuitem text="About" id="menu-help=about"/>
+			</menu>
 		</menubutton>
 	</hbox>
 	

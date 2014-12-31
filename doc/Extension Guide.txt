@@ -47,3 +47,28 @@ all callbacks need to be registered
 folders: commands, exporters, extensions do not affect how exts behave, just arrangement for structured display in menu bar
 
 for panels, there must be an valid xml indicating which ext,it binds
+
+
+
+----------
+
+On the binding of script and ui xml
+
+Visual things, even commands (things to be gathered and listed) all require xml define, in which it binds an ext script
+The script should register relevent event in advance to receive the visual events(panelOpen, dialogCancel...)
+
+Needs:
+	
+Panels <panel ext="exiId"/> onPanelOpen onPanelClose
+Dialogs <dialog ext="exiId"/> onDialogOpen onDialogConfirm onDialogCancel
+Commands <command ext="exiId"/> onCommandExecute
+Exporters <dialog ext="exiId"/>
+Pure Ext
+
+Problems:
+
+Script id is set by code, not good
+
+
+
+
