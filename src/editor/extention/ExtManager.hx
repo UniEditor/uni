@@ -30,8 +30,9 @@ class ExtManager
 	{
 		mapExt = new Map<String, Extension>();
 		mapPanelInfo = new Map<String, PanelInfo>();
+		mapCmdInfo= new Map<String, CmdInfo>();
 		
-		commandList = new Array<String>();
+		cmdList = new Array<String>();
 		panelList = new Array<String>();
 		exporterList = new Array<String>();
 	}
@@ -39,17 +40,17 @@ class ExtManager
 	//data
 	public var mapExt:Map<String, Extension>;
 	public var mapPanelInfo:Map<String, PanelInfo>;
-	
+	public var mapCmdInfo:Map<String, CmdInfo>;
 	
 	//for menu
-	public var commandList:Array<String>;//things to put in command folder
+	public var cmdList:Array<String>;//things to put in command folder
 	public var exporterList:Array<String>;//things to put in exportList folder
 	public var panelList:Array<String>;//things to put in panel folder
 	
 	public function loadExts():Void {
 		
 		//recursively find in res folder
-		var basePath = "./res/";
+		var basePath = "./res";
 		trace("---load ext and xml---");
 		loadExtFromFolder(basePath);
 		
@@ -109,16 +110,26 @@ class ExtManager
 		var xml:Xml = Xml.parse(content);
 		
 		var defineXml:Xml = getFirstNamedElement(xml, "panelDefine");
-		if(defineXml != null){
-			parsePanelFromXml(defineXml, childItemPath, false); 
+		if (defineXml != null) {
+			
+			var isUnderExporter:Bool = Utils.isUnderPath(childItemPath, "./res/ext/exporters/");
+			var isUnderPanel:Bool = Utils.isUnderPath(childItemPath, "./res/ext/panels/");
+			
+			if (isUnderPanel) {
+				parsePanelFromXml(defineXml, childItemPath, false); 
+			}else if (isUnderExporter) {
+				parsePanelFromXml(defineXml, childItemPath, true); 
+			}
 			return;
 		}
 		
-		defineXml = getFirstNamedElement(xml, "exporterDefine");
+		defineXml = getFirstNamedElement(xml, "cmdDefine");
 		if(defineXml != null){
-			parsePanelFromXml(defineXml, childItemPath, true);
+			parseCommandFromXml(defineXml, childItemPath, true);
 			return;
 		}
+		
+		trace("This xml is out of valid paths: " + childItemPath);
 	}
 	
 	public function parsePanelFromXml(panelDefine:Xml, childItemPath:String, isExporter:Bool ):Void {
@@ -179,6 +190,40 @@ class ExtManager
 		
 	}
 	
+	
+	public function parseCommandFromXml(cmdDefine:Xml, childItemPath:String, isExporter:Bool ):Void {
+	
+		if (cmdDefine != null) {
+			var id:String = cmdDefine.get("id");
+			var title:String = cmdDefine.get("title");
+			
+			if (cmdDefine.exists("id") == false) {
+				trace("ERROR no id from " + childItemPath);
+				return;
+			}
+			
+			if (cmdDefine.exists("title") == false) {
+				trace("ERROR no id title " + childItemPath);
+				return;
+			}
+			
+			if(mapCmdInfo.exists(id)){
+				trace("ERROR cmd id already exist " + id);
+				return;
+			}
+			
+			var cmdInfo:CmdInfo = new CmdInfo();
+			cmdInfo.id = id;
+			cmdInfo.title = title;
+			cmdInfo.extId = cmdDefine.get("extId");
+			
+			cmdList.push(id);
+			mapCmdInfo.set(id, cmdInfo);
+		}
+		
+	}
+	
+	
 	public function bindPanelAndExt():Void {
 		trace("bindPanelAndExt");
 		
@@ -236,6 +281,16 @@ class PanelInfo {
 	public var defaultY:Int;
 	
 	public var isExporter:Bool;
+	
+	public function new(){
+	}
+}
+
+class CmdInfo {
+	
+	public var id:String;
+	public var title:String;
+	public var extId:String;
 	
 	public function new(){
 	}

@@ -114,12 +114,25 @@ class EditorFrame extends XMLController
 		openPanel(panelInfo);
 	}
 	
-	
-	
+	private function onMenuItemClick_Cmd(e:UIEvent) {
+		trace("onMenuItemClick_Cmd: "+e);
+		
+		var cmdID:String = e.component.id;
+		if (cmdID == null) { return; }
+		
+		var cmdInfo:CmdInfo = ExtManager.getIns().mapCmdInfo[cmdID];
+		if (cmdInfo == null) { return; }
+		
+		var ext:Extension = ExtManager.getIns().mapExt[cmdInfo.extId];
+		if (ext == null) { return; }
+		
+		ext.onCommandCall();
+	}
 	
 	public function updateExtSubMenu() {
 		
 		//panels
+		var menu_ext = getComponent("menu-view");
 		for(one in ExtManager.getIns().panelList){
 			
 			var pInfo:PanelInfo = ExtManager.getIns().mapPanelInfo[one];
@@ -127,22 +140,28 @@ class EditorFrame extends XMLController
 			menuitem.text = pInfo.title;
 			menuitem.id = pInfo.id;
 			menuitem.addEventListener(UIEvent.CLICK, onMenuItemClick_Panel);
-			
-			//menu-ext
-			var menu_ext = getComponent("menu-view");
 			menu_ext.addChild(menuitem);
 		}
 		
 		//exporters
+		var menu_ext = getComponent("menu-exporter");
 		for(one in ExtManager.getIns().exporterList){
-			
+			var pInfo:PanelInfo = ExtManager.getIns().mapPanelInfo[one];
 			var menuitem:MenuItem = new MenuItem();
-			menuitem.text = one;
+			menuitem.text = pInfo.title;
 			menuitem.id = one;
 			menuitem.addEventListener(UIEvent.CLICK, onMenuItemClick_Exporter);
-			
-			//menu-ext
-			var menu_ext = getComponent("menu-exporter");
+			menu_ext.addChild(menuitem);
+		}
+		
+		//commands
+		var menu_ext = getComponent("menu-ext");
+		for(one in ExtManager.getIns().cmdList){
+			var cInfo:CmdInfo = ExtManager.getIns().mapCmdInfo[one];
+			var menuitem:MenuItem = new MenuItem();
+			menuitem.text = cInfo.title;
+			menuitem.id = one;
+			menuitem.addEventListener(UIEvent.CLICK, onMenuItemClick_Cmd);
 			menu_ext.addChild(menuitem);
 		}
 		

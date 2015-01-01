@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<exporterDefine id="testExporter" title="Test Exporter" extId="exporter.test">
+<panelDefine id="testExporter" title="Test Exporter" extId="exporter.test">
 	
 	<frame resize="false" minWd="100" minHt="100" defaultWd="300" defaultHt="500"/>
 	
@@ -11,4 +11,4 @@
 		</vbox>
 	</body>
 	
-</exporterDefine>
+</panelDefine>

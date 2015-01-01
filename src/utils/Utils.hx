@@ -24,6 +24,16 @@ class Utils
 		return "";
 	}
 	
+	public static function isUnderPath(childPath:String, basePath:String):Bool {
+		
+		var ind:Int = childPath.indexOf(basePath);
+		if (ind == 0 && childPath.length > basePath.length) {
+			return true;
+		}
+		
+		return false;
+	}
+	
 	public static function printDisplayList(disCon:DisplayObjectContainer):String {
 		
 		var res:String = "";
