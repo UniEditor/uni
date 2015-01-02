@@ -68,10 +68,6 @@
 				<menuitem id="menu-file-exit" text="Exit" condition="Client.target != 'flash'"/>
 			</menu>
 		</menubutton>
-	
-	
-	
-	
 	-->
 	
 	<hbox id="menubar" styleName="darkBox" width="100%" height="32" autoSize="false">

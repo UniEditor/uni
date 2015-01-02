@@ -170,6 +170,8 @@ class ExtManager
 			panelInfo.title = title;
 			panelInfo.body = bodyXml;
 			panelInfo.extId = panelDefine.get("extId");
+			panelInfo.path = panelDefine.get("path");
+			
 			panelInfo.resizable = frameXml.get("resize") == "true";
 			panelInfo.defaultWd = Std.parseInt(frameXml.get("defaultWd"));
 			panelInfo.defaultHt = Std.parseInt(frameXml.get("defaultHt"));
@@ -216,6 +218,7 @@ class ExtManager
 			cmdInfo.id = id;
 			cmdInfo.title = title;
 			cmdInfo.extId = cmdDefine.get("extId");
+			cmdInfo.path = cmdDefine.get("path");
 			
 			cmdList.push(id);
 			mapCmdInfo.set(id, cmdInfo);
@@ -269,6 +272,7 @@ class PanelInfo {
 	public var title:String;
 	public var body:Xml;
 	public var extId:String;
+	public var path:String;
 	
 	public var resizable:Bool;
 	public var minWd:Int;
@@ -291,6 +295,7 @@ class CmdInfo {
 	public var id:String;
 	public var title:String;
 	public var extId:String;
+	public var path:String;
 	
 	public function new(){
 	}

@@ -3,6 +3,7 @@ import editor.Debug;
 import editor.extention.Extension;
 import editor.extention.ExtManager;
 import editor.render.StageRender;
+import haxe.ui.toolkit.controls.MenuButton;
 import haxe.ui.toolkit.controls.MenuItem;
 import haxe.ui.toolkit.core.Component;
 import haxe.ui.toolkit.core.PopupManager;
@@ -30,17 +31,30 @@ class EditorFrame extends XMLController
 	
 	public var mainBox:Component;
 	public var mapOpenPanels:Map<String, EditorPanel>;
-
+	public var mapMenuInfo:Map<String, Dynamic>;
+	
 	public function new() 
 	{
 		super("ui/main.xml");
 		mapOpenPanels = new Map<String, EditorPanel>();
-
+		mapMenuInfo = new Map<String, Dynamic>();
+		
 		//create stageRender
 		mainBox = this.getComponent("mainBox");
 	}
 	
-	//interfaces
+	public function init():Void {
+		
+		//create menu items for panels, cmds, dialogs
+		
+		
+		//bind built-in menu items with functions
+		
+		
+	}
+	
+	//=====interfaces for script=====
+	
 	public function openPanel(panelInfo:PanelInfo):Void {
 		//trace("openPanel "+panelInfo.id);
 		Debug.getIns().log("openPanel " + panelInfo.id);
@@ -48,6 +62,7 @@ class EditorFrame extends XMLController
 		if (mapOpenPanels.exists(panelInfo.id)) {
 			var thePanel:EditorPanel = mapOpenPanels[panelInfo.id];
 			root.addChild(thePanel);//readd to put at top
+			
 		}else {
 			//creating new
 			var panel:EditorPanel = new EditorPanel();
@@ -86,8 +101,7 @@ class EditorFrame extends XMLController
 		}
 	}
 	
-	//UI Event Handles
-	
+	//=====UI Event Handles=====
 	private function onMenuItemClick_Panel(e:UIEvent) {
 		trace("onMenuItemClick_Panel: "+e);
 
@@ -129,6 +143,12 @@ class EditorFrame extends XMLController
 		ext.onCommandCall();
 	}
 	
+	private function onMenuItemClick(e:UIEvent) {
+		trace("onMenuItemClick: "+e);
+	}
+	
+	
+	//=====core functions=====
 	public function updateExtSubMenu() {
 		
 		//panels
@@ -136,11 +156,13 @@ class EditorFrame extends XMLController
 		for(one in ExtManager.getIns().panelList){
 			
 			var pInfo:PanelInfo = ExtManager.getIns().mapPanelInfo[one];
-			var menuitem:MenuItem = new MenuItem();
+			/*var menuitem:MenuItem = new MenuItem();
 			menuitem.text = pInfo.title;
 			menuitem.id = pInfo.id;
 			menuitem.addEventListener(UIEvent.CLICK, onMenuItemClick_Panel);
-			menu_ext.addChild(menuitem);
+			menu_ext.addChild(menuitem);*/
+			
+			bindMenuItem(pInfo.path, pInfo);
 		}
 		
 		//exporters
@@ -164,11 +186,55 @@ class EditorFrame extends XMLController
 			menuitem.addEventListener(UIEvent.CLICK, onMenuItemClick_Cmd);
 			menu_ext.addChild(menuitem);
 		}
+	}
+	
+	
+	public function addMenuItem(container:Component, pathArray:Array<String>):Void {
 		
+		if (pathArray.length == 0) { return; }
+		
+		var curLevel:Component = container.findChild(pathArray[0]);
+		if (curLevel == null) {
+			var menuitem:MenuItem = new MenuItem();
+			menuitem.text = pathArray[0];
+			menuitem.id = pathArray[0];
+			menuitem.addEventListener(UIEvent.CLICK, onMenuItemClick);
+			container.addChild(menuitem);
+		}
+		
+		pathArray.shift();
+		addMenuItem(curLevel, pathArray);
+	}
+	
+	//obj could: cmdInfo, panelInfo, String->Void
+	public function bindMenuItem(menuPath:String, obj:Dynamic) {
+		
+		mapMenuInfo.set(menuPath, obj);
+		
+		var pathArray:Array<String> = menuPath.split(".");
+		if (pathArray.length <= 0) {
+			return;
+		}
+		
+		var curLevel:Component = getComponent(pathArray[0]);
+		var hbox:Component = getComponent("menubar");
+		if (curLevel == null) {
+			curLevel = new MenuButton();
+			curLevel.text = pathArray[0];
+			curLevel.id = pathArray[0];
+			curLevel.addEventListener(UIEvent.CLICK, onMenuItemClick);
+			hbox.addChild(curLevel);
+		}
+		
+		pathArray.shift();
+		addMenuItem(curLevel, pathArray);
+	}
+	
+	public function addEventForAllMenuItems() {
 		
 		
 		
 	}
-	
+
 	
 }

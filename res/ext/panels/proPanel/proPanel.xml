@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<panelDefine id="proPanel" title="Property" extId="uni.pro" >
+<panelDefine id="proPanel" title="Property" extId="uni.pro" path="view.property">
 	<frame resize="false" minWd="100" minHt="100" defaultWd="300" defaultHt="600" defaultX="500" defaultY="50" />
 	
 	<body>
