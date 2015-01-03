@@ -88,7 +88,7 @@ class Main extends Sprite
 		
 		//create list under submenu: command, exporters, panels
 		trace("======Update Ext Sub Menu======");
-		EditorFrame.getIns().updateExtSubMenu();
+		EditorFrame.getIns().init();
 		
 		
 		

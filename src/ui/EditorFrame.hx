@@ -47,8 +47,21 @@ class EditorFrame extends XMLController
 		
 		//create menu items for panels, cmds, dialogs
 		
+		//panels
+		for(one in ExtManager.getIns().panelList){
+			var pInfo:PanelInfo = ExtManager.getIns().mapPanelInfo[one];
+			bindMenuItem(pInfo.id, pInfo, false, pInfo.path);
+		}
+		
+		//commands
+		var menu_ext = getComponent("menu-ext");
+		for(one in ExtManager.getIns().cmdList){
+			var cInfo:CmdInfo = ExtManager.getIns().mapCmdInfo[one];
+			bindMenuItem(cInfo.id, cInfo, false, cInfo.path);
+		}
 		
 		//bind built-in menu items with functions
+		
 		
 		
 	}
@@ -144,74 +157,30 @@ class EditorFrame extends XMLController
 	}
 	
 	private function onMenuItemClick(e:UIEvent) {
-		trace("onMenuItemClick: "+e);
+		trace("onMenuItemClick: " + e.component.id);
+		
+		
+		
 	}
 	
 	
-	//=====core functions=====
-	public function updateExtSubMenu() {
-		
-		//panels
-		var menu_ext = getComponent("menu-view");
-		for(one in ExtManager.getIns().panelList){
-			
-			var pInfo:PanelInfo = ExtManager.getIns().mapPanelInfo[one];
-			/*var menuitem:MenuItem = new MenuItem();
-			menuitem.text = pInfo.title;
-			menuitem.id = pInfo.id;
-			menuitem.addEventListener(UIEvent.CLICK, onMenuItemClick_Panel);
-			menu_ext.addChild(menuitem);*/
-			
-			bindMenuItem(pInfo.path, pInfo);
-		}
-		
-		//exporters
-		var menu_ext = getComponent("menu-exporter");
-		for(one in ExtManager.getIns().exporterList){
-			var pInfo:PanelInfo = ExtManager.getIns().mapPanelInfo[one];
-			var menuitem:MenuItem = new MenuItem();
-			menuitem.text = pInfo.title;
-			menuitem.id = one;
-			menuitem.addEventListener(UIEvent.CLICK, onMenuItemClick_Exporter);
-			menu_ext.addChild(menuitem);
-		}
-		
-		//commands
-		var menu_ext = getComponent("menu-ext");
-		for(one in ExtManager.getIns().cmdList){
-			var cInfo:CmdInfo = ExtManager.getIns().mapCmdInfo[one];
-			var menuitem:MenuItem = new MenuItem();
-			menuitem.text = cInfo.title;
-			menuitem.id = one;
-			menuitem.addEventListener(UIEvent.CLICK, onMenuItemClick_Cmd);
-			menu_ext.addChild(menuitem);
-		}
-	}
+	//=====core functions=====	
 	
-	
-	public function addMenuItem(container:Component, pathArray:Array<String>):Void {
-		
-		if (pathArray.length == 0) { return; }
-		
-		var curLevel:Component = container.findChild(pathArray[0]);
-		if (curLevel == null) {
-			var menuitem:MenuItem = new MenuItem();
-			menuitem.text = pathArray[0];
-			menuitem.id = pathArray[0];
-			menuitem.addEventListener(UIEvent.CLICK, onMenuItemClick);
-			container.addChild(menuitem);
-		}
-		
-		pathArray.shift();
-		addMenuItem(curLevel, pathArray);
-	}
+	//path:should be File>Extension>file-ext-abc
+	//sub menu id is its title
 	
 	//obj could: cmdInfo, panelInfo, String->Void
-	public function bindMenuItem(menuPath:String, obj:Dynamic) {
+	public function bindMenuItem(id:String, obj:Dynamic, builtIn:Bool, menuPath:String) {
 		
-		mapMenuInfo.set(menuPath, obj);
+		mapMenuInfo.set(id, obj);
 		
-		var pathArray:Array<String> = menuPath.split(".");
+		if (builtIn == true) {
+			return;
+		}
+		
+		//create menu item for non-built-in
+		
+		var pathArray:Array<String> = menuPath.split(">");
 		if (pathArray.length <= 0) {
 			return;
 		}
@@ -224,6 +193,23 @@ class EditorFrame extends XMLController
 			curLevel.id = pathArray[0];
 			curLevel.addEventListener(UIEvent.CLICK, onMenuItemClick);
 			hbox.addChild(curLevel);
+		}
+		
+		pathArray.shift();
+		addMenuItem(curLevel, pathArray);
+	}
+	
+	private function addMenuItem(container:Component, pathArray:Array<String>):Void {
+		
+		if (pathArray.length == 0) { return; }
+		
+		var curLevel:Component = container.findChild(pathArray[0]);
+		if (curLevel == null) {
+			curLevel = new MenuItem();
+			curLevel.text = pathArray[0];
+			curLevel.id = pathArray[0];
+			curLevel.addEventListener(UIEvent.CLICK, onMenuItemClick);
+			container.addChild(curLevel);
 		}
 		
 		pathArray.shift();

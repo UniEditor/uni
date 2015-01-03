@@ -90,7 +90,9 @@
 		</menubutton>
 		
 		<menubutton text="Project" id="menu-project">
-			<menu/>
+			<menu>
+				<menuitem text="New Project..." id="menu-edit-undo" />
+			</menu>
 		</menubutton>
 		
 		<menubutton text="View" id="menu-view">
