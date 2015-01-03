@@ -61,7 +61,7 @@ class EditorFrame extends XMLController
 		}
 		
 		//bind built-in menu items with functions
-		
+		bindMenuItem("project.new", function(e:Dynamic){} , true);
 		
 		
 	}
@@ -170,7 +170,7 @@ class EditorFrame extends XMLController
 	//sub menu id is its title
 	
 	//obj could: cmdInfo, panelInfo, String->Void
-	public function bindMenuItem(id:String, obj:Dynamic, builtIn:Bool, menuPath:String) {
+	public function bindMenuItem(id:String, obj:Dynamic, builtIn:Bool, ?menuPath:String) {
 		
 		mapMenuInfo.set(id, obj);
 		

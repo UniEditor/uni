@@ -9,8 +9,6 @@ var renderFuncMap = new Table();
 
 //this.interp.variables.set("renderFuncMap", renderFuncMap);
 
-
-
 function renderEdObj(edObj) {
 	trace("PRO_PANEL: renderEdObj("+edObj.id+")");
 	
