@@ -3,11 +3,13 @@
 	
 	<frame resize="false" minWd="100" minHt="100" defaultWd="300" defaultHt="500"/>
 	
-	<body>
-		<vbox>
-			<text id="txt_path" text="path" />
-			<button id="btn_changePath" text="change"/>
-			<button id="btn_export" text="Export"/>
+	<body width="100%">
+		<vbox width="100%">
+			<textinput id="txt_projectName" text="ProjectName" width="100%" />
+			<text id="txt_path" text="BasePath" />
+			<button id="btn_changePath" text="Browse"/>
+			<spacer/>
+			<button id="btn_create" text="Create"/>
 		</vbox>
 	</body>
 </panelDefine>

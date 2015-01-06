@@ -114,6 +114,8 @@ class EditorFrame extends XMLController
 				}
 			}
 		}
+		
+		
 	}
 	
 	//=====UI Event Handles=====

@@ -4,6 +4,7 @@ import editor.Debug;
 import editor.event.EventManager;
 import editor.event.UniEvent;
 import editor.extention.ExtManager.PanelInfo;
+import editor.project.ProjectManager;
 import editor.Uni;
 import haxe.ui.toolkit.containers.HBox;
 import haxe.ui.toolkit.containers.VBox;
@@ -60,6 +61,7 @@ class Extension extends EventDispatcher
 		interp.variables.set("Debug", Debug);
 		interp.variables.set("EventManager", EventManager);
 		interp.variables.set("ScriptManager", ScriptManager);
+		interp.variables.set("ProjectManager", ProjectManager);
 		interp.variables.set("UniEvent", UniEvent);
 		interp.variables.set("UIEvent", UIEvent);
 		interp.variables.set("TypeInfo", TypeInfo);
