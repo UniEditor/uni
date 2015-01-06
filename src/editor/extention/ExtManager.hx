@@ -34,7 +34,6 @@ class ExtManager
 		
 		cmdList = new Array<String>();
 		panelList = new Array<String>();
-		exporterList = new Array<String>();
 	}
 	
 	//data
@@ -43,9 +42,8 @@ class ExtManager
 	public var mapCmdInfo:Map<String, CmdInfo>;
 	
 	//for menu
-	public var cmdList:Array<String>;//things to put in command folder
-	public var exporterList:Array<String>;//things to put in exportList folder
-	public var panelList:Array<String>;//things to put in panel folder
+	public var cmdList:Array<String>;//defines of cmd
+	public var panelList:Array<String>;//defines of panels, dialogs
 	
 	public function loadExts():Void {
 		
@@ -112,14 +110,9 @@ class ExtManager
 		var defineXml:Xml = getFirstNamedElement(xml, "panelDefine");
 		if (defineXml != null) {
 			
-			var isUnderExporter:Bool = Utils.isUnderPath(childItemPath, "./res/ext/exporters/");
-			var isUnderPanel:Bool = Utils.isUnderPath(childItemPath, "./res/ext/panels/");
 			
-			if (isUnderPanel) {
-				parsePanelFromXml(defineXml, childItemPath, false); 
-			}else if (isUnderExporter) {
-				parsePanelFromXml(defineXml, childItemPath, true); 
-			}
+			parsePanelFromXml(defineXml, childItemPath); 
+			
 			return;
 		}
 		
@@ -132,7 +125,7 @@ class ExtManager
 		trace("This xml is out of valid paths: " + childItemPath);
 	}
 	
-	public function parsePanelFromXml(panelDefine:Xml, childItemPath:String, isExporter:Bool ):Void {
+	public function parsePanelFromXml(panelDefine:Xml, childItemPath:String):Void {
 
 		var frameXml:Xml = null;
 		var bodyXml:Xml = null;
@@ -177,16 +170,9 @@ class ExtManager
 			panelInfo.defaultHt = Std.parseInt(frameXml.get("defaultHt"));
 			panelInfo.defaultX = Std.parseInt(frameXml.get("defaultX"));
 			panelInfo.defaultY = Std.parseInt(frameXml.get("defaultY"));
+			panelInfo.isDialog = frameXml.get("isDialong") == "true";
 			
-			
-			panelInfo.isExporter = isExporter;
-			
-			
-			if(isExporter == false){
-				panelList.push(id);
-			}else {
-				exporterList.push(id);
-			}
+			panelList.push(id);
 			mapPanelInfo.set(id, panelInfo);
 		}
 		
@@ -284,7 +270,7 @@ class PanelInfo {
 	public var defaultX:Int;
 	public var defaultY:Int;
 	
-	public var isExporter:Bool;
+	public var isDialog:Bool;
 	
 	public function new(){
 	}

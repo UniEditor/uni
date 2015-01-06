@@ -74,42 +74,44 @@
 		
 		<image resource="img/img_ico_uni.png" width="28" height="28" stretch="true" verticalAlign="center"/>
 		
-		<menubutton text="File" id="menu-file">
-			<menu/>
+		<menubutton text="File" id="btn-File">
+			<menu id="menu-File"/>
 		</menubutton>
 		
-		<menubutton text="Edit" id="menu-edit">
-			<menu>
-				<menuitem text="Undo" id="menu-edit-undo" />
-				<menuitem text="Redo" id="menu-edit-redo"/>
+		<menubutton text="Edit" id="btn-Edit">
+			<menu id="menu-edit">
+				<menuitem text="Undo" id="menu-Edit-undo" />
+				<menuitem text="Redo" id="menu-Edit-redo"/>
 				<menuitem text="-----" height="10" autoSize="false" disabled="true" />
-				<menuitem text="Copy" id="menu-edit-copy"/>
-				<menuitem text="Cut" id="menu-edit-cut"/>
-				<menuitem text="Paste" id="menu-edit-paste"/>
+				<menuitem text="Copy" id="menu-Edit-copy"/>
+				<menuitem text="Cut" id="menu-Edit-cut"/>
+				<menuitem text="Paste" id="menu-Edit-paste"/>
+				<menu text="Folder">
+					<menuitem text="Paste2" id="menu-Edit-paste"/>
+				</menu>
 			</menu>
 		</menubutton>
 		
-		<menubutton text="Project" id="menu-project">
-			<menu>
-				<menuitem text="New Project..." id="menu-edit-undo" />
+		<menubutton text="Project" id="btn-Project">
+			<menu id="menu-Project">
 			</menu>
 		</menubutton>
 		
-		<menubutton text="View" id="menu-view">
-			<menu/>
+		<menubutton text="View" id="btn-View">
+			<menu  id="menu-View"/>
 		</menubutton>
 		
-		<menubutton text="Exporters" id="menu-exporter">
-			<menu/>
+		<menubutton text="Exporters" id="btn-Exporters">
+			<menu  id="menu-Exporter"/>
 		</menubutton>
 		
-		<menubutton text="Extension" id="menu-ext">
-			<menu/>
+		<menubutton text="Extension" id="btn-Extension">
+			<menu  id="menu-Extension"/>
 		</menubutton>
 		
-		<menubutton text="Help" id="menu-help">
-			<menu>
-				<menuitem text="About" id="menu-help=about"/>
+		<menubutton text="Help" id="btn-Help">
+			<menu id="menu-Help">
+				<menuitem text="About" id="menu-Help-About"/>
 			</menu>
 		</menubutton>
 	</hbox>

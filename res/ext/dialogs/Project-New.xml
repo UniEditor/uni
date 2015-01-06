@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<data>
-
-</data>
+<panelDefine id="project.new" title="New Project" extId="project.new" path="Project>New">
+	
+	<frame resize="false" minWd="100" minHt="100" defaultWd="300" defaultHt="500"/>
+	
+	<body>
+		<vbox>
+			<text id="txt_path" text="path" />
+			<button id="btn_changePath" text="change"/>
+			<button id="btn_export" text="Export"/>
+		</vbox>
+	</body>
+</panelDefine>

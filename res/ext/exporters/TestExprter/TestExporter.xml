@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<panelDefine id="testExporter" title="Test Exporter" extId="exporter.test" menuPath="Exporter.Test">
+<panelDefine id="testExporter" title="Test Exporter" extId="exporter.test" path="Exporters>Test">
 	
 	<frame resize="false" minWd="100" minHt="100" defaultWd="300" defaultHt="500"/>
 	
