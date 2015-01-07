@@ -10,6 +10,16 @@ BuildNumber will change whenever a stable version is released
 =========================================================
 I have planned serveral mileStones for Uni, each with a subversion name:
 
+<<Milestone 0.0 : Basic [OK]
+UI Frame [OK]
+Panel System [OK]
+Scripting Engine Setup [OK]
+ExtensionManager Search Ext and Parse PanelDefines [OK]
+Bind Panel with Ext [OK]
+Log Panel [OK]
+Lib Panel [OK]
+Stage Rendering [OK]
+	
 <<Milestone 0.1 : Object pos editor [OK]
 
 transformation property group [OK]
@@ -19,31 +29,29 @@ a simple export format [OK]
 single selection [OK]
 gadget should support dragging [OK]
 
-<<Milestone 0.2 : A proper editor, not a haxeui demo
-
+<<Milestone 0.1.1 : Make a scene, export and play in a game engine
 UniSprite support render setting (image, shape) {pro group, pro group panel} [OK]
-Asset Panel (image, spriteSheet)
-Clean up menu bar
-Restyle the whole UI
-Undo, redo (By Menu)
-Panel Resizing
-
-
-<<Milestone 0.3 : Make a scene, export and play in a game engine
-
-rendering simple tranformer gadget
-gadget should support scaling, rotation
-Algs for fast single selection, multi selection
+Menu bar: clean up and improve structure [OK]
 Project save, load functionality
 loader of the format for HaxeFlixel
+Panel Resizing
+Asset Panel (image, spriteSheet)
+Drag the set image path
+
+<<Milestone 0.1.2 : A proper editor, not a haxeui demo 
+rendering simple tranformer gadget
+gadget should support scaling, rotation
 Meter to show performance
 Short-cut key system
+Restyle the whole UI
+Undo, redo (By Menu)
 
-<<MIlestone 0.31 : Nested Things
+<<MIlestone 0.1.3 : Nested Things
+Algs for fast single selection, multi selection
 nest structure support for edobj
 LayerManager panel support manipulate nest structure
 
-<<MIlestone 0.4 : Modern UI stuff
+<<MIlestone 0.1.4 : Modern UI stuff
 
 Docking system for panels
 Right click system:
@@ -51,12 +59,13 @@ Panels
 Controls within some panel
 Stage System (drag stage, origin point, stage with size)
 
-<<Milestone 0.5 : Finishing UniSprite
-
+<<Milestone 0.2 : Finishing UniSprite
 
 custom property for edobj
 Curtome type
 custom property for custome types
+
+
 
 =========================================================
 Sample Games (TO DO):

@@ -1,5 +1,6 @@
 package editor.project;
 
+
 /**
  * Data for Project
  * @author GDB
@@ -16,6 +17,24 @@ class ProjectFile
 	public function new() 
 	{
 		sceneList = new Array<SceneFile>();
+	}
+	
+	public function saveToFile():String {
+		
+		var xml:Xml = Xml.createDocument();
+		
+		
+		
+		
+	}
+	
+	public function load(data:String):Void {
+		
+		var xml:Xml = Xml.parse(data);
+		
+		
+		
+		
 	}
 	
 }
