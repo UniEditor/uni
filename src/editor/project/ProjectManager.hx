@@ -56,7 +56,31 @@ class ProjectManager
 		//rename project file
 		
 		
+		loadProject(basePath + "/Project.xml");
+	}
+	
+	
+	public function loadProject(projectXmlPath:String):Void {
+		trace("LOAD PROJECT: " + projectXmlPath);
 		
+		//to do ask for what to do is currently have a project open
+		
+		//check file exist
+		if (FileSystem.exists(projectXmlPath) == false) {
+			return;
+		}
+		
+		if (FileSystem.isDirectory(projectXmlPath) == true) {
+			return;
+		}
+		
+		var projectXmlStr:String = File.getContent(projectXmlPath);
+		
+		trace("projectXmlStr" + projectXmlStr);
+		
+		
+		currentPoject = new ProjectFile();
+		currentPoject.load(projectXmlStr);
 	}
 	
 	public function closeProject():Void {
