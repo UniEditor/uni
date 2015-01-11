@@ -140,10 +140,10 @@ class EditorFrame extends XMLController
 				
 				openPanel(callBackPanelInfo);
 			}
-		}else if (Std.is(callBackItem, CmdInfo)) {
+		}else if (Std.is(callBackItem, CmdInfo)) { 
 			var callBackCmdInfo:CmdInfo = cast callBackItem;
 			
-			var ext:Extension = ExtManager.getIns().mapExt[callBackCmdInfo.extId];
+			var ext:Extension = ExtManager.getIns().mapExt[callBackCmdInfo.extId]; trace(callBackCmdInfo.extId);
 			if (ext == null) { return; }
 			
 			ext.onCommandCall();

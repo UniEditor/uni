@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<cmdDefine id="project.load" title="Load Project" extId="project.load" path="Project>Load"/>
