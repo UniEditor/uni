@@ -67,10 +67,12 @@ class ProjectManager
 		
 		//check file exist
 		if (FileSystem.exists(projectXmlPath) == false) {
+			trace("Path Not Exist");
 			return;
 		}
 		
 		if (FileSystem.isDirectory(projectXmlPath) == true) {
+			trace("Path is dir");
 			return;
 		}
 		

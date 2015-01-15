@@ -8,11 +8,12 @@ package editor.project;
 class ProjectFile
 {
 	
-	public var projectName:String;
 	public var projectPath:String;
-	public var assetPath:String;
-	
 	public var sceneList:Array<SceneFile>;
+	
+	//below is for serializing
+	public var projectName:String;
+	public var assetPath:String;
 	
 	public function new() 
 	{
@@ -49,7 +50,19 @@ class ProjectFile
 			break;
 		}
 		
-		trace(projectXml.get("project_name"));
+		if (projectXml.exists("project_name") == false) {
+			trace("Error: Project dont have project_name");
+			return;
+		}
+		
+		if (projectXml.exists("asset_path") == false) {
+			trace("Error: Project dont have asset_path");
+			return;
+		}
+		
+		projectName = projectXml.get("project_name");
+		assetPath = projectXml.get("asset_path");
+		
 	}
 	
 }
