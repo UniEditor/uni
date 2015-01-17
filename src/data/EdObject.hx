@@ -11,7 +11,7 @@ import modules.basic.ProTransform;
 
  * @author GDB
  */
-class EditableObject
+class EdObject
 {
 	
 	//whether should contain child EditorObject

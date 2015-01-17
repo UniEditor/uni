@@ -19,8 +19,6 @@ function doSelPath() {
 function doExport() {
 	trace("do exp!");
 
-	//var res = this.genXML();
-	
 	var xmlDoc = Xml.createElement("data");
 	var xmlStageData = Xml.createElement("stageData");
 	xmlDoc.addChild(xmlStageData);

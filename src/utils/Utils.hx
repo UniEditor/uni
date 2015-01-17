@@ -43,6 +43,14 @@ class Utils
 		
 		return res;
 	}
+	
+	public static function getMapCount(map:Map<Dynamic, Dynamic>):Int {
+		var count:Int = 0;
+		for (one in map) {
+			count++;
+		}
+		return count;
+	}
 
 	
 }

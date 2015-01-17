@@ -1,7 +1,7 @@
 package ui.controls;
 
 
-import data.EditableObject;
+import data.EdObject;
 import data.pro.ProGroup;
 import editor.event.EventManager;
 import editor.event.UniEvent;
@@ -70,7 +70,7 @@ class ProField extends HBox
 	
 	public function render(?e):Void {
 		
-		var edObj:EditableObject = Uni.getIns().mapEdObj[Uni.getIns().selectedId];
+		var edObj:EdObject = Uni.getIns().curScene.mapEdObj[Uni.getIns().selectedId];
 		if (edObj == null) return;
 		
 		var pro:ProGroup = edObj.get(proName);

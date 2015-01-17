@@ -1,6 +1,6 @@
 package editor.render;
 
-import data.EditableObject;
+import data.EdObject;
 import editor.event.EventManager;
 import editor.event.UniEvent;
 import editor.gadget.EdGadget;
@@ -104,7 +104,7 @@ class StageRender extends Sprite
 		
 		if (e.data == null) return;
 		
-		var edObj:EditableObject = Uni.getIns().mapEdObj[e.data];
+		var edObj:EdObject = Uni.getIns().curScene.mapEdObj[e.data];
 		if (edObj == null) return;
 		
 		var theClass:Class<EdObjRender> = edObj.renderClass;
@@ -124,7 +124,7 @@ class StageRender extends Sprite
 		trace("stageRender:edObj_change " + e.data);
 		if (e.data == null) return;
 		
-		var edObj:EditableObject = Uni.getIns().mapEdObj[e.data];
+		var edObj:EdObject = Uni.getIns().curScene.mapEdObj[e.data];
 		if (edObj == null) return;
 		
 		var renderInstance = mapInstance[edObj.id];

@@ -1,5 +1,5 @@
 package modules.uniSprite ;
-import data.EditableObject;
+import data.EdObject;
 import data.pro.ProGroup;
 import modules.basic.ProTransform;
 
@@ -7,7 +7,7 @@ import modules.basic.ProTransform;
  * So this is the pure data, not render
  * @author 
  */
-class UniSprite extends EditableObject
+class UniSprite extends EdObject
 {
 	
 	//pros:

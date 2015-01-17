@@ -1,7 +1,8 @@
 package modules.uniSprite;
 
-import data.EditableObject;
+import data.EdObject;
 import data.lib.Asset;
+import editor.project.ProjectManager;
 import editor.render.EdObjRender;
 import editor.Uni;
 import haxe.ui.toolkit.core.interfaces.IDraggable;
@@ -34,7 +35,7 @@ class UniSpriteRender extends EdObjRender
 		addChild(bitmap);
 	}
 	
-	override public function init(edObj_:EditableObject):Void 
+	override public function init(edObj_:EdObject):Void 
 	{
 		super.init(edObj_);
 		unisprite = cast this.edObj;
@@ -74,7 +75,7 @@ class UniSpriteRender extends EdObjRender
 			
 			
 			//todo improve this
-			for (one in Uni.getIns().mapAsset) {
+			for (one in ProjectManager.getIns().mapAsset) {
 				if (one.path == unisprite.spRender.img_path || one.fileName == unisprite.spRender.img_path) {
 					bitmap.bitmapData = one.bitmapData;
 					unisprite.spRender.img_wd = bitmap.bitmapData.width;

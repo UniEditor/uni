@@ -63,47 +63,7 @@ class UniTools
 		}
 	}
 	
-	public function scanFolderForAssetRawFiles(fullPath:String, finalRes:Map<String, Asset>):Void {
-		
-		var res:Array<String> = FileSystem.readDirectory(fullPath);
-		if (res == null) { return;	}
-		
-		for (s in res) {
-			var childItemPath:String = fullPath + "/" + s;
-			var isFolder:Bool = FileSystem.isDirectory(childItemPath); 
-			
-			if (isFolder == true) {
-				scanFolderForAssetRawFiles(childItemPath,finalRes);
-			}else {
-				var endFix:String = Utils.getEndfix(s);
-				if (endFix == "png" || endFix == "bmp" || endFix == "jpg") {
-					var ass:Asset = new Asset();
-					ass.assType = "image";
-					ass.path = childItemPath;
-					ass.fileName = s;
-					
-					//trace("ASSET LOAD0 : " + childItemPath);
-					var bytes:Bytes = File.getBytes(childItemPath);
-					//trace("ASSET LOAD1 : " + bytes);
-					if (bytes != null) {
-						
-						var ba:ByteArray = ByteConverter.fromHaxeBytes(bytes);
-						//trace("ASSET LOAD2 : " + ba);
-						
-						var loader:Loader = new Loader();
-						loader.loadBytes(ba);
-						//trace("ASSET LOAD3 : " + loader.content);
-						if (loader.content != null) {
-							ass.bitmapData = cast(loader.content, Bitmap).bitmapData;
-						}
-					} 
-					
-					
-					finalRes[childItemPath] = ass;
-				}
-			}
-		}
-	}
+	
 	
 	public function genEdObjId():String{
 		var res:String = "";

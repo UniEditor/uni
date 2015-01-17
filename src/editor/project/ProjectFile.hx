@@ -1,29 +1,33 @@
 package editor.project;
+import data.lib.Asset;
 
 
 /**
- * Data for Project
+ * Stands for the project file itself, handles the file's save and load
+ * Real functions should goto ProjectManager
  * @author GDB
  */
 class ProjectFile
 {
 	
 	public var projectPath:String;
-	public var sceneList:Array<SceneFile>;
+	
 	
 	//below is for serializing
 	public var projectName:String;
 	public var assetPath:String;
+	public var lastOpenScene:String;//scene name
+	
+	
 	
 	public function new() 
 	{
-		sceneList = new Array<SceneFile>();
+		
 	}
 	
 	public function saveToFile():String {
 		
 		var xml:Xml = Xml.createDocument();
-		
 		
 		var child1:Xml = Xml.createElement("projectName");
 		child1.nodeValue = projectName;
@@ -62,7 +66,6 @@ class ProjectFile
 		
 		projectName = projectXml.get("project_name");
 		assetPath = projectXml.get("asset_path");
-		
 	}
 	
 }

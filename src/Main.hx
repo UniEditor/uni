@@ -102,10 +102,6 @@ class Main extends Sprite
 		
 		//load user project
 		
-		//load assets
-		trace("======Load Assets======");
-		Uni.getIns().loadAsset();
-		trace("asset" + Uni.getIns().mapAsset.toString());
 		
 	}
 	

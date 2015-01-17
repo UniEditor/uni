@@ -1,9 +1,11 @@
 package editor;
 import data.lib.Asset;
 import data.TypeInfo;
-import data.EditableObject;
+import data.EdObject;
 import editor.event.EventManager;
 import editor.event.UniEvent;
+import editor.project.ProjectFile;
+import editor.project.SceneFile;
 import editor.Uni.Nest;
 import haxe.remoting.AMFConnection;
 import haxe.ui.toolkit.controls.Button;
@@ -35,16 +37,14 @@ class Uni
 	//tools
 	public var uniTools:UniTools;
 	
-	//staqe info
-	public var mapEdObj:Map<String, EditableObject>;
-	public var nestEdObj:Nest;
-	
 	//type info
 	public var mapType:Map<String, TypeInfo>;//uni official type and types provided by ext
 	public var mapCustomeTpye:Map<String, TypeInfo>;//created by user during a project
 	
-	//assets
-	public var mapAsset:Map<String, Asset>;
+	//curFile
+	public var curScene:SceneFile;
+	public var curProject:ProjectFile;
+	
 	
 	//select
 	public var selectedId:String;
@@ -52,11 +52,6 @@ class Uni
 	public function new() 
 	{
 		uniTools = new UniTools();
-		
-		mapEdObj = new Map<String, EditableObject>();
-		nestEdObj = new Nest();
-		
-		mapAsset = new Map<String, Asset>();
 		
 		mapType = new Map<String, TypeInfo>();
 		mapCustomeTpye = new Map<String, TypeInfo>();
@@ -96,9 +91,7 @@ class Uni
 		
 	}
 	
-	public function loadAsset():Void {
-		uniTools.scanFolderForAssetRawFiles("./res/testProjectAsset", mapAsset);
-	}
+	
 	
 	//EdObj functions
 
@@ -107,7 +100,7 @@ class Uni
 		act.doAction();
 	}
 	
-	public function removeEdObj(edo:EditableObject):Void {
+	public function removeEdObj(edo:EdObject):Void {
 		var act:EdObjAct_Remove = new EdObjAct_Remove();
 		act.doAction();
 	}

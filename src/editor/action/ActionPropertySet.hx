@@ -1,5 +1,5 @@
 package editor.action;
-import data.EditableObject;
+import data.EdObject;
 
 /**
  * Each has differnt params
@@ -8,12 +8,12 @@ import data.EditableObject;
 class ActionPropertySet implements IAction
 {
 	
-	public var obj:EditableObject;
+	public var obj:EdObject;
 	public var propertyName:String;
 	public var propertyValue:Dynamic;
 	public var oldValue:Dynamic;
 	
-	public function new(obj_:EditableObject, 
+	public function new(obj_:EdObject, 
 						propertyName_:String,
 						propertyValue_:Dynamic,
 						oldValue_:Dynamic) 

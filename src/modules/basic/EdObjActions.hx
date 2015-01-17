@@ -1,6 +1,6 @@
 package modules.basic;
 
-import data.EditableObject;
+import data.EdObject;
 import data.pro.ProGroup;
 import data.TypeInfo;
 import editor.action.IAction;
@@ -35,13 +35,13 @@ class EdObjAct_Add implements IAction
 		
 		
 		var classObj = Type.resolveClass(typeInfo.reflect);
-		var edObj:EditableObject = cast Type.createInstance(classObj, []);
+		var edObj:EdObject = cast Type.createInstance(classObj, []);
 		
 		edObj.id = Uni.getIns().uniTools.genEdObjId();
 		edObj.typeInfoID = typeId;
 		edObj.initPos(500, 500);//todo replace with stage cam's center pos
 		
-		Uni.getIns().mapEdObj[edObj.id] = edObj;
+		Uni.getIns().curScene.mapEdObj[edObj.id] = edObj;
 		//todo add to nest structure
 		EventManager.getIns().dispatchEvent(new UniEvent(UniEvent.ED_OBJ_ADD, edObj.id));
 		
@@ -102,7 +102,7 @@ class EdObjAct_Edit implements IAction
 	public function doAction():Void 
 	{
 		trace("action edObj edit start");
-		var edObj:EditableObject = Uni.getIns().mapEdObj[edObjID];
+		var edObj:EdObject = Uni.getIns().curScene.mapEdObj[edObjID];
 		var proGroup:ProGroup = edObj.get(proName);
 		
 		Reflect.setField(proGroup, fieldName, value);

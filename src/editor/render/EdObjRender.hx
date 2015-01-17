@@ -1,6 +1,6 @@
 package editor.render;
 
-import data.EditableObject;
+import data.EdObject;
 import openfl.display.DisplayObject;
 import openfl.display.Sprite;
 
@@ -11,7 +11,7 @@ import openfl.display.Sprite;
 class EdObjRender extends Sprite
 {
 	
-	public var edObj:EditableObject; //link back to the data
+	public var edObj:EdObject; //link back to the data
 	
 	public function new() 
 	{
@@ -19,7 +19,7 @@ class EdObjRender extends Sprite
 	}
 	
 	//to set the data
-	public function init(edObj_:EditableObject):Void {
+	public function init(edObj_:EdObject):Void {
 		edObj = edObj_;
 	}
 	
