@@ -10,15 +10,12 @@ import data.lib.Asset;
 class ProjectFile
 {
 	
-	public var projectPath:String;
-	
+	public var projectPath:String;//base path
 	
 	//below is for serializing
 	public var projectName:String;
 	public var assetPath:String;
 	public var lastOpenScene:String;//scene name
-	
-	
 	
 	public function new() 
 	{
@@ -64,8 +61,14 @@ class ProjectFile
 			return;
 		}
 		
+		if (projectXml.exists("last_open_scene") == false) {
+			trace("Error: Project dont have last_open_scene");
+			return;
+		}
+		
 		projectName = projectXml.get("project_name");
 		assetPath = projectXml.get("asset_path");
+		lastOpenScene = projectXml.get("last_open_scene");
 	}
 	
 }

@@ -3,6 +3,7 @@ import data.EdObject;
 import data.lib.Asset;
 import editor.Uni.Nest;
 import haxe.macro.Tools.TMacroStringTools;
+import sys.io.File;
 
 /**
  * Major data holder for a scene,
@@ -39,6 +40,39 @@ class SceneFile extends Asset
 		
 	}
 	
-	
+	public function loadSelf():Void {
+		
+		var content:String = File.getContent(path);
+		var root:Xml = Xml.parse(content);
+		
+		var sceneXml:Xml;
+		for (one in root.elementsNamed("scene")) {
+			sceneXml = one;
+			break;
+		}
+		
+		if (sceneXml.exists("scene_name") == false) {
+			trace("Error: Project dont have project_name");
+			return;
+		}
+		
+		sceneName = sceneXml.get("scene_name");
+		
+		
+		//load edobjs
+		for (one in sceneXml.elements()) {
+			var edObjXML:Xml = cast one;
+			
+			var typeStr:String = edObjXML.nodeName;
+			trace("typeStr" + typeStr);
+			
+			
+			
+		}
+		
+		//load progroups
+		
+		
+	}
 	
 }

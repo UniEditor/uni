@@ -29,9 +29,7 @@ class ProjectManager
 		return instance;
 	}
 	
-	
-	
-	public var sceneMap:Map<String, SceneFile>; //for unqiue id the  scene name   //SHOULD THIS BE BY SCENE_NAME OR PATH
+	public var sceneMap:Map<String, SceneFile>; //Use PATH because 1 naturally unique 2 no need to load
 	public var currentPoject:ProjectFile;
 	//assets
 	public var mapAsset:Map<String, Asset>;
@@ -78,6 +76,13 @@ class ProjectManager
 		
 		//to do ask for what to do is currently have a project open
 		
+		//to / slash
+		projectXmlPath = Utils.toForwardSlash(projectXmlPath);
+		
+		//check if path is valid(end with .xml)
+		
+		
+		
 		//check file exist
 		if (FileSystem.exists(projectXmlPath) == false) {
 			trace("Path Not Exist");
@@ -90,6 +95,7 @@ class ProjectManager
 		}
 		
 		var projectXmlStr:String = File.getContent(projectXmlPath);
+		var projectBastPath:String = Utils.getBasePath(projectXmlPath);
 		
 		trace("projectXmlStr" + projectXmlStr);
 		
@@ -99,9 +105,20 @@ class ProjectManager
 		Uni.getIns().curProject = currentPoject;
 		
 		//load assets
-		scanAssetFiles(currentPoject.assetPath, mapAsset);
+		var fullAssetPath:String = projectBastPath + currentPoject.assetPath;
+		scanAssetFiles(fullAssetPath, mapAsset);
+		trace("mapAsset" + mapAsset);
+		for (one in mapAsset) {
+				trace(one);
+		}
 		
 		
+		//try open the last opened scene
+		trace("lastOpenScene"+currentPoject.lastOpenScene);
+		if (currentPoject.lastOpenScene != "" && mapAsset.exists(currentPoject.lastOpenScene)) {
+			var lastSceneFile:SceneFile = cast mapAsset[currentPoject.lastOpenScene];
+			openScene(lastSceneFile);
+		}
 		
 		//send event project loaded
 		
@@ -111,6 +128,12 @@ class ProjectManager
 		
 		
 		
+	}
+	
+	public function openScene(sceneFile:SceneFile):Void {
+		trace("open last scene: "+ sceneFile.path);
+		
+		sceneFile.loadSelf();
 	}
 	
 	
@@ -134,6 +157,8 @@ class ProjectManager
 		}
 	}
 	
+
+	
 	public function genDefaultSceneName():String {
 		
 		var testNum:Int = Utils.getMapCount(sceneMap) + 1;
@@ -147,9 +172,10 @@ class ProjectManager
 	
 	
 	public function scanAssetFiles(fullPath:String, finalRes:Map<String, Asset>):Void {
+		trace("scanAssetFiles: " + fullPath);
 		
 		var res:Array<String> = FileSystem.readDirectory(fullPath);
-		if (res == null) { return;	}
+		if (res == null) { trace("ERROR scanAssetFiles -1");  return;	}
 		
 		for (s in res) {
 			var childItemPath:String = fullPath + "/" + s;
@@ -185,7 +211,7 @@ class ProjectManager
 					sceneFile.path = childItemPath;
 					sceneFile.fileName = s;
 					
-					
+					sceneMap[childItemPath] = sceneFile;//the two sceneFIles is linked?
 					finalRes[childItemPath] = sceneFile;
 				}
 			}

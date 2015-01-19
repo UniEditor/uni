@@ -75,6 +75,7 @@ class ExtManager
 			if (isFolder == true) {
 				loadExtFromFolder(childItemPath);
 			}else {
+				//trace("childItemPath:" + childItemPath);
 				var endFix:String = Utils.getEndfix(s);
 				if (endFix == "hs" || endFix == "hx") {
 					trace("Doing HS: " + childItemPath);

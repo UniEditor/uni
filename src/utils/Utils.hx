@@ -52,5 +52,22 @@ class Utils
 		return count;
 	}
 
+	public static function getBasePath(fullpath:String):String {
+		//trace("getEndfix 1 " + path);
+		var lastSlash:Int = fullpath.lastIndexOf("/");
+		if(lastSlash >= 0){
+			var base:String = fullpath.substr(0, lastSlash);
+			return base;
+		}
+		return fullpath;
+	}
+	
+	public static function toForwardSlash(path:String):String {
+		if (path.indexOf("\\") > 0 ) {
+			var segs:Array<String> = path.split("\\");
+			return segs.join("/");
+		}
+		return path;
+	}
 	
 }
