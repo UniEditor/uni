@@ -33,7 +33,6 @@ class EdObjAct_Add implements IAction
 		var typeInfo:TypeInfo = Uni.getIns().mapType[typeId];
 		if(typeInfo == null) return;
 		
-		
 		var classObj = Type.resolveClass(typeInfo.reflect);
 		var edObj:EdObject = cast Type.createInstance(classObj, []);
 		

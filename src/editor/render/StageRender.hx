@@ -113,11 +113,13 @@ class StageRender extends Sprite
 		var renderInstance:EdObjRender = cast Type.createInstance(theClass, []);
 		if (renderInstance == null) return;
 		
+		
+		
 		renderInstance.init(edObj);
 		renderInstance.render();
 		
 		mapInstance[edObj.id] = renderInstance;
-		contentLayer.addChild(renderInstance);
+		contentLayer.addChild(renderInstance); 
 	}
 	
 	private function onEdObjChange(e:UniEvent):Void {
@@ -203,8 +205,8 @@ class StageRender extends Sprite
 			var wd = cast(one.edObj.get("transform"), ProTransform).width;
 			var ht = cast(one.edObj.get("transform"), ProTransform).height;
 			
-			trace("wd" + wd);
-			trace("ht" + ht);
+			//trace("wd" + wd);
+			//trace("ht" + ht);
 			
 			if (e.localX > one.x && e.localX < one.x+ wd && e.localY > one.y && e.localY < one.y + ht) {
 				Uni.getIns().doSelect(one.edObj.id);

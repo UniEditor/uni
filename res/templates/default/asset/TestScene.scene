@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<scene scene_name="testProject">
-	<UniSprite>
-		<ProTransform x="1" />
-	</UniSprite>
-	<UniSprite2>
-		<ProTransform x="1" />
-	</UniSprite2>
-</scene>

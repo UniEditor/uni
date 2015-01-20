@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<scene scene_name="testProject">
+	<UniSprite type="modules.uniSprite.UniSprite" id="09dds" typeInfoID="UniSprite">
+		<transform x="1"/>
+	</UniSprite>
+	<UniSprite type="modules.uniSprite.UniSprite" id="09dds" typeInfoID="UniSprite">
+		<transform x="1"/>
+	</UniSprite>
+</scene>

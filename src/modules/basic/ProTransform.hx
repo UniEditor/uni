@@ -27,6 +27,13 @@ class ProTransform extends ProGroup
 		scaleY = 1;
 		width = 100;
 		height = 100;
+		
+		fields.push(new ProField("x", "F"));
+		fields.push(new ProField("y", "F"));
+		fields.push(new ProField("scaleX", "F"));
+		fields.push(new ProField("scaleY", "F"));
+		fields.push(new ProField("width", "F"));
+		fields.push(new ProField("height", "F"));
 	}
 	
 }

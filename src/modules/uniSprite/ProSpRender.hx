@@ -35,6 +35,15 @@ class ProSpRender extends ProGroup
 		rect_wd = 100;
 		rect_ht = 100;
 		rect_color = 0xFF0000;
+		
+		
+		fields.push(new ProField("renderType", "S"));
+		fields.push(new ProField("img_path", "S"));
+		fields.push(new ProField("img_wd", "N"));
+		fields.push(new ProField("img_ht", "N"));
+		fields.push(new ProField("rect_wd", "F"));
+		fields.push(new ProField("rect_ht", "F"));
+		fields.push(new ProField("rect_color", "N"));
 	}
 	
 }

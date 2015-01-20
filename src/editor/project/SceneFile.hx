@@ -1,6 +1,9 @@
 package editor.project;
 import data.EdObject;
 import data.lib.Asset;
+import data.pro.ProGroup;
+import editor.event.EventManager;
+import editor.event.UniEvent;
 import editor.Uni.Nest;
 import haxe.macro.Tools.TMacroStringTools;
 import sys.io.File;
@@ -41,6 +44,7 @@ class SceneFile extends Asset
 	}
 	
 	public function loadSelf():Void {
+		trace("loadSelf" + path);
 		
 		var content:String = File.getContent(path);
 		var root:Xml = Xml.parse(content);
@@ -62,19 +66,57 @@ class SceneFile extends Asset
 		//load edobjs
 		for (one in sceneXml.elements()) {
 			var edObjXML:Xml = cast one;
+			trace("load ed:" + edObjXML.nodeName);
 			
-			var typeStr:String = edObjXML.nodeName;
-			trace("typeStr" + typeStr);
+			var typeStr:String = edObjXML.get("type");			
+			var id:String = edObjXML.get("id");
+			var typeInfoID:String = edObjXML.get("typeInfoID");
 			
-			var type = Type.resolveClass(typeStr);
+			var type:Class<Dynamic> = Type.resolveClass(typeStr);
 			var instance:EdObject = Type.createInstance(type, []);
-			trace("instance", instance);
+			instance.id = id;
+			instance.typeInfoID = typeInfoID;
 			
+			
+			//load progroups
+			for (group in edObjXML.elements()) {
+				var groupXml:Xml = cast group;
+				trace("group" + groupXml.nodeName);
+				
+				var groupNickName:String = groupXml.nodeName;
+				if (instance.proGroups.exists(groupNickName) == false) {
+					trace("NO SUCH PROGROUP:" + groupNickName);
+					continue;
+				}
+				
+				var progroup:ProGroup = instance.proGroups[groupNickName];
+				
+				for (field in progroup.fields) {
+					var fName:String = field.name;
+					//trace("fName" + fName);
+					if (groupXml.exists(fName)) {
+						//trace("fName exist" + fName);
+						var value = groupXml.get(fName);
+						
+						if (field.type == "F") {
+							var valueFloat:Float = Std.parseFloat(value);
+							Reflect.setField(progroup, fName, valueFloat);
+						}else if (field.type == "N") {
+							var valueInt:Int = Std.parseInt(value);
+							Reflect.setField(progroup, fName, valueInt);
+						}else if (field.type == "S") {
+							Reflect.setField(progroup, fName, value);
+						}
+					}
+				}
+				
+			}
+			
+			trace(instance.printSelf());
+			mapEdObj[id] = instance;
+			
+			EventManager.getIns().dispatchEvent(new UniEvent(UniEvent.ED_OBJ_ADD, instance.id));
 		}
-		
-		//load progroups
-		
-		
 	}
 	
 }

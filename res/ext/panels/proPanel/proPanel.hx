@@ -114,7 +114,7 @@ function render() {
 		return;
 	}
 	
-	var edObj = Uni.getIns().mapEdObj.get(edObjID);
+	var edObj = Uni.getIns().curScene.mapEdObj.get(edObjID);
 	//trace("mapEdObj: " + Uni.getIns().mapEdObj.toString());
 	trace("edObj: " + edObj);
 	if (edObj == null) {

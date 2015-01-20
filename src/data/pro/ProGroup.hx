@@ -16,13 +16,29 @@ class ProGroup
 	{
 		fields = new Array<ProField>();
 	}
+	
+	public function printSelf():String {
+		var res:String = "";
+		
+		for (one in fields) {
+			var value:Dynamic = Reflect.getProperty(this, one.name);
+			res += one.name+"=>" + value+"\n";
+		}
+		
+		return res;
+	}
 }
 
 class ProField
 {
 	
 	public var name:String;
-	public var type:String;
+	public var type:String;//N F S
 	public var value:Dynamic;
 	
+	public function new(name_:String, type_:String) 
+	{
+		name = name_;
+		type = type_;
+	}
 }

@@ -51,5 +51,17 @@ class EdObject
 		}
 	}
 	
+	public function printSelf():String {
+		
+		var res:String = "{";
+		var type = Type.getClass(this);
+		res += "[" + type+"]\n";
+		
+		for (one in proGroups) {
+			res += one.printSelf();
+		}
+		res += "}";
+		return res;
+	}
 	
 }

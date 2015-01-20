@@ -97,7 +97,7 @@ class ProjectManager
 		var projectXmlStr:String = File.getContent(projectXmlPath);
 		var projectBastPath:String = Utils.getBasePath(projectXmlPath);
 		
-		trace("projectXmlStr" + projectXmlStr);
+		//trace("projectXmlStr" + projectXmlStr);
 		
 		currentPoject = new ProjectFile();
 		currentPoject.load(projectXmlStr);
@@ -111,6 +111,7 @@ class ProjectManager
 		//for (one in mapAsset) {
 		//		trace(one);
 		//}
+		
 		
 		
 		//try open the last opened scene
@@ -138,6 +139,8 @@ class ProjectManager
 	
 	public function openScene(sceneFile:SceneFile):Void {
 		trace("open last scene: "+ sceneFile.path);
+		
+		Uni.getIns().curScene = sceneFile;
 		
 		sceneFile.loadSelf();
 		
@@ -207,7 +210,7 @@ class ProjectManager
 						if (loader.content != null) {
 							ass.bitmapData = cast(loader.content, Bitmap).bitmapData;
 						}
-					} 
+					}
 					
 					finalRes[childItemPath] = ass;
 					
