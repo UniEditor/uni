@@ -22,6 +22,7 @@
 	
 	<haxelib name="hscript"/>
 	<haxelib name="systools"/>
+	<haxelib name="weblog"/>
 	
 	<!-- assets -->
 	<icon path="assets/openfl.svg" />
@@ -33,5 +34,8 @@
 	<haxeflag name="-dce full" /> -->
 	<haxeflag name="-D hscriptPos" />
 	<haxeflag name="-dce no" />
+	
+	<haxeflag name="-D weblogid=UNI" />
+	<haxeflag name="-D debugip=localhost:18080" />
 	
 </project>

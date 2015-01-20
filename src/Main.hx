@@ -14,6 +14,7 @@ import ui.controls.ProField;
 import ui.controls.ProFrame;
 import ui.EditorFrame;
 import ui.EditorPanel;
+import Weblog;
 
 /**
  * Test Edit
@@ -47,7 +48,10 @@ class Main extends Sprite
 		if (inited) return;
 		inited = true;
 		
+		Weblog.statsStart();
+		Weblog.tic("mainStart");
 		trace("======Main Init:======");
+		
 		
 		//init data core
 		trace("======Load Type List======");
@@ -102,7 +106,7 @@ class Main extends Sprite
 		
 		//load user project
 		
-		
+		Weblog.toc("mainStart");
 	}
 	
 	
