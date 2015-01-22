@@ -66,7 +66,9 @@ class SceneFile extends Asset
 			var typeStr:String = edObjXML.nodeName;
 			trace("typeStr" + typeStr);
 			
-			
+			var type = Type.resolveClass(typeStr);
+			var instance:EdObject = Type.createInstance(type, []);
+			trace("instance", instance);
 			
 		}
 		

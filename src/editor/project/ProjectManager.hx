@@ -107,17 +107,23 @@ class ProjectManager
 		//load assets
 		var fullAssetPath:String = projectBastPath + currentPoject.assetPath;
 		scanAssetFiles(fullAssetPath, mapAsset);
-		trace("mapAsset" + mapAsset);
-		for (one in mapAsset) {
-				trace(one);
-		}
+		//trace("mapAsset" + mapAsset);
+		//for (one in mapAsset) {
+		//		trace(one);
+		//}
 		
 		
 		//try open the last opened scene
-		trace("lastOpenScene"+currentPoject.lastOpenScene);
+		//trace("lastOpenScene"+currentPoject.lastOpenScene);
 		if (currentPoject.lastOpenScene != "" && mapAsset.exists(currentPoject.lastOpenScene)) {
 			var lastSceneFile:SceneFile = cast mapAsset[currentPoject.lastOpenScene];
 			openScene(lastSceneFile);
+		}else {
+			//try to open random scene
+			for (sce in sceneMap) {
+				var sceFi:SceneFile = cast sce;
+				openScene(sceFi);
+			}
 		}
 		
 		//send event project loaded
@@ -134,8 +140,10 @@ class ProjectManager
 		trace("open last scene: "+ sceneFile.path);
 		
 		sceneFile.loadSelf();
+		
+		//send event scene switched
+		
 	}
-	
 	
 	//tools
 	
@@ -156,8 +164,6 @@ class ProjectManager
 			}
 		}
 	}
-	
-
 	
 	public function genDefaultSceneName():String {
 		
