@@ -32,11 +32,12 @@ gadget should support dragging [OK]
 <<Milestone 0.1.1 : Make a scene, export and play in a game engine
 UniSprite support render setting (image, shape) {pro group, pro group panel} [OK]
 Menu bar: clean up and improve structure [OK]
-Project save, load functionality
-loader of the format for HaxeFlixel
-Panel Resizing
+Project save, load functionality [OK]
 Asset Panel (image, spriteSheet)
 Drag the set image path
+loader of the format for HaxeFlixel
+Panel Resizing
+
 
 <<Milestone 0.1.2 : A proper editor, not a haxeui demo 
 rendering simple tranformer gadget

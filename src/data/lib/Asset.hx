@@ -11,7 +11,7 @@ class Asset
 {
 	
 	public var assType:String;
-	public var path:String;
+	public var path:String;//full path with fileName
 	public var iconPath:String;
 	
 	public var fileName:String;

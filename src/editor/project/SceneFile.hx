@@ -6,7 +6,9 @@ import editor.event.EventManager;
 import editor.event.UniEvent;
 import editor.Uni.Nest;
 import haxe.macro.Tools.TMacroStringTools;
+import haxe.ui.toolkit.core.xml.XMLProcessor;
 import sys.io.File;
+import sys.io.FileOutput;
 
 /**
  * Major data holder for a scene,
@@ -26,28 +28,85 @@ class SceneFile extends Asset
 	public function new() 
 	{
 		assType = "scene";
+		super();
 		
 		sceneName = ProjectManager.getIns().genDefaultSceneName();
-		
 		mapEdObj = new Map<String, EdObject>();
-		//nestEdObj = new Nest();
-		
-		super();
 	}
 	
 	public function save():String {
-		return "";
+		trace("save start");
+		
+		var docXml:Xml = Xml.createDocument();
+		
+		var sceneXml:Xml = Xml.createElement("scene");
+		sceneXml.set("scene_name", sceneName);
+		docXml.addChild(sceneXml);
+		
+		//add all object
+		for(one in mapEdObj){
+			
+			var edObj:EdObject = cast one;
+			var edObjXml:Xml = Xml.createElement("EdObj");
+			
+			var edClass:Class<EdObject> = Type.getClass(edObj);
+			var classNameLong:String = Type.getClassName(edClass);
+			
+			edObjXml.set("type", classNameLong);
+			edObjXml.set("id", edObj.id);
+			edObjXml.set("typeInfoID", edObj.typeInfoID);
+			
+			//add progroups
+			for(other in edObj.proGroupList){
+				
+				var proGroup:ProGroup = edObj.proGroups[other];
+				var proGoupXml:Xml = Xml.createElement(other);
+				
+				trace("proGroup start: " + proGroup);
+				
+				for (another in proGroup.fields) {
+					trace("proField start: " + another);
+					
+					var proField:ProField = cast another;
+					var value:Dynamic = Reflect.getProperty(proGroup, proField.name);
+					proGoupXml.set(proField.name, value);
+				}
+				edObjXml.addChild(proGoupXml);
+				
+				trace("proGroup done: " + proGroup);
+			}
+			sceneXml.addChild(edObjXml);
+		}
+		
+		return docXml.toString();
 	}
 	
-	public function load(data:String):Void {
+	public function saveSelf():Void{
 		
+		trace("path: " + path);
+		if(path == ""){
+			//this file is has not save-as yet
+			//return;
+			
+			path = ProjectManager.getIns().currentPoject.assetPath + "/" + sceneName;
+		}
+		
+		
+		
+		var content:String = save();
+		trace("content: " + content);
+		
+		var fop:FileOutput  = File.write(path,false);
+		fop.writeString(content);
+		fop.close();
+		
+		trace("saveSelf success: " + path);
 	}
 	
-	public function loadSelf():Void {
-		trace("loadSelf" + path);
+	
+	public function load(dataStr:String):Void{
 		
-		var content:String = File.getContent(path);
-		var root:Xml = Xml.parse(content);
+		var root:Xml = Xml.parse(dataStr);
 		
 		var sceneXml:Xml;
 		for (one in root.elementsNamed("scene")) {
@@ -56,7 +115,7 @@ class SceneFile extends Asset
 		}
 		
 		if (sceneXml.exists("scene_name") == false) {
-			trace("Error: Project dont have project_name");
+			trace("Error: Project dont have scene_name");
 			return;
 		}
 		
@@ -117,6 +176,19 @@ class SceneFile extends Asset
 			
 			EventManager.getIns().dispatchEvent(new UniEvent(UniEvent.ED_OBJ_ADD, instance.id));
 		}
+	}
+	
+	public function loadSelf():Void {
+		
+		if(path == ""){
+			//this file is just created in memory
+			return;
+		}
+		
+		trace("loadSelf" + path);
+		
+		var content:String = File.getContent(path);
+		load(content);
 	}
 	
 }

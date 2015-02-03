@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<cmdDefine id="scene.save" title="Save Scene" extId="scene.save" path="File>Save Scene"/>

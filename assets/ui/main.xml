@@ -75,7 +75,12 @@
 		<image resource="img/img_ico_uni.png" width="28" height="28" stretch="true" verticalAlign="center"/>
 		
 		<menubutton text="File" id="btn-File">
-			<menu id="menu-File"/>
+			<menu id="menu-File">
+				<menuitem text="New Scene" id="menu-File-newS" />
+				<menuitem text="Load Scene" id="menu-File-loadS"/>
+				<menuitem text="Save Scene" id="menu-File-saveS"/>
+				<menuitem text="Save Scene As" id="menu-File-saveSAs"/>
+			</menu>
 		</menubutton>
 		
 		<menubutton text="Edit" id="btn-Edit">

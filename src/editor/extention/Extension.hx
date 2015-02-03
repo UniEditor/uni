@@ -5,6 +5,7 @@ import editor.event.EventManager;
 import editor.event.UniEvent;
 import editor.extention.ExtManager.PanelInfo;
 import editor.project.ProjectManager;
+import editor.project.SceneFile;
 import editor.Uni;
 import haxe.ui.toolkit.containers.HBox;
 import haxe.ui.toolkit.containers.VBox;
@@ -59,25 +60,30 @@ class Extension extends EventDispatcher
 		interp = new UniInterp();
 		interp.variables.set("this", this);
 		interp.variables.set("Debug", Debug);
+		
+		interp.variables.set("Uni", Uni);
 		interp.variables.set("EventManager", EventManager);
 		interp.variables.set("ScriptManager", ScriptManager);
 		interp.variables.set("ProjectManager", ProjectManager);
 		interp.variables.set("UniEvent", UniEvent);
-		interp.variables.set("UIEvent", UIEvent);
 		interp.variables.set("TypeInfo", TypeInfo);
-		interp.variables.set("Uni", Uni);
-		interp.variables.set("File", File);
+		interp.variables.set("SceneFile", SceneFile);
 		interp.variables.set("Xml", Xml);
-		interp.variables.set("Toolkit", Toolkit);
+		
+		//system
+		interp.variables.set("File", File);
 		interp.variables.set("Dialogs", Dialogs);
 		interp.variables.set("Std", Std);
 		
+		//ui
+		interp.variables.set("Toolkit", Toolkit);
 		interp.variables.set("Text", Text);
 		interp.variables.set("Image", Image);
 		interp.variables.set("Button", Button);
 		interp.variables.set("HBox", HBox);
 		interp.variables.set("VBox", VBox);
 		interp.variables.set("Table", Table);
+		interp.variables.set("UIEvent", UIEvent);
 		
 		interp.variables.set("ProFrame", ProFrame);
 	}

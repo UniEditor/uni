@@ -16,6 +16,5 @@ this.onCommandCall = function() {
 	if (path != null && path.length > 0) {
 		ProjectManager.getIns().loadProject(path[0]);
 	}
-	
 }
 
