@@ -20,6 +20,8 @@ class SceneFile extends Asset
 	
 	//basic
 	public var sceneName:String;
+	public var stage_width:Int;
+	public var stage_height:Int;
 	
 	//staqe info
 	public var mapEdObj:Map<String, EdObject>;
@@ -41,6 +43,8 @@ class SceneFile extends Asset
 		
 		var sceneXml:Xml = Xml.createElement("scene");
 		sceneXml.set("scene_name", sceneName);
+		sceneXml.set("stage_width", stage_width+"");
+		sceneXml.set("stage_height", stage_height+"");
 		docXml.addChild(sceneXml);
 		
 		//add all object
@@ -91,8 +95,6 @@ class SceneFile extends Asset
 			path = ProjectManager.getIns().currentPoject.assetPath + "/" + sceneName;
 		}
 		
-		
-		
 		var content:String = save();
 		trace("content: " + content);
 		
@@ -119,8 +121,19 @@ class SceneFile extends Asset
 			return;
 		}
 		
-		sceneName = sceneXml.get("scene_name");
+		if (sceneXml.exists("stage_width") == false) {
+			trace("Error: Project dont have stage_width");
+			return;
+		}
 		
+		if (sceneXml.exists("stage_height") == false) {
+			trace("Error: Project dont have stage_height");
+			return;
+		}
+		
+		sceneName = sceneXml.get("scene_name");
+		stage_width = Std.parseInt(sceneXml.get("stage_width"));
+		stage_height = Std.parseInt(sceneXml.get("stage_height"));
 		
 		//load edobjs
 		for (one in sceneXml.elements()) {

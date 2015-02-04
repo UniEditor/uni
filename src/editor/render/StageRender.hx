@@ -92,10 +92,13 @@ class StageRender extends Sprite
 	
 	
 	private function onResize(e) {
-		trace("stage render resize");
+		
 		
 		stage_sizeX = e.component.width;
 		stage_sizeY = e.component.height;
+		
+		trace("stage render resize:" + stage_sizeX + "="+stage_sizeY);
+		
 		render();
 	}
 	
@@ -163,6 +166,21 @@ class StageRender extends Sprite
 		graphics.beginFill(0xFF0000,0);
 		graphics.drawRoundRect(0, 0, stage_sizeX, stage_sizeY, 16);
 		graphics.endFill();
+		
+		if(Uni.getIns().curScene != null){
+			graphics.lineStyle(1, 0x000000, 0.5);
+			graphics.moveTo(0, 0);
+			graphics.lineTo(Uni.getIns().curScene.stage_width, 0);
+			graphics.lineTo(Uni.getIns().curScene.stage_width, Uni.getIns().curScene.stage_height);
+			graphics.lineTo(0, Uni.getIns().curScene.stage_height);
+			graphics.lineTo(0, 0);
+			
+			x = (stage_sizeX - Uni.getIns().curScene.stage_width) / 2;
+			y = (stage_sizeY - Uni.getIns().curScene.stage_height) / 2;
+			
+		}else{
+			x = y = 0;
+		}
 	}
 	
 	public function updateSelGadget(e:Dynamic):Void {

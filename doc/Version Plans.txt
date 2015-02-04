@@ -33,6 +33,8 @@ gadget should support dragging [OK]
 UniSprite support render setting (image, shape) {pro group, pro group panel} [OK]
 Menu bar: clean up and improve structure [OK]
 Project save, load functionality [OK]
+Stage area render
+Panel-dock align-mode
 Asset Panel (image, spriteSheet)
 Drag the set image path
 loader of the format for HaxeFlixel

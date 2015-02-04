@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<scene scene_name="testProject">
+<scene scene_name="testProject" stage_width="500" stage_height="400">
 	<EdObj type="modules.uniSprite.UniSprite" id="09dds" typeInfoID="UniSprite">
 		<transform x="1"/>
 	</EdObj>
