@@ -9,6 +9,7 @@ import flash.Lib;
 import haxe.ui.toolkit.core.ClassManager;
 import haxe.ui.toolkit.core.Root;
 import haxe.ui.toolkit.core.Toolkit;
+
 import sys.io.Process;
 import ui.controls.ProField;
 import ui.controls.ProFrame;
@@ -107,6 +108,12 @@ class Main extends Sprite
 		//load user project
 		
 		Weblog.toc("mainStart");
+		
+		
+		
+		//var config = { width : 100, height : 100 };
+		//var win:Window = new Window(config);
+		//Lib.application.addWindow(win);
 	}
 	
 	

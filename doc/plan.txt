@@ -1,6 +1,25 @@
 
+Drfferent from Godot:
+	
+	Uni is just an editor, engine-indepedent.
+	Uni focusing on game data. It is unique that it supports vector, map, bitmap game data directly
+	More, uni aimes to be so open and extensive to be an a platform for unlimited type of data
+	
+Learn from Godot:
+	
+	Only one file can be opened at a time.
+	One file can be instanced in another file like a zipped symbol
+	That symbol is always dynamicly loaded
+	That symbol can be break and expose the inside.
+	Instancing can only be accepted within same project.
+	
+	
 
 
+	
+Stage:
+
+	
 
 
 =========================================================================
